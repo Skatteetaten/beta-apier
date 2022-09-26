@@ -1,10 +1,10 @@
 const gatsbyConfig = {
   siteMetadata: {
-    title: "Documentation-template",
+    title: "Beta-APIer",
     menu: [
       {
         href: "/",
-        name: "Documentation-template",
+        name: "Beta-APIer",
       },
       {
         href: "/documentation",
@@ -12,7 +12,7 @@ const gatsbyConfig = {
       },
     ],
   },
-  pathPrefix: "/documentation-template",
+  pathPrefix: "/beta-apier",
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
