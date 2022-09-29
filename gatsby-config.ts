@@ -4,11 +4,11 @@ const gatsbyConfig = {
     menu: [
       {
         href: "/",
-        name: "Beta-APIer",
+        name: "Om",
       },
       {
         href: "/documentation",
-        name: "Dokumentasjon",
+        name: "APIer",
       },
     ],
   },

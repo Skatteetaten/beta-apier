@@ -25,7 +25,7 @@ const DocumentationPage = ({
   return (
     <Grid>
       <SingleColumnRow>
-        <h1>Dokumentasjon</h1>
+        <h1>APIer</h1>
       </SingleColumnRow>
       <SingleColumnRow>
         <NavigationTile>
