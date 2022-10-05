@@ -45,7 +45,7 @@ Denne tjenesten er ennå ikke tilgjengelig for bruk.
 
 Gjør oppslag mot reskontrosystemene på alle utbetalinger innen et gitt tidsrom på maks ett år.
 
-##### Eksempel på respons
+##### Format på respons
 
 ```json
   {
@@ -94,7 +94,7 @@ Hent oversikt over åpne krav og uplasserte innbetalinger.
 
 Gjør oppslag mot reskontrosystemene på åpne krav og uplasserte innbetalinger og oppgir de samlet med en summert oversikt.
 
-##### Eksempel på respons
+##### Format på respons
 
 ```json
  {
@@ -222,7 +222,7 @@ Hent alle krav innen et gitt tidsrom.
 
 Gjør oppslag mot reskontrosystemene på alle krav innen et gitt tidsrom på maks ett år.
 
-##### Eksempel på respons
+##### Format på respons
 
 ```json
   {
@@ -300,7 +300,7 @@ Hent alle innbetalinger innen et gitt tidsrom.
 
 Gjør oppslag mot reskontrosystemene på alle innbetalinger innen et gitt tidsrom på maks ett år.
 
-##### Eksempel på respons
+##### Format på respons
 
 ```json
   {
