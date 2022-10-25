@@ -1,0 +1,18 @@
+{
+  "docker": {
+    "maintainer": "Aurora OpenShift Utvikling <utvpaas@skatteetaten.no>",
+    "labels": {
+      "io.k8s.description": "Landingsside for metadatarepository on Openshift.",
+      "io.openshift.tags": "openshift,react,nodejs"
+    }
+  },
+  "web": {
+    "static": "build",
+    "webapp": {
+      "content": "build"
+    },
+    "headers": {
+      "Cache-Control": "public, max-age=3600"
+    }
+  }
+}
