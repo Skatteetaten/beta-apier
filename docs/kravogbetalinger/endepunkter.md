@@ -1,55 +1,5 @@
 # Endepunkter
 
-## Utbetalinger
-
-Denne tjenesten er ennå ikke tilgjengelig for bruk.
-
-Gjør oppslag mot reskontrosystemene på alle utbetalinger innen et gitt tidsrom på maks ett år.
-
-### Format på respons
-
-```json
-{
-  "forespurtPart": "string",
-  "periode": {
-    "start": "2022-10-05T07:02:19.064Z",
-    "slutt": "2022-10-05T07:02:19.064Z"
-  },
-  "utbetaling": [
-    {
-      "part": "string",
-      "utbetalingsbeskrivelse": "string",
-      "utbetaltdato": "2022-10-05T07:02:19.064Z",
-      "utbetaltBeloep": 0,
-      "betaltTil": {
-        "kidnummer": "string",
-        "konto": {
-          "bankinformasjon": "string",
-          "kontoeiersNavn": "string",
-          "kontonummer": "string",
-          "iban": "string",
-          "swiftBIC": "string"
-        }
-      },
-      "utbetalingIdentifikator": "string",
-      "grunnlagForUtbetaling": [
-        {
-          "dekketKrav": "string",
-          "kravIdentifikator": "string",
-          "kravtype": "string",
-          "kravperiode": {
-            "start": "2022-10-05T07:02:19.064Z",
-            "slutt": "2022-10-05T07:02:19.064Z"
-          },
-          "opprinneligBeloep": 0,
-          "gjenstaaendeBeloep": 0
-        }
-      ]
-    }
-  ]
-}
-```
-
 ## Oversikt
 
 Hent oversikt over åpne krav og uplasserte innbetalinger.
@@ -309,6 +259,56 @@ Gjør oppslag mot reskontrosystemene på alle innbetalinger innen et gitt tidsro
         "swiftBIC": "string"
       },
       "innbetalingsIdentifikator": "string"
+    }
+  ]
+}
+```
+
+## Utbetalinger
+
+Denne tjenesten er ennå ikke tilgjengelig for bruk.
+
+Gjør oppslag mot reskontrosystemene på alle utbetalinger innen et gitt tidsrom på maks ett år.
+
+### Format på respons
+
+```json
+{
+  "forespurtPart": "string",
+  "periode": {
+    "start": "2022-10-05T07:02:19.064Z",
+    "slutt": "2022-10-05T07:02:19.064Z"
+  },
+  "utbetaling": [
+    {
+      "part": "string",
+      "utbetalingsbeskrivelse": "string",
+      "utbetaltdato": "2022-10-05T07:02:19.064Z",
+      "utbetaltBeloep": 0,
+      "betaltTil": {
+        "kidnummer": "string",
+        "konto": {
+          "bankinformasjon": "string",
+          "kontoeiersNavn": "string",
+          "kontonummer": "string",
+          "iban": "string",
+          "swiftBIC": "string"
+        }
+      },
+      "utbetalingIdentifikator": "string",
+      "grunnlagForUtbetaling": [
+        {
+          "dekketKrav": "string",
+          "kravIdentifikator": "string",
+          "kravtype": "string",
+          "kravperiode": {
+            "start": "2022-10-05T07:02:19.064Z",
+            "slutt": "2022-10-05T07:02:19.064Z"
+          },
+          "opprinneligBeloep": 0,
+          "gjenstaaendeBeloep": 0
+        }
+      ]
     }
   ]
 }
