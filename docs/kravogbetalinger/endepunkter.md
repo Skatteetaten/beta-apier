@@ -270,7 +270,7 @@ Denne tjenesten er ennå ikke tilgjengelig for bruk.
 
 Gjør oppslag mot reskontrosystemene på alle utbetalinger innen et gitt tidsrom på maks ett år.
 
-### Format på respons
+### Foreløpig format på respons
 
 ```json
 {
