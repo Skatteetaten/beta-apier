@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgithub_documentation=self.webpackChunkgithub_documentation||[]).push([[918],{4817:(t,u,e)=>{e.d(u,{Z:()=>n});const n={...e(702).Z}}}]);
