@@ -6,27 +6,35 @@ Hent oversikt over åpne krav og uplasserte innbetalinger.
 
 Gjør oppslag mot reskontrosystemene på åpne krav og uplasserte innbetalinger og oppgir de samlet med en summert oversikt.
 
+### Format på request
+
+```json
+{
+  "partIdentifikator": "string"
+}
+```
+
 ### Format på respons
 
 ```json
 {
-  "forespurtPart": "string",
+  "partIdentifikator": "string",
   "aapentKravMedGjenstaaendeBeloep": [
     {
-      "part": "string",
+      "partIdentifikator": "string",
       "kravidentifikator": "string",
       "kravbeskrivelse": "string",
-      "opprettelsesdatoForKrav": "2022-10-05T07:10:26.492Z",
+      "opprettelsesdatoForKrav": "2022-11-02T09:44:14.307Z",
       "kravperiode": "string",
+      "opprinneligBeloep": 0,
       "kravforfall": [
         {
-          "kravforfallsIdentifikator": "string",
-          "forfallsdato": "2022-10-05T07:10:26.492Z",
+          "forfallsdato": "2022-11-02T09:44:14.307Z",
           "opprinneligBeloep": 0,
+          "gjenstaaendeBeloep": 0,
           "plassertInnbetaling": [
             {
-              "innbetalingsidentifikator": "string",
-              "innbetalingsdato": "2022-10-05T07:10:26.492Z",
+              "innbetalingsdato": "2022-11-02T09:44:14.307Z",
               "innbetaltBeloep": 0,
               "betaltFra": {
                 "kidnummer": "string",
@@ -39,19 +47,21 @@ Gjør oppslag mot reskontrosystemene på åpne krav og uplasserte innbetalinger 
                 }
               },
               "plassertBeloep": 0,
-              "plasseringsdato": "2022-10-05T07:10:26.492Z"
+              "plasseringsdato": "2022-11-02T09:44:14.307Z",
+              "innbetalingsIdentifikator": "string",
+              "innbetalingstype": "string"
             }
           ],
           "plassertMotkrav": [
             {
               "motkravBeskrivelse": "string",
               "motkravForfallsIdentifikator": "string",
-              "motkravForfallsdato": "2022-10-05T07:10:26.492Z",
+              "motkravForfallsdato": "2022-11-02T09:44:14.307Z",
               "plassertBeloep": 0,
-              "plasseringsdato": "2022-10-05T07:10:26.492Z"
+              "plasseringsdato": "2022-11-02T09:44:14.307Z"
             }
           ],
-          "gjenstaaendeBeloep": 0,
+          "kravforfallsIdentifikator": "string",
           "betalingsinformasjon": {
             "kidnummer": "string",
             "konto": {
@@ -65,7 +75,6 @@ Gjør oppslag mot reskontrosystemene på åpne krav og uplasserte innbetalinger 
           "utsattIverksettelse": true
         }
       ],
-      "opprinneligBeloep": 0,
       "gjenstaaendeBeloep": 0,
       "stipulerteRenter": 0,
       "kravtype": "string",
@@ -74,22 +83,29 @@ Gjør oppslag mot reskontrosystemene på åpne krav og uplasserte innbetalinger 
   ],
   "innbetalingMedUplassertBeloep": [
     {
-      "part": "string",
-      "innbetalingsdato": "2022-10-05T07:10:26.492Z",
+      "partIdentifikator": "string",
+      "innbetalingsidentifikator": "string",
+      "innbetalingsdato": "2022-11-02T09:44:14.307Z",
       "innbetaltBeloep": 0,
-      "uplassertBeloep": 0,
       "plassertInnbetalingMotKrav": [
         {
           "dekketKrav": "string",
-          "kravperiode": {
-            "start": "2022-10-05T07:10:26.492Z",
-            "slutt": "2022-10-05T07:10:26.492Z"
-          },
           "kravforfallIdentifikator": "string",
+          "kravforfallsdato": "2022-11-02T09:44:14.307Z",
+          "plasseringsdato": "2022-11-02T09:44:14.307Z",
           "plassertBeloep": 0,
-          "plasseringsdato": "2022-10-05T07:10:26.492Z"
+          "opprinneligKravforfallsbeloep": 0,
+          "gjenstaaendeKravforfallsbeloep": 0
         }
       ],
+      "uplassertBeloep": 0,
+      "betaltTilKonto": {
+        "bankinformasjon": "string",
+        "kontoeiersNavn": "string",
+        "kontonummer": "string",
+        "iban": "string",
+        "swiftBIC": "string"
+      },
       "betaltFra": {
         "kidnummer": "string",
         "konto": {
@@ -100,29 +116,22 @@ Gjør oppslag mot reskontrosystemene på åpne krav og uplasserte innbetalinger 
           "swiftBIC": "string"
         }
       },
-      "betaltTilKonto": {
-        "bankinformasjon": "string",
-        "kontoeiersNavn": "string",
-        "kontonummer": "string",
-        "iban": "string",
-        "swiftBIC": "string"
-      },
-      "innbetalingsIdentifikator": "string"
+      "innbetalingstype": "string"
     }
   ],
   "totalOversikt": {
-    "stipulerteRenter": 0,
-    "forfalteKrav": 0,
-    "ikkeForfalteKrav": 0,
-    "uplasserteInnbetalinger": 0,
+    "sumStipulerteRenter": 0,
+    "sumForfalteKrav": 0,
+    "sumIkkeForfalteKrav": 0,
+    "sumUplasserteInnbetalinger": 0,
     "saldo": 0
   },
   "oversiktPerKravgruppe": [
     {
       "kravgruppe": "string",
-      "stipulerteRenter": 0,
-      "forfalteKrav": 0,
-      "ikkeForfalteKrav": 0,
+      "sumStipulerteRenter": 0,
+      "sumForfalteKrav": 0,
+      "sumIkkeForfalteKrav": 0,
       "saldo": 0
     }
   ]
@@ -135,31 +144,43 @@ Hent alle krav innen et gitt tidsrom.
 
 Gjør oppslag mot reskontrosystemene på alle krav innen et gitt tidsrom på maks ett år.
 
+### Format på request
+
+```json
+{
+  "partIdentifikator": "string",
+  "periode": {
+    "start": "2022-11-02T09:49:08.429Z",
+    "slutt": "2022-11-02T09:49:08.429Z"
+  }
+}
+```
+
 ### Format på respons
 
 ```json
 {
-  "forespurtPart": "string",
+  "partIdentifikator": "string",
   "periode": {
-    "start": "2022-10-05T07:12:13.589Z",
-    "slutt": "2022-10-05T07:12:13.589Z"
+    "start": "2022-11-02T09:49:08.430Z",
+    "slutt": "2022-11-02T09:49:08.430Z"
   },
   "krav": [
     {
-      "part": "string",
+      "partIdentifikator": "string",
       "kravidentifikator": "string",
       "kravbeskrivelse": "string",
-      "opprettelsesdatoForKrav": "2022-10-05T07:12:13.589Z",
+      "opprettelsesdatoForKrav": "2022-11-02T09:49:08.430Z",
       "kravperiode": "string",
+      "opprinneligBeloep": 0,
       "kravforfall": [
         {
-          "kravforfallsIdentifikator": "string",
-          "forfallsdato": "2022-10-05T07:12:13.589Z",
+          "forfallsdato": "2022-11-02T09:49:08.430Z",
           "opprinneligBeloep": 0,
+          "gjenstaaendeBeloep": 0,
           "plassertInnbetaling": [
             {
-              "innbetalingsidentifikator": "string",
-              "innbetalingsdato": "2022-10-05T07:12:13.589Z",
+              "innbetalingsdato": "2022-11-02T09:49:08.430Z",
               "innbetaltBeloep": 0,
               "betaltFra": {
                 "kidnummer": "string",
@@ -172,19 +193,21 @@ Gjør oppslag mot reskontrosystemene på alle krav innen et gitt tidsrom på mak
                 }
               },
               "plassertBeloep": 0,
-              "plasseringsdato": "2022-10-05T07:12:13.590Z"
+              "plasseringsdato": "2022-11-02T09:49:08.430Z",
+              "innbetalingsIdentifikator": "string",
+              "innbetalingstype": "string"
             }
           ],
           "plassertMotkrav": [
             {
               "motkravBeskrivelse": "string",
               "motkravForfallsIdentifikator": "string",
-              "motkravForfallsdato": "2022-10-05T07:12:13.590Z",
+              "motkravForfallsdato": "2022-11-02T09:49:08.430Z",
               "plassertBeloep": 0,
-              "plasseringsdato": "2022-10-05T07:12:13.590Z"
+              "plasseringsdato": "2022-11-02T09:49:08.430Z"
             }
           ],
-          "gjenstaaendeBeloep": 0,
+          "kravforfallsIdentifikator": "string",
           "betalingsinformasjon": {
             "kidnummer": "string",
             "konto": {
@@ -198,7 +221,6 @@ Gjør oppslag mot reskontrosystemene på alle krav innen et gitt tidsrom på mak
           "utsattIverksettelse": true
         }
       ],
-      "opprinneligBeloep": 0,
       "gjenstaaendeBeloep": 0,
       "stipulerteRenter": 0,
       "kravtype": "string",
@@ -214,33 +236,52 @@ Hent alle innbetalinger innen et gitt tidsrom.
 
 Gjør oppslag mot reskontrosystemene på alle innbetalinger innen et gitt tidsrom på maks ett år.
 
+### Format på request
+
+```json
+{
+  "partIdentifikator": "string",
+  "periode": {
+    "start": "2022-11-02T09:50:00.387Z",
+    "slutt": "2022-11-02T09:50:00.387Z"
+  }
+}
+```
+
 ### Format på respons
 
 ```json
 {
-  "forespurtPart": "string",
+  "partIdentifikator": "string",
   "periode": {
-    "start": "2022-10-05T07:13:41.744Z",
-    "slutt": "2022-10-05T07:13:41.744Z"
+    "start": "2022-11-02T09:50:00.388Z",
+    "slutt": "2022-11-02T09:50:00.388Z"
   },
   "innbetaling": [
     {
-      "part": "string",
-      "innbetalingsdato": "2022-10-05T07:13:41.744Z",
+      "partIdentifikator": "string",
+      "innbetalingsidentifikator": "string",
+      "innbetalingsdato": "2022-11-02T09:50:00.388Z",
       "innbetaltBeloep": 0,
-      "uplassertBeloep": 0,
       "plassertInnbetalingMotKrav": [
         {
           "dekketKrav": "string",
-          "kravperiode": {
-            "start": "2022-10-05T07:13:41.744Z",
-            "slutt": "2022-10-05T07:13:41.744Z"
-          },
           "kravforfallIdentifikator": "string",
+          "kravforfallsdato": "2022-11-02T09:50:00.388Z",
+          "plasseringsdato": "2022-11-02T09:50:00.388Z",
           "plassertBeloep": 0,
-          "plasseringsdato": "2022-10-05T07:13:41.744Z"
+          "opprinneligKravforfallsbeloep": 0,
+          "gjenstaaendeKravforfallsbeloep": 0
         }
       ],
+      "uplassertBeloep": 0,
+      "betaltTilKonto": {
+        "bankinformasjon": "string",
+        "kontoeiersNavn": "string",
+        "kontonummer": "string",
+        "iban": "string",
+        "swiftBIC": "string"
+      },
       "betaltFra": {
         "kidnummer": "string",
         "konto": {
@@ -251,14 +292,7 @@ Gjør oppslag mot reskontrosystemene på alle innbetalinger innen et gitt tidsro
           "swiftBIC": "string"
         }
       },
-      "betaltTilKonto": {
-        "bankinformasjon": "string",
-        "kontoeiersNavn": "string",
-        "kontonummer": "string",
-        "iban": "string",
-        "swiftBIC": "string"
-      },
-      "innbetalingsIdentifikator": "string"
+      "innbetalingstype": "string"
     }
   ]
 }
@@ -270,20 +304,32 @@ Denne tjenesten er ennå ikke tilgjengelig for bruk.
 
 Gjør oppslag mot reskontrosystemene på alle utbetalinger innen et gitt tidsrom på maks ett år.
 
+### Format på request
+
+```json
+{
+  "partIdentifikator": "string",
+  "periode": {
+    "start": "2022-11-02T09:50:38.412Z",
+    "slutt": "2022-11-02T09:50:38.412Z"
+  }
+}
+```
+
 ### Foreløpig format på respons
 
 ```json
 {
-  "forespurtPart": "string",
+  "partIdentifikator": "string",
   "periode": {
-    "start": "2022-10-05T07:02:19.064Z",
-    "slutt": "2022-10-05T07:02:19.064Z"
+    "start": "2022-11-02T09:50:38.414Z",
+    "slutt": "2022-11-02T09:50:38.414Z"
   },
   "utbetaling": [
     {
-      "part": "string",
+      "partIdentifikator": "string",
       "utbetalingsbeskrivelse": "string",
-      "utbetaltdato": "2022-10-05T07:02:19.064Z",
+      "utbetaltdato": "2022-11-02T09:50:38.414Z",
       "utbetaltBeloep": 0,
       "betaltTil": {
         "kidnummer": "string",
@@ -302,8 +348,8 @@ Gjør oppslag mot reskontrosystemene på alle utbetalinger innen et gitt tidsrom
           "kravIdentifikator": "string",
           "kravtype": "string",
           "kravperiode": {
-            "start": "2022-10-05T07:02:19.064Z",
-            "slutt": "2022-10-05T07:02:19.064Z"
+            "start": "2022-11-02T09:50:38.414Z",
+            "slutt": "2022-11-02T09:50:38.414Z"
           },
           "opprinneligBeloep": 0,
           "gjenstaaendeBeloep": 0
