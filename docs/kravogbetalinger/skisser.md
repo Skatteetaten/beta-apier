@@ -4,4 +4,4 @@ Her er skisser på hvordan kravoversikten vil se ut for brukeren på Skatteetate
 
 ## Min side næring
 
-![tidsplan krav](images/minSideSkisse.jpg)
+![tidsplan krav](bilder/minSideSkisse.jpg)
