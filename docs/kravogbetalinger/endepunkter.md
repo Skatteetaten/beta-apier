@@ -1,5 +1,7 @@
 # Endepunkter
 
+Utfyllende beskrivelse av endepunkter kommer i løpet av november
+
 ## Oversikt
 
 Hent oversikt over åpne krav og uplasserte innbetalinger.
