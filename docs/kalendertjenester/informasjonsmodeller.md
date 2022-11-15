@@ -1,6 +1,6 @@
 # Informasjonsmodeller
 
-TODO: Skriv noe her....
+Her er informasjonsmodellen for kalendertjenesten. 
 
 ![Informasjonsmodell for Mine Frister](bilder/informasjonsmodell-mine-frister.png)
 
