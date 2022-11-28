@@ -1,9 +1,13 @@
 # Hent frister
 
-Vi vil tilby muligheten til hente oppgavefrister ved bruk av JSON og XML. Sender en JSON i request, så vil man få JSON i response. Bruker en XML i request, så får man XML i response tilbake.
+Vi vil tilby muligheten til hente oppgavefrister ved bruk av JSON og XML. Sender en JSON i request, så vil man få JSON i response. Bruker en XML i request, så får man XML i response tilbake. Skatteetaten vil bare tilby REST, og ikke SOAP. Kalendertjenesten vil starte med noen få kilder til oppgaver, men vil dynamisk bli utvidet etterhvert. Selv om vi utvider med flere kilder så vil vi nødvendigvis ikke endre APIene. Om det blir nødvendig å endre API, så vil dette blir informert om her og andre steder.
+Men i utgangspunktet så er det følgende informasjonsmengde som er interessant: Myndighet(hvor oppgaven opprinnelig kommer fra - hvem bruker skal ta kontakt med for spørsmål), oppgavebeskrivelse (hva er oppgaven), frist for utførelse og status på oppgaven (Åpen, Forfalt, Pågående, Fullført).
 
+## Schemas
+Hvis man vil bruke JSON så er JSON-schema generert ut i fra informasjonsmodellen, og kan hentes her:
 [JSON-schema](no.skatteetaten.innkreving.deling.kalendertjeneste.v1-schema.json)
 
+Ønsker man der i mot å bruke XML, så kan man hente XSD-schema (som er generert ut ifra informasjonsmodellen) her:
 [XSD](no.skatteetaten.innkreving.deling.kalendertjeneste.v1.xsd)
 
 ## Schemas
