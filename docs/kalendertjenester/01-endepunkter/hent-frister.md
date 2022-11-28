@@ -10,7 +10,6 @@ Hvis man vil bruke JSON så er JSON-schema generert ut i fra informasjonsmodelle
 Ønsker man der i mot å bruke XML, så kan man hente XSD-schema (som er generert ut ifra informasjonsmodellen) her:
 [XSD](no.skatteetaten.innkreving.deling.kalendertjeneste.v1.xsd)
 
-## Schemas
 
 ## Format på request
 
