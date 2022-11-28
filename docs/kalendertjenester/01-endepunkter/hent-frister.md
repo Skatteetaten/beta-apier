@@ -10,7 +10,7 @@ JSON
 '''
 XSD
 '''
-![XML Schema](01-endepunkter/no.skatteetaten.innkreving.deling.kalendertjeneste.v1-schema.json
+![XML Schema](01-endepunkter/no.skatteetaten.innkreving.deling.kalendertjeneste.v1-schema.XSD
 
 '''
 
