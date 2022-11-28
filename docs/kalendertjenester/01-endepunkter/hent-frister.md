@@ -2,13 +2,15 @@
 
 Vi vil tilby muligheten til hente oppgavefrister ved bruk av JSON og XML. Sender en JSON i request, så vil man få JSON i response. Bruker en XML i request, så får man XML i response tilbake.
 
-##Schemas
+## Schemas
 JSON
-'''json
+'''
+![JSON Schema](01-endepunkter/no.skatteetaten.innkreving.deling.kalendertjeneste.v1-schema.json
 
 '''
 XSD
-'''xsd
+'''
+![XML Schema](01-endepunkter/no.skatteetaten.innkreving.deling.kalendertjeneste.v1-schema.json
 
 '''
 
