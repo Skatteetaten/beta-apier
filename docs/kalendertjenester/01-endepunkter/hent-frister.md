@@ -2,10 +2,6 @@
 
 Vi vil tilby muligheten til hente oppgavefrister ved bruk av JSON og XML. Sender en JSON i request, så vil man få JSON i response. Bruker en XML i request, så får man XML i response tilbake.
 
-JSON Schema
-
-XML Schema
-
 
 ## Format på request
 
