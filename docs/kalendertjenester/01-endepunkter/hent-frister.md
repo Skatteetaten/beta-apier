@@ -2,6 +2,10 @@
 
 Vi vil tilby muligheten til hente oppgavefrister ved bruk av JSON og XML. Sender en JSON i request, så vil man få JSON i response. Bruker en XML i request, så får man XML i response tilbake.
 
+[JSON-schema](no.skatteetaten.innkreving.deling.kalendertjeneste.v1-schema.json)
+
+[XSD](no.skatteetaten.innkreving.deling.kalendertjeneste.v1.xsd)
+
 ## Schemas
 
 ## Format på request
@@ -10,13 +14,13 @@ JSON
 
 ```json
 {
-	"n1:kalenderRequest": {
-		"n1:part": {
-			"n1:organisasjonsnummer": 313268489
+	"kalenderRequest": {
+		"part": {
+			"organisasjonsnummer": 313268489
 		},
-		"n1:periode": {
-			"n1:fraOgMed": "2022-11-01",
-			"n1:tilOgMed": "2023-01-31"
+		"periode": {
+			"fraOgMed": "2022-11-01",
+			"tilOgMed": "2023-01-31"
 		}
 	}
 }
