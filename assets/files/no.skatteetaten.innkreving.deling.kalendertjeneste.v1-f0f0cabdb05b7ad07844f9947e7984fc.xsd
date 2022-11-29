@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="no:skatteetaten:innkreving:deling:kalendertjeneste:v1" xmlns:skatt="http://www.skatteetaten.no/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="no:skatteetaten:innkreving:deling:kalendertjeneste:v1">
+    <xsd:annotation>
+        <xsd:documentation>
+            <xsd:attribute fixed="2022-11-23T18:23:45.883+0100" name="generertDato"/>
+            <xsd:attribute fixed="1.1" name="versjon"/>
+            <xsd:attribute fixed="" name="beskrivelse"/>
+            <xsd:attribute fixed="Kalendertjeneste" name="modellnavn"/>
+            <xsd:attribute fixed="no:skatteetaten:innkreving:deling:kalendertjeneste:v1" name="navnerom"/>
+            <xsd:attribute fixed="true" name="begrepsreferanse"/>
+            <xsd:attribute fixed="true" name="dokumentasjon"/>
+            <xsd:attribute fixed="false" name="nillable"/>
+            <xsd:attribute fixed="false" name="modellelement"/>
+            <xsd:attribute fixed="false" name="norskeTegn"/>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="kalender" type="Kalender"/>
+    <xsd:element name="kalenderRequest" type="KalenderRequest"/>
+    <xsd:complexType name="KalenderRequest">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="part" type="NorskIdentifikator"/>
+            <xsd:element minOccurs="0" name="periode" type="Periode"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Kalender">
+        <xsd:sequence>
+            <xsd:element name="hentetDato" type="DatoKlokkeslett"/>
+            <xsd:element maxOccurs="unbounded" name="part" type="Part"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Frist">
+        <xsd:sequence>
+            <xsd:element name="fristType" type="FristType"/>
+            <xsd:element name="frist" type="Dato"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Oppgave">
+        <xsd:annotation>
+            <xsd:documentation>kolleksjon av forskjellige type krav som part må fullfore </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="myndighet" type="Tekst">
+                <xsd:annotation>
+                    <xsd:documentation>f. eks.Skatteetaten</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="produktomraade" type="Forretningsomraade">
+                <xsd:annotation>
+                    <xsd:documentation>forretningsområde - for eks. Merverdiavgift, særavgift, m.m.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="oppgaveType" type="OverordnetOppgaveType"/>
+            <xsd:element name="oppgaveBeskrivelse" type="Tekst">
+                <xsd:annotation>
+                    <xsd:documentation>beskrivelse på oppgave - f. eks. merverdiavgift for termin</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="frist" type="Frist"/>
+            <xsd:element name="oppgavestatus" type="Oppgavestatus"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Part">
+        <xsd:sequence>
+            <xsd:element name="part" type="NorskIdentifikator"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="oppgave" type="Oppgave"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="Forretningsomraade" skatt:eksternKodeliste="http://kodelistekatalog/kodeliste/innkreving/forretningsområde">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="FristType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="Oppgavestatus">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="OverordnetOppgaveType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="betalingskrav"/>
+            <xsd:enumeration value="rapporteringskrav"/>
+            <xsd:enumeration value="dokumentasjonskrav"/>
+            <xsd:enumeration value="registreringskrav"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="NorskIdentifikator">
+        <xsd:sequence>
+            <xsd:choice>
+                <xsd:sequence>
+                    <xsd:element name="foedselsnummer" type="Foedselsnummer"/>
+                </xsd:sequence>
+                <xsd:sequence>
+                    <xsd:element name="organisasjonsnummer" type="Organisasjonsnummer"/>
+                </xsd:sequence>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Periode">
+        <xsd:sequence>
+            <xsd:element name="fraOgMed" type="Dato"/>
+            <xsd:element minOccurs="0" name="tilOgMed" type="Dato">
+                <xsd:annotation>
+                    <xsd:documentation>default dagens dato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="DatoKlokkeslett" skatt:begrepsreferanse="https://data.skatteetaten.no/begrep/20b52aee-9fe1-11e5-a9f8-e4115b280940">
+        <xsd:annotation>
+            <xsd:documentation>en kombinasjon av typene Dato og Klokkeslett. Kodes som en tekststreng etter datoformatering spesifisert i ISO 8601 (ISO 8601:2004 Data elements and interchange formats -- Information interchange -- Representation of dates and times).</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:dateTime"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="Dato" skatt:begrepsreferanse="https://data.skatteetaten.no/begrep/20b52aed-9fe1-11e5-a9f8-e4115b280940">
+        <xsd:annotation>
+            <xsd:documentation>gir verdier for år, måned og dag. Kodes som en tekststreng etter datoformatering spesifisert i  ISO 8601 (ISO 8601:2004 Data elements and interchange formats -- Information interchange -- Representation of dates and times). 
+Eksempel : 1998-12-21 eller 19981221.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="Tekst" skatt:begrepsreferanse="https://data.skatteetaten.no/begrep/20b52af3-9fe1-11e5-a9f8-e4115b280940">
+        <xsd:annotation>
+            <xsd:documentation>vilkårlig lang sekvens av tegn inkludert aksenter og spesielle tegn fra standardiserte tegnsett</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Foedselsnummer" skatt:begrepsreferanse="https://data.skatteetaten.no/begrep/5138da10-be20-11e6-8004-005056825ca0">
+        <xsd:annotation>
+            <xsd:documentation>ellevesifret identifikasjonsnummer for personer bosatt i Norge, der de seks første sifrene angir fødselsdato og de fem siste personnummer.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="Tekst">
+            <xsd:pattern value="[0-9]+"/>
+            <xsd:length value="11"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Organisasjonsnummer" skatt:begrepsreferanse="https://data.skatteetaten.no/begrep/20b2e1a8-9fe1-11e5-a9f8-e4115b280940">
+        <xsd:annotation>
+            <xsd:documentation>9 sifret nummer gitt de som er registrert i Enhetsregisteret.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="Tekst">
+            <xsd:pattern value="[0-9]+"/>
+            <xsd:length value="9"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
