@@ -4,64 +4,45 @@ Hent alle innbetalinger innen et gitt tidsrom.
 
 Gjør oppslag mot reskontrosystemene på alle innbetalinger innen et gitt tidsrom på maks ett år.
 
-## Format på request
+**Request URL - eksempel**
+```
+GET https://{env}/api/innkreving/kravogbetalinger/v1/finans/12345678901/innbetalinger?fraOgMed=2020-01-01&tilOgMed=2021-12-01
+```
+env: [Miljø-spesifikk adresse](https://skatteetaten.github.io/datasamarbeid-api-dokumentasjon/about_miljoer)
+
+**Eksempel på request**
 
 ```json
-{
-  "partIdentifikator": "string",
-  "periode": {
-    "start": "2022-11-02T09:50:00.387Z",
-    "slutt": "2022-11-02T09:50:00.387Z"
-  }
-}
+{"partIdentifikator":"313367002","periode":{"start":"2022-01-01","slutt":"2023-01-01"}}
 ```
 
-## Format på respons
+**Eksempel på respons**
 
 ```json
 {
-  "partIdentifikator": "string",
-  "periode": {
-    "start": "2022-11-02T09:50:00.388Z",
-    "slutt": "2022-11-02T09:50:00.388Z"
-  },
-  "innbetaling": [
-    {
-      "partIdentifikator": "string",
-      "innbetalingsidentifikator": "string",
-      "innbetalingsdato": "2022-11-02T09:50:00.388Z",
-      "innbetaltBeloep": 0,
-      "plassertInnbetalingMotKrav": [
+    "partIdentifikator": "313367002",
+    "periode": {
+        "start": "2022-01-01T00:00:00.000+01:00",
+        "slutt": "2023-01-01T00:00:00.000+01:00"
+    },
+    "innbetaling": [
         {
-          "dekketKrav": "string",
-          "kravforfallIdentifikator": "string",
-          "kravforfallsdato": "2022-11-02T09:50:00.388Z",
-          "plasseringsdato": "2022-11-02T09:50:00.388Z",
-          "plassertBeloep": 0,
-          "opprinneligKravforfallsbeloep": 0,
-          "gjenstaaendeKravforfallsbeloep": 0
+            "partIdentifikator": "313367002",
+            "innbetalingsidentifikator": "inn-12345",
+            "innbetalingsdato": "2022-09-28T00:00:00.000+02:00",
+            "innbetaltBeloep": 1000,
+            "plassertInnbetalingMotKrav": [],
+            "betaltTilKonto": {
+                "kontonummer": "98766543211"
+            },
+            "betaltFra": {
+                "konto": {
+                    "kontoeiersNavn": "HEVNGJERRIG EKTE KATT KRYDDER",
+                    "kontonummer": "98766543211"
+                }
+            },
+            "innbetalingstype": "bankoverføring"
         }
-      ],
-      "uplassertBeloep": 0,
-      "betaltTilKonto": {
-        "bankinformasjon": "string",
-        "kontoeiersNavn": "string",
-        "kontonummer": "string",
-        "iban": "string",
-        "swiftBIC": "string"
-      },
-      "betaltFra": {
-        "kidnummer": "string",
-        "konto": {
-          "bankinformasjon": "string",
-          "kontoeiersNavn": "string",
-          "kontonummer": "string",
-          "iban": "string",
-          "swiftBIC": "string"
-        }
-      },
-      "innbetalingstype": "string"
-    }
-  ]
+    ]
 }
 ```
