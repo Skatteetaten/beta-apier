@@ -19,7 +19,8 @@ I påfølgende kall mot APIet må samtykkebeviset og tilgangsbeviset fornyes da 
 
 1) Parten logger seg på *Nettbanken* og ber om å få tilgang til sine krav og betalinger (knapp/lenke)
 
-2) Hver 90-ende dag må *Nettbanken* gjør en redirect til Altinn for en gitt samtykkekode (authorizationCode). 
+2) Hvis det ikke foreligger noe gyldig samtikke (går ut etter 90 dager) så må *Nettbanken* gjør en redirect til 
+Altinn for en gitt samtykkekode (authorizationCode) og be parten samtykke på nytt.
 Bruker må identifisere seg via idporten, velger part og bekrefte samtykket med varighet 90 dager. 
 Samtykket lagres i Altinn Samtykke. Samtykkeavtalen med gitt AuthorizationCode er satt opp av SKE i Altinn Samtykke.
 
