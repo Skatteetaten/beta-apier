@@ -4,88 +4,63 @@ Hent alle krav innen et gitt tidsrom.
 
 Gjør oppslag mot reskontrosystemene på alle krav innen et gitt tidsrom på maks ett år.
 
-## Format på request
-
-```json
-{
-  "partIdentifikator": "string",
-  "periode": {
-    "start": "2022-11-02T09:49:08.429Z",
-    "slutt": "2022-11-02T09:49:08.429Z"
-  }
-}
+**Request URL**
+```
+https://api-test.sits.no/api/innkreving/kravogbetalinger/v1/finans/12345678901/krav?fraOgMed=2020-01-01&tilOgMed=2021-01-01
 ```
 
-## Format på respons
+**Format på request**
+
+```json
+{"partIdentifikator":"310478717","periode":{"start":"2022-01-01","slutt":"2023-01-01"}}
+```
+
+**Format på respons**
 
 ```json
 {
-  "partIdentifikator": "string",
-  "periode": {
-    "start": "2022-11-02T09:49:08.430Z",
-    "slutt": "2022-11-02T09:49:08.430Z"
-  },
-  "krav": [
-    {
-      "partIdentifikator": "string",
-      "kravidentifikator": "string",
-      "kravbeskrivelse": "string",
-      "opprettelsesdatoForKrav": "2022-11-02T09:49:08.430Z",
-      "kravperiode": "string",
-      "opprinneligBeloep": 0,
-      "kravforfall": [
+    "partIdentifikator": "310478717",
+    "periode": {
+        "start": "2022-01-01T00:00:00.000+01:00",
+        "slutt": "2023-01-01T00:00:00.000+01:00"
+    },
+    "krav": [
         {
-          "forfallsdato": "2022-11-02T09:49:08.430Z",
-          "opprinneligBeloep": 0,
-          "gjenstaaendeBeloep": 0,
-          "plassertInnbetaling": [
-            {
-              "innbetalingsdato": "2022-11-02T09:49:08.430Z",
-              "innbetaltBeloep": 0,
-              "betaltFra": {
-                "kidnummer": "string",
-                "konto": {
-                  "bankinformasjon": "string",
-                  "kontoeiersNavn": "string",
-                  "kontonummer": "string",
-                  "iban": "string",
-                  "swiftBIC": "string"
+            "kravidentifikator": "krav-1234",
+            "kravbeskrivelse": "Restskatt",
+            "opprettelsesdatoForKrav": "2022-08-28T00:00:00.000+02:00",
+            "kravperiode": "2022/09",
+            "opprinneligBeloep": 1000,
+            "kravforfall": [
+                {
+                    "forfallsdato": "2022-09-28T00:00:00.000+02:00",
+                    "opprinneligBeloep": 1000.00,
+                    "gjenstaaendeBeloep": 1000.00,
+                    "plassertInnbetaling": [
+                        {
+                            "betaltFra": {
+                                "konto": {}
+                            },
+                            "plassertBeloep": -1000,
+                            "plasseringsdato": "2022-09-28T00:00:00.000+02:00",
+                            "innbetalingsIdentifikator": "inn-123456"
+                        }
+                    ],
+                    "plassertMotkrav": [],
+                    "kravforfallsIdentifikator": "7d82a522-dd9c-423a-bf14-913fe4511248",
+                    "betalingsinformasjon": {
+                        "konto": {
+                            "kontonummer": "82561901224"
+                        }
+                    },
+                    "utsattIverksettelse": false
                 }
-              },
-              "plassertBeloep": 0,
-              "plasseringsdato": "2022-11-02T09:49:08.430Z",
-              "innbetalingsIdentifikator": "string",
-              "innbetalingstype": "string"
-            }
-          ],
-          "plassertMotkrav": [
-            {
-              "motkravBeskrivelse": "string",
-              "motkravForfallsIdentifikator": "string",
-              "motkravForfallsdato": "2022-11-02T09:49:08.430Z",
-              "plassertBeloep": 0,
-              "plasseringsdato": "2022-11-02T09:49:08.430Z"
-            }
-          ],
-          "kravforfallsIdentifikator": "string",
-          "betalingsinformasjon": {
-            "kidnummer": "string",
-            "konto": {
-              "bankinformasjon": "string",
-              "kontoeiersNavn": "string",
-              "kontonummer": "string",
-              "iban": "string",
-              "swiftBIC": "string"
-            }
-          },
-          "utsattIverksettelse": true
+            ],
+            "gjenstaaendeBeloep": 1000,
+            "stipulerteRenter": 20.00,
+            "kravtype": "RESTSKATT",
+            "kravgruppe": "Skatt"
         }
-      ],
-      "gjenstaaendeBeloep": 0,
-      "stipulerteRenter": 0,
-      "kravtype": "string",
-      "kravgruppe": "string"
-    }
-  ]
+    ]
 }
 ```
