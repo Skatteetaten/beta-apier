@@ -4,11 +4,11 @@ Hent oversikt over åpne krav og uplasserte innbetalinger.
 
 Gjør oppslag mot reskontrosystemene på åpne krav og uplasserte innbetalinger og oppgir de samlet med en summert oversikt.
 
-**Request URL**
+**Request URL - eksempel**
 ```
-https://api-test.sits.no/api/innkreving/kravogbetalinger/v1/finans/12345678901/oversikt
+https://{env}/api/innkreving/kravogbetalinger/v1/finans/12345678901/oversikt
 ```
-
+env: [Miljø-spesifikk adresse](https://skatteetaten.github.io/datasamarbeid-api-dokumentasjon/about_miljoer)
 
 **Eksempel på request**
 
