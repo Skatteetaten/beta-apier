@@ -4,18 +4,19 @@ Hent alle krav innen et gitt tidsrom.
 
 Gjør oppslag mot reskontrosystemene på alle krav innen et gitt tidsrom på maks ett år.
 
-**Request URL**
+**Request URL - eksempel**
 ```
-https://api-test.sits.no/api/innkreving/kravogbetalinger/v1/finans/12345678901/krav?fraOgMed=2020-01-01&tilOgMed=2021-01-01
+https://{env}/api/innkreving/kravogbetalinger/v1/finans/12345678901/krav?fraOgMed=2020-01-01&tilOgMed=2021-01-01
 ```
+env: [Miljø-spesifikk adresse](https://skatteetaten.github.io/datasamarbeid-api-dokumentasjon/about_miljoer)
 
-**Format på request**
+**Eksempel på request**
 
 ```json
 {"partIdentifikator":"310478717","periode":{"start":"2022-01-01","slutt":"2023-01-01"}}
 ```
 
-**Format på respons**
+**Eksempel på respons**
 
 ```json
 {
