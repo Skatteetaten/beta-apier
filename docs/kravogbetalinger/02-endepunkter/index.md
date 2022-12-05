@@ -1,4 +1,4 @@
-# Endepunkter/api
+# Endepunkter (API)
 
 Krav og betalinger tilbys som et API.
 
