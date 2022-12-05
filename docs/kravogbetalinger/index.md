@@ -14,11 +14,13 @@ Dersom du ønsker å ta i bruk **krav og betalinger** i ditt system eller har sp
 
 ## Tidsplan
 
-**November 2022**: Våre systemer åpner for at eksterne leverandører skal kunne starte utvikling og test på første versjon av **krav og betalinger**.
+**Desember 2022**: Tilgjengeliggjøring av dokumentasjon
 
-**Januar 2023**: Skatteetaten åpner for pilotering av første versjon av **krav og betalinger** i samarbeid med enkelte leverandører. Etter endt pilotperiode vil det bli besluttet videre løp for utrulling til flere leverandører og banker.
+**Primo 2023**: Våre systemer åpner for at eksterne leverandører skal kunne starte utvikling og test på første versjon av **krav og betalinger**.
 
-**Våren 2023**: Planlagte utvidelser av **krav og betalinger**.
+**Medio 2023**: Skatteetaten åpner for pilotering av første versjon av **krav og betalinger** i samarbeid med enkelte leverandører. Etter endt pilotperiode vil det bli besluttet videre løp for utrulling til flere leverandører og banker.
+
+**Medio 2023**: Planlagte utvidelser av **krav og betalinger**.
 
 ## Oppfølging og støtte
 

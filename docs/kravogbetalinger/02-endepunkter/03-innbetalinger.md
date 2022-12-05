@@ -10,26 +10,20 @@ GET https://{env}/api/innkreving/kravogbetalinger/v1/finans/12345678901/innbetal
 ```
 env: [Miljø-spesifikk adresse](https://skatteetaten.github.io/datasamarbeid-api-dokumentasjon/about_miljoer)
 
-**Eksempel på request**
-
-```json
-{"partIdentifikator":"313367002","periode":{"start":"2022-01-01","slutt":"2023-01-01"}}
-```
-
 **Eksempel på respons**
 
 ```json
 {
     "partIdentifikator": "313367002",
     "periode": {
-        "start": "2022-01-01T00:00:00.000+01:00",
-        "slutt": "2023-01-01T00:00:00.000+01:00"
+        "fraOgMed": "2022-01-01",
+        "tilOgMed": "2023-01-01"
     },
     "innbetaling": [
         {
             "partIdentifikator": "313367002",
             "innbetalingsidentifikator": "inn-12345",
-            "innbetalingsdato": "2022-09-28T00:00:00.000+02:00",
+            "innbetalingsdato": "2022-09-28",
             "innbetaltBeloep": 1000,
             "plassertInnbetalingMotKrav": [],
             "betaltTilKonto": {
