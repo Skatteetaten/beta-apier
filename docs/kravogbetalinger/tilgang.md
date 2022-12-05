@@ -4,9 +4,9 @@ For å få tilgang til tjenesten må leverandøren ha underskrevet en pilotavtal
 Tilgangsmekanismen vil være en kombinasjon av Altinn Samtykke og [Maskinporten](https://skatteetaten.github.io/datasamarbeid-api-dokumentasjon/about_maskinporten.html).
 
 Parten kan, hvis regnskapssystemet og/eller mobil- og nettbank har implementert støtte for det velge om den ønsker å se egne krav. 
-Parten vil bli rutet til en godkjenningsdialog i Altinn Samtykke. Når skyldner har akseptert godkjenningsdialogen, 
+Parten vil bli rutet til en godkjenningsdialog i Altinn Samtykke. Når parten har akseptert godkjenningsdialogen, 
 vil finansforetaket/systemleverandøren kunne hente et autentiseringstoken (samtykkebevis) fra Altinn Samtykke som bekrefter aksepten, 
-APIet, identiteten til skyldner og identiteten til finansforetaket/systemleverandøren.
+APIet, identiteten til parten og identiteten til finansforetaket/systemleverandøren.
 
 For å gjøre kall mot Skatteetatens API for krav og betalinger må finansforetaket/systemleverandøren  hente et autoriseringstoken 
 (tilgangsbevis) fra Maskinporten. Begge disse bevisene må legges ved i kall mot APIet. Skatteetaten vil validere bevisene og vil returnere 
@@ -39,5 +39,5 @@ Det vil med andre ord være finansforetaket og systemleverandørens påloggingss
 har tilgang til å se oversikten i regnskapssystemet/mobil- og nettbanken.
 
 Innsynet vil gjelde i 90 dager fra godkjenningsdato. Finansforetaket og systemleverandøren kan gjøre flere kall
-på vegne av skyldner i denne perioden for å hente oppdaterte krav. Parten kan velge å trekke godkjenningen via
+på vegne av parten i denne perioden for å hente oppdaterte krav. Parten kan velge å trekke godkjenningen via
 Altinn Samtykke. Skatteetaten kan velge å trekke tilgangen til finansforetaket eller systemleverandøren via Maskinporten. 
