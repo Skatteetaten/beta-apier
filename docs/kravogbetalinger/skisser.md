@@ -1,8 +1,10 @@
 # Skisser
 
-Tjenesten **krav og betalinger** vil også bli tilgjengelig for de næringsdrivende på Skatteetatens egne flater, i tillegg til det som tilbys av leverandørene i  regnskapsystem og banktjenester. Leverandørene vil utvikle egne brukergrensesnitt tilpasset sine unike tjenester, men for å bidra til at tjenestene skal være gjenkjennelig for brukeren på tvers av de ulike flatene vil vi dele informasjon og skisser til hvordan dette vil se ut for brukeren på våre flater. 
 
-Løsningene er under brukertesting og det kan fremkomme endringer.
+Tjenesten for **krav og betalinger** vil også bli tilgjengelig for brukerne på Skatteetatens egne digitale flater, i tillegg til det som leverandørene tilbyr i sine egne systemer. For å bidra til en grad av gjenkjennbarhet for brukeren på tvers av flatene, så vil vi her dele skisser for hvordan tjenestene vil se ut for brukeren se ut for brukeren på Skatteetaten.no. 
+
+Løsningene er under brukertesting og det kan fremkomme endringer, og vil vil også gjerne ha dialog med leverandørene og dele vår innsikt og våre erfaringer fra brukertester for at vi sammen kan lage best mulig tjeneste for brukerne.
+
 
 ## Min side næring
 
