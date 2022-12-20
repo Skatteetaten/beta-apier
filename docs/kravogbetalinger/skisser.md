@@ -6,4 +6,14 @@ Løsningene er under brukertesting og det kan fremkomme endringer, og vil vil og
 
 ## Min side næring
 
-![tidsplan krav](bilder/min-side-skisse.jpg)
+### Ubetalte krav
+
+![ubetalte krav](bilder/skisse_ubetalte_krav.jpg)
+
+### Betalte krav
+
+![betalte krav](bilder/skisse_betalte_krav.jpg)
+
+### Innbetalinger
+
+![innbetalinger](bilder/skisse_betalte_krav.jpg)
