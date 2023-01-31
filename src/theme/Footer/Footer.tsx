@@ -9,6 +9,10 @@ export function Footer(): JSX.Element {
       text: 'Kontakt oss'
     },
     {
+      path: 'https://uustatus.no/nb/erklaringer/publisert/fda75c75-d3d3-42ac-acb5-627bae3c1b93',
+      text: 'Tilgjengelighetserklæring'
+    },
+    {
       path: 'https://www.skatteetaten.no/om-skatteetaten/jobb/',
       text: 'Jobbe i Skatteetaten'
     },
