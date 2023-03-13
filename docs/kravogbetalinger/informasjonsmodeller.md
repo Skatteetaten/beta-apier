@@ -4,25 +4,25 @@
 
 Her ser du hele informasjonsmodellen for **krav og betalinger** med alle endepunkter.
 
-[![Informasjonsmodell](bilder/Informasjonsmodell_Kravogbetalinger.png)](bilder/Informasjonsmodell_Kravogbetalinger.png)
+[![Informasjonsmodell](bilder/informasjonsmodeller/kravogbetalinger.png)](bilder/informasjonsmodeller/kravogbetalinger.png)
 
 ## Modell pr endepunkt
 
 ### Åpne krav
 
-[![åpnekrav](bilder/Informasjonsmodell_aapnekrav.png)](bilder/Informasjonsmodell_aapnekrav.png)
+[![åpnekrav](bilder/informasjonsmodeller/aapnekrav.png)](bilder/informasjonsmodeller/aapnekrav.png)
 
 ### Alle krav
 
-[![allekrav](bilder/Informasjonsmodell_allekrav.png)](bilder/Informasjonsmodell_allekrav.png)
+[![allekrav](bilder/informasjonsmodeller/allekrav.png)](bilder/informasjonsmodeller/allekrav.png)
 
 ### Innbetalinger
 
-[![åpnekrav](bilder/Informasjonsmodell_innbetalinger.png)](bilder/Informasjonsmodell_innbetalinger.png)
+[![åpnekrav](bilder/informasjonsmodeller/innbetalinger.png)](bilder/informasjonsmodeller/innbetalinger.png)
 
 ### Utbetalinger
 
-[![åpnekrav](bilder/Informasjonsmodell_utbetalinger.png)](bilder/Informasjonsmodell_utbetalinger.png)
+[![åpnekrav](bilder/informasjonsmodeller/utbetalinger.png)](bilder/informasjonsmodeller/utbetalinger.png)
 
 ## Feltbeskrivelse
 

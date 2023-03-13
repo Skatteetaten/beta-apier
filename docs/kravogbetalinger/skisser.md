@@ -8,12 +8,32 @@ Løsningene er under brukertesting og det kan fremkomme endringer, og vil vil og
 
 ### Ubetalte krav
 
-![ubetalte krav](bilder/skisse_ubetalte_krav.jpg)
+![Ubetalte krav](bilder/skisser/ubetalte-krav.jpg)
+
+### Ubetalte krav - detaljer
+
+![Ubetalte krav MVA](bilder/skisser/ubetalte-krav-detaljer-mva.jpg)
+
+### Ubetalte krav - detaljer forskuddsskatt
+
+![Ubetalte krav forskudsskatt](bilder/skisser/detaljer-forskuddsskatt.jpg)
 
 ### Betalte krav
 
-![betalte krav](bilder/skisse_betalte_krav.jpg)
+![Betalte krav](bilder/skisser/betalte-krav.jpg)
+
+### Betalte krav - detaljer
+
+![Betalte krav MVA](bilder/skisser/betalte-krav-detaljer-mva.jpg)
 
 ### Innbetalinger
 
-![innbetalinger](bilder/skisse_betalte_krav.jpg)
+![Innbetalinger](bilder/skisser/innbetalinger.jpg)
+
+### Innbetalinger - detaljer
+
+![Innbetalinger detaljer](bilder/skisser/innbetalinger-detaljer.jpg)
+
+### Betalingsinfo
+
+![Betalingsinfo](bilder/skisser/betalingsinfo.png)
