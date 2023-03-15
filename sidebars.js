@@ -25,7 +25,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Krav og betalinger API',
-          href: 'https://skatteetaten.github.io/api-dokumentasjon/kravogbetalinger'
+          href: 'https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger'
         },
         'kravogbetalinger/tilgang',
         {
