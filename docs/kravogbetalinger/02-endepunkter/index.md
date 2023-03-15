@@ -2,7 +2,7 @@
 
 **Krav og betalinger** tilbys som et API.
 
-Du finner mer informasjon om APIet her: [Krav og betalinger API | API-dokumentasjon]([https://skatteetaten.github.io/api-dokumentasjon/](https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger))
+Du finner mer informasjon om APIet her: [Krav og betalinger API | API-dokumentasjon](https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger)
 
 Du kan også se [OpenAPI spesifikasjonen på Swaggerhub](https://app.swaggerhub.com/apis/Skatteetaten_Deling/krav-og-betalinger-api/)
 
