@@ -8,6 +8,7 @@
 # Generated files
 .docusaurus
 .cache-loader
+build
 
 ### Eclipse ###
 .project
@@ -40,6 +41,9 @@ _site/
 .env.development.local
 .env.test.local
 .env.production.local
+
+### VSCode ###
+.vscode
 
 npm-debug.log*
 yarn-debug.log*
