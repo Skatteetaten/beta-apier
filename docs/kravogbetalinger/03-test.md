@@ -17,5 +17,6 @@ ENK med Organisasjonsnummer:
 - 311851381
 - 314961900
 - 314055403
+- 212201782
 
 Enhetene kan søkes frem i [TENOR testdatasøk](https://skatteetaten.github.io/datasamarbeid-api-dokumentasjon/data_testdatasok.html)
