@@ -13,7 +13,7 @@ const sidebars = {
           link: { type: 'doc', id: 'kalendertjenester/endepunkter/index' },
           items: ['kalendertjenester/endepunkter/hent-frister']
         },
-        'kalendertjenester/feltbeskrivelser',
+        'kalendertjenester/informasjonsmodeller',
         'kalendertjenester/skisser'
       ]
     },
@@ -28,20 +28,8 @@ const sidebars = {
           href: 'https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger'
         },
         'kravogbetalinger/tilgang',
-        {
-          type: 'category',
-          label: 'Endepunkter (API)',
-          link: { type: 'doc', id: 'kravogbetalinger/endepunkter/index' },
-          items: [
-            'kravogbetalinger/endepunkter/aapne-krav',
-            'kravogbetalinger/endepunkter/alle-krav',
-            'kravogbetalinger/endepunkter/innbetalinger',
-            'kravogbetalinger/endepunkter/utbetalinger'
-          ]
-        },
-        'kravogbetalinger/test',
         'kravogbetalinger/faq',
-        'kravogbetalinger/informasjonsmodeller',
+        'kravogbetalinger/feltbeskrivelser',
         'kravogbetalinger/skisser'
       ]
     }
