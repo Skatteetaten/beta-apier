@@ -1,30 +1,4 @@
-# Informasjonsmodeller og feltbeskrivelser
-
-## Informasjonsmodell
-
-Her ser du hele informasjonsmodellen for **krav og betalinger** med alle endepunkter.
-
-[![Informasjonsmodell](bilder/informasjonsmodeller/kravogbetalinger.png)](bilder/informasjonsmodeller/kravogbetalinger.png)
-
-## Modell pr endepunkt
-
-### Åpne krav
-
-[![åpnekrav](bilder/informasjonsmodeller/aapnekrav.png)](bilder/informasjonsmodeller/aapnekrav.png)
-
-### Alle krav
-
-[![allekrav](bilder/informasjonsmodeller/allekrav.png)](bilder/informasjonsmodeller/allekrav.png)
-
-### Innbetalinger
-
-[![åpnekrav](bilder/informasjonsmodeller/innbetalinger.png)](bilder/informasjonsmodeller/innbetalinger.png)
-
-### Utbetalinger
-
-[![åpnekrav](bilder/informasjonsmodeller/utbetalinger.png)](bilder/informasjonsmodeller/utbetalinger.png)
-
-## Feltbeskrivelse
+# Feltbeskrivelser
 
 | Eier                    | Element                      | Dokumentasjon                                                                                                                                                                                                                                                                                         |
 | ----------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
