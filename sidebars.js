@@ -13,7 +13,7 @@ const sidebars = {
           link: { type: 'doc', id: 'kalendertjenester/endepunkter/index' },
           items: ['kalendertjenester/endepunkter/hent-frister']
         },
-        'kalendertjenester/informasjonsmodeller',
+        'kalendertjenester/feltbeskrivelser',
         'kalendertjenester/skisser'
       ]
     },
