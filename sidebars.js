@@ -2,21 +2,21 @@
 const sidebars = {
   docs: [
     'index',
-    // {
-    //   type: 'category',
-    //   label: 'Kalendertjenester',
-    //   link: { type: 'doc', id: 'kalendertjenester/index' },
-    //   items: [
-    //     {
-    //       type: 'category',
-    //       label: 'Endepunkter',
-    //       link: { type: 'doc', id: 'kalendertjenester/endepunkter/index' },
-    //       items: ['kalendertjenester/endepunkter/hent-frister']
-    //     },
-    //     'kalendertjenester/informasjonsmodeller',
-    //     'kalendertjenester/skisser'
-    //   ]
-    // },
+    /* {
+      type: 'category',
+      label: 'Kalendertjenester',
+      link: { type: 'doc', id: 'kalendertjenester/index' },
+      items: [
+        {
+          type: 'category',
+          label: 'Endepunkter',
+          link: { type: 'doc', id: 'kalendertjenester/endepunkter/index' },
+          items: ['kalendertjenester/endepunkter/hent-frister']
+        },
+        'kalendertjenester/informasjonsmodeller',
+        'kalendertjenester/skisser'
+      ]
+    }, */
     {
       type: 'category',
       label: 'Krav og Betalinger',
