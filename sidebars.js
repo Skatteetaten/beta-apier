@@ -28,9 +28,31 @@ const sidebars = {
           href: 'https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger'
         },
         'kravogbetalinger/tilgang',
-        'kravogbetalinger/faq',
         'kravogbetalinger/feltbeskrivelser',
-        'kravogbetalinger/skisser'
+        'kravogbetalinger/skisser',
+        'kravogbetalinger/faq'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Utleggsbegjæring og prøving',
+      link: { type: 'doc', id: 'utleggsbegjaering/index' },
+      items: [
+        {
+          type: 'category',
+          label: 'Endepunkter',
+          link: { type: 'doc', id: 'utleggsbegjaering/endepunkter/index' },
+          items: []
+        },
+        {
+          type: 'category',
+          label: 'Feltbeskrivelser',
+          link: { type: 'doc', id: 'utleggsbegjaering/feltbeskrivelser/index' },
+          items: []
+        },
+        'utleggsbegjaering/tilgang',
+        'utleggsbegjaering/informasjonsmodeller',
+        'utleggsbegjaering/skisser'
       ]
     }
   ]
