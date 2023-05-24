@@ -28,9 +28,9 @@ const sidebars = {
           href: 'https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger'
         },
         'kravogbetalinger/tilgang',
+        'kravogbetalinger/faq',
         'kravogbetalinger/feltbeskrivelser',
-        'kravogbetalinger/skisser',
-        'kravogbetalinger/faq'
+        'kravogbetalinger/skisser'
       ]
     },
     {
