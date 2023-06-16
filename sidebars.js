@@ -19,7 +19,10 @@ const sidebars = {
       type: 'category',
       label: 'Innkrevingsoppdrag',
       link: { type: 'doc', id: 'innkrevingsoppdrag/index' },
-      items: ['innkrevingsoppdrag/feltbeskrivelser']
+      items: [
+        'innkrevingsoppdrag/teknisk-dokumentasjon',
+        'innkrevingsoppdrag/feltbeskrivelser',
+      ]
     }]
 };
 
