@@ -1,20 +1,6 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  docs: ['index', /* {
-      type: 'category',
-      label: 'Kalendertjenester',
-      link: { type: 'doc', id: 'kalendertjenester/index' },
-      items: [
-        {
-          type: 'category',
-          label: 'Endepunkter',
-          link: { type: 'doc', id: 'kalendertjenester/endepunkter/index' },
-          items: ['kalendertjenester/endepunkter/hent-frister']
-        },
-        'kalendertjenester/informasjonsmodeller',
-        'kalendertjenester/skisser'
-      ]
-    }, */
+  docs: ['index',
     {
       type: 'category',
       label: 'Krav og Betalinger',
@@ -33,7 +19,10 @@ const sidebars = {
       type: 'category',
       label: 'Innkrevingsoppdrag',
       link: { type: 'doc', id: 'innkrevingsoppdrag/index' },
-      items: ['innkrevingsoppdrag/feltbeskrivelser']
+      items: [
+        'innkrevingsoppdrag/teknisk-dokumentasjon',
+        'innkrevingsoppdrag/feltbeskrivelser',
+      ]
     }]
 };
 

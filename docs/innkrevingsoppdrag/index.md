@@ -1,6 +1,6 @@
 # Innkrevingsoppdrag
 
-## Om tjenesten
+## Om tjenestene
 
 Løsningen dekker første del av Skatteetatens modernisering av oppdragsinnkreving, etablering av eksterne tjenester hvor oppdragsgivere kan:
 
