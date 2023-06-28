@@ -12,6 +12,7 @@ const sidebars = {
       }, 'kravogbetalinger/tilgang',
         'kravogbetalinger/feltbeskrivelser',
         'kravogbetalinger/skisser',
+        'kravogbetalinger/referansedata',
         'kravogbetalinger/faq']
     },
 
