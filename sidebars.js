@@ -12,7 +12,8 @@ const sidebars = {
       }, 'kravogbetalinger/tilgang',
         'kravogbetalinger/feltbeskrivelser',
         'kravogbetalinger/skisser',
-        'kravogbetalinger/faq']
+        'kravogbetalinger/faq',
+        'kravogbetalinger/referansedata - eksterne kodelister'     ]
     },
 
     {
