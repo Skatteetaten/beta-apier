@@ -25,6 +25,7 @@ const sidebars = {
         'innkrevingsoppdrag/feltbeskrivelser',
       ]
     },
+
     {
       type: 'category',
       label: 'Utleggsbegjæring og prøving',
