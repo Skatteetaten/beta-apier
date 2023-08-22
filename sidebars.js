@@ -20,7 +20,11 @@ const sidebars = {
       type: 'category',
       label: 'Innkrevingsoppdrag',
       link: { type: 'doc', id: 'innkrevingsoppdrag/index' },
-      items: [
+      items: [{
+        type: 'link',
+        label: 'API-dokumentasjon',
+        href: 'https://app.swaggerhub.com/apis/JAKOBLADEKIRBYSTENVA/Innkreving_av_krav_for_offentlige_oppdragsgivere/local-SNAPSHOT'
+      },
         'innkrevingsoppdrag/teknisk-dokumentasjon',
         'innkrevingsoppdrag/beskrivelse-av-tjenester'
       ]
