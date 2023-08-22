@@ -1,9 +1,10 @@
 # Teknisk dokumentasjon
 
 ## Tilgang til tjenestene
-All bruk av tjenestene krever at oppdragsgiver er autentisert via maskinporten, og har scope:
-
+All bruk av tjenestene krever at oppdragsgiver er autentisert via Maskinporten, og har scope:
 _skatteetaten:innkrevingsopdrag_
+
+Konsumenter som skal ha tilgang dette scopet blir tilordnet dette av Skatteetaten.
 
 ## OpenAPI-spesifikasjon
 OpenAPI/Swagger-dokumentasjon er under utarbeidelse sammen med tjenestene. Men en foreløpig versjon kan sees her:

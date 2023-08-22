@@ -4,7 +4,7 @@
 
 Løsningen dekker første del av Skatteetatens modernisering av oppdragsinnkreving, etablering av eksterne tjenester hvor oppdragsgivere kan:
 
-- Avlevere innkrevingsoppdrag
+- Opprette innkrevingsoppdrag
 - Endre egne innkrevingsoppdrag 
 - Avskrive egne innkrevingsoppdrag 
 - Hente ut oversikt over egne innkrevingsoppdrag
