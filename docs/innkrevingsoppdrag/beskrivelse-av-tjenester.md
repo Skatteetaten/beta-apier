@@ -38,8 +38,8 @@ prosessert.
 
 Innkrevingsoppdrag kan endres ved et PUT-kall til endepunktet `/api/v1/innkrevingsoppdrag/endring`. Endrings-endepunktet
 brukes til å gjøre korreksjoner på et innkrevingsoppdrag. Hvis et nytt vedtak fattes hos oppdragsgiver, bør det
-opprinnelige innkrevingsoppdraget antageligvis [avskrives](#avskrive-et-innkrevingsoppdrag), før
-det [opprettes et nytt](#opprette-innkrevingsoppdrag).
+opprinnelige innkrevingsoppdraget antageligvis [avskrives](#avskriv-et-innkrevingsoppdrag), før
+det [opprettes et nytt](#opprett-et-innkrevingsoppdrag).
 
 Et vellykket kall returnerer en HTTP 200-statuskode. Et innkrevingsoppdrag kan ikke endres umiddelbart etter at det er
 opprettet. Etter den asynkrone valideringen beskrevet
