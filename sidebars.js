@@ -22,7 +22,7 @@ const sidebars = {
       link: { type: 'doc', id: 'innkrevingsoppdrag/index' },
       items: [
         'innkrevingsoppdrag/teknisk-dokumentasjon',
-        'innkrevingsoppdrag/feltbeskrivelser',
+        'innkrevingsoppdrag/beskrivelse-av-tjenester'
       ]
     },
 
