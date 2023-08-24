@@ -1,13 +1,14 @@
 # Teknisk dokumentasjon
 
 ## Tilgang til tjenestene
-All bruk av tjenestene krever at oppdragsgiver er autentisert via maskinporten, og har scope:
-
+All bruk av tjenestene krever at oppdragsgiver er autentisert via Maskinporten, og har scope:
 _skatteetaten:innkrevingsopdrag_
+
+Konsumenter som skal ha tilgang dette scopet blir tilordnet dette av Skatteetaten.
 
 ## OpenAPI-spesifikasjon
 OpenAPI/Swagger-dokumentasjon er under utarbeidelse sammen med tjenestene. Men en foreløpig versjon kan sees her:
-https://app.swaggerhub.com/apis/JAKOBLADEKIRBYSTENVA/Innkreving_av_krav_for_offentlige_oppdragsgivere/local-SNAPSHOT
+https://app.swaggerhub.com/apis/JAKOBLADEKIRBYSTENVA/Innkreving_av_krav_for_offentlige_oppdragsgivere/
 
 ## Testmiljø
 Tjenestene ligger i Skatteetatens testmiljø for ekstern testing: https://api-test.sits.no/
