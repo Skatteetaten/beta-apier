@@ -8,7 +8,7 @@ Konsumenter som skal ha tilgang dette scopet blir tilordnet dette av Skatteetate
 
 ## OpenAPI-spesifikasjon
 OpenAPI/Swagger-dokumentasjon er under utarbeidelse sammen med tjenestene. Men en foreløpig versjon kan sees her:
-https://app.swaggerhub.com/apis/JAKOBLADEKIRBYSTENVA/Innkreving_av_krav_for_offentlige_oppdragsgivere/local-SNAPSHOT
+https://app.swaggerhub.com/apis/JAKOBLADEKIRBYSTENVA/Innkreving_av_krav_for_offentlige_oppdragsgivere/
 
 ## Testmiljø
 Tjenestene ligger i Skatteetatens testmiljø for ekstern testing: https://api-test.sits.no/
