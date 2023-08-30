@@ -4,36 +4,4 @@ Tjenesten for **krav og betalinger** vil også bli tilgjengelig for brukerne på
 
 Løsningene er under brukertesting og det kan fremkomme endringer, og vil vil også gjerne ha dialog med leverandørene og dele vår innsikt og våre erfaringer fra brukertester for at vi sammen kan lage best mulig tjeneste for brukerne.
 
-## Min side næring
-
-### Ubetalte krav
-
-![Ubetalte krav](bilder/skisser/ubetalte-krav.jpg)
-
-### Ubetalte krav - detaljer
-
-![Ubetalte krav MVA](bilder/skisser/ubetalte-krav-detaljer-mva.jpg)
-
-### Ubetalte krav - detaljer forskuddsskatt
-
-![Ubetalte krav forskudsskatt](bilder/skisser/detaljer-forskuddsskatt.jpg)
-
-### Betalte krav
-
-![Betalte krav](bilder/skisser/betalte-krav.jpg)
-
-### Betalte krav - detaljer
-
-![Betalte krav MVA](bilder/skisser/betalte-krav-detaljer-mva.jpg)
-
-### Innbetalinger
-
-![Innbetalinger](bilder/skisser/innbetalinger.jpg)
-
-### Innbetalinger - detaljer
-
-![Innbetalinger detaljer](bilder/skisser/innbetalinger-detaljer.jpg)
-
-### Betalingsinfo
-
-![Betalingsinfo](bilder/skisser/betalingsinfo.png)
+Skisser på ny versjon kommer.
