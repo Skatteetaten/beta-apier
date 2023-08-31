@@ -4,4 +4,28 @@ Tjenesten for **krav og betalinger** vil også bli tilgjengelig for brukerne på
 
 Løsningene er under brukertesting og det kan fremkomme endringer, og vil vil også gjerne ha dialog med leverandørene og dele vår innsikt og våre erfaringer fra brukertester for at vi sammen kan lage best mulig tjeneste for brukerne.
 
-Skisser på ny versjon kommer.
+## Skisser
+
+### Ubetalte krav
+
+![Ubetalte krav](bilder/skisser/ubetalte-krav.png)
+
+### Betalte krav
+
+![Betalte krav](bilder/skisser/betalte-krav.png)
+
+### Innbetalinger
+
+![Innbetalinger](bilder/skisser/innbetalinger.png)
+
+### Utbetalinger
+
+![Utbetalinger](bilder/skisser/utbetalinger.png)
+
+### Tilgodebeløp
+
+![Tilgodebeløp](bilder/skisser/tilgodebeløp.png)
+
+### Betalingsinfo
+
+![Betalingsinfo](bilder/skisser/betalingsinfo.png)
