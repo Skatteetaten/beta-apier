@@ -11,6 +11,8 @@ med en *kravidentifikator*, som er Skatteetatens referanse til innkrevingsoppdra
 
 Denne kravidentifikatoren bør oppdragsgiver ta vare på for sporbarhet.
 
+Se deretter [mottaksbekreftelse](./mottaksbekreftelse)
+
 ### Validering
 
 Tjenesten gjør validering av `OpprettInnkrevingsoppdragRequest`-objektet som er

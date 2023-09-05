@@ -26,7 +26,8 @@ const sidebars = {
         href: 'https://app.swaggerhub.com/apis/JAKOBLADEKIRBYSTENVA/Innkreving_av_krav_for_offentlige_oppdragsgivere/'
       },
         'innkrevingsoppdrag/teknisk-dokumentasjon',
-        'innkrevingsoppdrag/beskrivelse-av-tjenester'
+        'innkrevingsoppdrag/beskrivelse-av-tjenester',
+        'innkrevingsoppdrag/mottaksbekreftelse'
       ]
     },
 
