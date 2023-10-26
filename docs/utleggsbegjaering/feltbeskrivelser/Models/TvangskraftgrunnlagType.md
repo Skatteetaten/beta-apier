@@ -2,15 +2,13 @@
 
 ## enum
 
-| Navn                 | Type   | Beskrivelse | Notater |
-|----------------------|--------|-------------|---------|
-| varselTvfbl418       | String |             |         |
-| varselTvfbl419       | String |             |         |
-| varselTvfbl419       | String |             |         |
-| oppfyllelsesfrist    | String |             |         |
-| varselTvfbl419       | String |             |         |
-| erklærtTvangskraftig | String |             |         |
-| vedtattForelegg      | String |             |         |
+| Navn                 | Type | Beskrivelse | Notater |
+|----------------------|------|-------------|---------|
+| varselTvfbl418       |      |             |         |
+| varselTvfbl419       |      |             |         |
+| oppfyllelsesfrist    |      |             |         |
+| erklærtTvangskraftig |      |             |         |
+| vedtattForelegg      |      |             |         |
 
 [[Tilbake til modell liste]](../index.md)
 
