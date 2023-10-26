@@ -23,7 +23,7 @@ const sidebars = {
       items: [{
         type: 'link',
         label: 'API-dokumentasjon',
-        href: 'https://app.swaggerhub.com/apis/JAKOBLADEKIRBYSTENVA/Innkreving_av_krav_for_offentlige_oppdragsgivere/'
+        href: 'https://app.swaggerhub.com/apis-docs/Skatteetaten_Deling/Innkreving_av_krav_for_offentlige_oppdragsgivere/'
       },
         'innkrevingsoppdrag/teknisk-dokumentasjon',
         'innkrevingsoppdrag/beskrivelse-av-tjenester',
