@@ -3,11 +3,11 @@
   "info": {
     "title": "Utleggsbegjaering app",
     "description": "Utleggsbegjaering app",
-    "version": "0.1"
+    "version": "1.0.0-SNAPSHOT"
   },
   "externalDocs": {
     "description": "Wiki dokumentasjon",
-    "url": "https://wiki.sits.no/display/ISF/"
+    "url": "https://wiki.sits.no/display/FIUT"
   },
   "servers": [
     {
@@ -20,26 +20,37 @@
       "STS_SECURITY_SCHEME": []
     }
   ],
+  "tags": [
+    {
+      "name": "Mottak",
+      "description": "Mottak Utleggsbegjæring API"
+    },
+    {
+      "name": "Oppslag",
+      "description": "Saksoppslag Utleggsbegjæring API"
+    },
+    {
+      "name": "Prøving",
+      "description": "Prøving Utleggsbegjæring API"
+    }
+  ],
   "paths": {
-    "/api/v0/utleggsbegjaering": {
+    "/external/v0/utleggsbegjaering": {
       "post": {
         "tags": [
-          "mottak-controller-v-0"
+          "Mottak"
         ],
         "summary": "Oppretter utleggsbegjæring",
         "description": "Validerer og oppretter ny utleggsbegjæring i databasen. Returnerer identifikator til utleggsbegjæringen",
         "operationId": "sendInn",
         "parameters": [
           {
-            "in": "header",
             "$ref": "#/components/parameters/Klientid"
           },
           {
-            "in": "header",
             "$ref": "#/components/parameters/Korrelasjonsid"
           },
           {
-            "in": "header",
             "$ref": "#/components/parameters/Meldingsid"
           }
         ],
@@ -47,39 +58,98 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Utleggsbegjaering"
+                "$ref": "#/components/schemas/Utleggsbegjaering"
+              },
+              "examples": {
+                "jsonObject": {
+                    "summary": "Utleggsbegjæring eksempel",
+                  "externalValue": "jsonSchemas/examples/utleggsbegjaering.json"
+                }
               }
             }
           },
           "required": true
         },
         "responses": {
-          "400": {
-            "description": "Tjeneren aksepterer ikke innholdet i henvendelsen",
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.exception.ErrorInfo"
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
                 }
               }
             }
           },
-          "409": {
-            "description": "Conflict",
+          "400": {
+            "description": "Tjeneren aksepterer ikke innholdet i henvendelsen",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.exception.ErrorInfo"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ExtendedProblemDetail"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
                 }
               }
             }
           },
-          "500": {
-            "description": "Internal Server Error",
+          "401": {
+            "description": "Klienten er ikke autentisert",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.exception.ErrorInfo"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ExtendedProblemDetail"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Klienten er ikke autorisert",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ExtendedProblemDetail"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
                 }
               }
             }
@@ -89,35 +159,33 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.exception.ErrorInfo"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ExtendedProblemDetail"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
                 }
               }
             }
           },
-          "401": {
-            "description": "Klienten er ikke autentisert",
+          "406": {
+            "description": "Tjeneren aksepterer ikke medietypen som er oppgitt i henvendelsen",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.exception.ErrorInfo"
+                  "type": "integer",
+                  "format": "int64"
                 }
-              }
-            }
-          },
-          "403": {
-            "description": "Klienten er ikke autorisert",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.exception.ErrorInfo"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
+              },
+              "*/*": {
                 "schema": {
                   "type": "integer",
                   "format": "int64"
@@ -125,14 +193,99 @@
               }
             }
           },
-          "406": {
-            "description": "Tjeneren aksepterer ikke medietypen som er oppgitt i henvendelsen"
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    }
+                  ]
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    }
+                  ]
+                }
+              }
+            }
           },
           "422": {
-            "description": "Innholdet er ikke godkjent eller kan ikke valideres"
+            "description": "Innholdet er ikke godkjent eller kan ikke valideres",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    }
+                  ]
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ExtendedProblemDetail"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                }
+              }
+            }
           },
           "503": {
-            "description": "Tjenesten er midlertidig utilgjengelig"
+            "description": "Tjenesten er midlertidig utilgjengelig",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -141,618 +294,859 @@
           }
         ]
       }
+    },
+    "/api/v0/utleggsbegjaering/valider": {
+      "post": {
+        "tags": [
+          "Mottak"
+        ],
+        "summary": "Validerer utleggsbegjæring",
+        "description": "Validerer ny utleggsbegjæring, uten å lagre noe.",
+        "operationId": "valider",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Klientid"
+          },
+          {
+            "$ref": "#/components/parameters/Korrelasjonsid"
+          },
+          {
+            "$ref": "#/components/parameters/Meldingsid"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Utleggsbegjaering"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailMedKontrollutslag"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "no.skatteetaten.innkreving.utlegg.exception.ErrorInfo": {
+      "ExtendedProblemDetail": {
         "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "path": {
-            "type": "string"
-          },
-          "klientid": {
-            "type": "string"
-          },
-          "error": {
-            "type": "string"
-          },
-          "message": {
-            "type": "string"
-          },
-          "details": {
-            "type": "string"
-          },
-          "timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Adresse": {
-        "type": "object",
-        "properties": {
-          "adresselinje1": {
-            "type": "string"
-          },
-          "adresselinje2": {
-            "type": "string"
-          },
-          "adresseInnland": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseInnland"
-          },
-          "adresseUtland": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseUtland"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseFrittFormat": {
-        "type": "object",
-        "properties": {
-          "adressetekst": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "poststedsnavn": {
-            "type": "string"
-          },
-          "kommunenummer": {
-            "type": "string"
-          },
-          "postnummer": {
-            "type": "string"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseInnland": {
-        "required": [
-          "postnummer"
-        ],
-        "type": "object",
-        "properties": {
-          "postnummer": {
-            "type": "string"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseUtland": {
-        "required": [
-          "landkode",
-          "poststedUtland"
-        ],
-        "type": "object",
-        "properties": {
-          "poststedUtland": {
-            "type": "string"
-          },
-          "landkode": {
-            "type": "string"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AlminneligTvangsgrunnlag": {
-        "required": [
-          "betegnelseAvTvangsgrunnlag",
+          "status",
           "type"
         ],
         "type": "object",
         "properties": {
-          "betegnelseAvTvangsgrunnlag": {
+          "type": {
             "type": "string"
           },
-          "type": {
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "feilid": {
+            "type": "string"
+          },
+          "feilkode": {
+            "type": "string"
+          }
+        }
+      },
+      "OpprettOppgaveRequest": {
+        "required": [
+          "identifikator",
+          "requestParameters"
+        ],
+        "type": "object",
+        "properties": {
+          "identifikator": {
+            "type": "string"
+          },
+          "requestParameters": {
+            "$ref": "#/components/schemas/OpprettOppgaveRequestParameters"
+          }
+        }
+      },
+      "OpprettOppgaveRequestParameters": {
+        "required": [
+          "aktivitetsid",
+          "ansvarligEnhet",
+          "arbeidsoppgavetype",
+          "partsnummer",
+          "sakstype",
+          "saldo"
+        ],
+        "type": "object",
+        "properties": {
+          "aktivitetsid": {
+            "type": "string"
+          },
+          "sakstype": {
             "type": "string",
             "enum": [
-              "domEllerKjennelse",
-              "avgjørelseSomHarVirkningSomDom",
-              "forelegg",
-              "voldgiftsdom",
-              "avgjørelseAvUtenlandskDomstolKonvensjon",
-              "avgjøresleAvUtenlandskDomstol",
-              "avgjørelseAvInternasjonalDomstol"
+              "UTLEGG",
+              "KRAV_OG_BETALING"
             ]
           },
-          "tvangsgrunnlagstype": {
-            "type": "string"
-          },
-          "eksterntSaksnummer": {
-            "type": "string"
-          },
-          "tvangsgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
-          },
-          "dato": {
+          "arbeidsoppgavetype": {
             "type": "string",
-            "format": "date"
+            "enum": [
+              "VURDER_UTLEGG",
+              "PROEVING_AV_BEGJAERING"
+            ]
           },
-          "tvangskraftgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangskraftgrunnlag"
-          },
-          "referanseDom": {
+          "partsnummer": {
             "type": "string"
           },
-          "domsslutningInformasjon": {
+          "ansvarligEnhet": {
+            "type": "string"
+          },
+          "opprettetDato": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fristDato": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ansvarligSaksbehandler": {
+            "type": "string"
+          },
+          "saldo": {
+            "$ref": "#/components/schemas/Saldo"
+          }
+        }
+      },
+      "Saldo": {
+        "required": [
+          "originalSaldo",
+          "valutakode"
+        ],
+        "type": "object",
+        "properties": {
+          "originalSaldo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "valutakode": {
+            "type": "string"
+          }
+        }
+      },
+      "KontrollutslagIfbValidering": {
+        "required": [
+          "beskrivelse",
+          "kode",
+          "melding"
+        ],
+        "type": "object",
+        "properties": {
+          "kode": {
+            "type": "string"
+          },
+          "melding": {
+            "type": "string"
+          },
+          "beskrivelse": {
+            "type": "string"
+          }
+        }
+      },
+      "ProblemDetailMedKontrollutslag": {
+        "required": [
+          "kontrollutslag",
+          "status",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "feilid": {
+            "type": "string"
+          },
+          "feilkode": {
+            "type": "string"
+          },
+          "kontrollutslag": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.DomsslutningInformasjon"
+              "$ref": "#/components/schemas/KontrollutslagIfbValidering"
             }
           }
         }
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta": {
+      "Valideringsfeil": {
+        "required": [
+          "beskrivelse",
+          "kode",
+          "melding"
+        ],
         "type": "object",
         "properties": {
-          "beloep": {
-            "type": "number",
-            "format": "double"
+          "kode": {
+            "type": "string"
           },
-          "valuta": {
+          "melding": {
+            "type": "string"
+          },
+          "beskrivelse": {
             "type": "string"
           }
         }
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Betalingsoppfordring": {
+      "Valideringsfeilliste": {
         "required": [
-          "dato"
+          "valideringsfeil"
         ],
         "type": "object",
         "properties": {
-          "dato": {
+          "valideringsfeil": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Valideringsfeil"
+            }
+          }
+        }
+      },
+      "Adresse": {
+        "type": "object",
+        "properties": {
+          "adresselinje1": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "adresselinje2": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "adresseInnland": {
+            "$ref": "#/components/schemas/AdresseInnland"
+          },
+          "adresseUtland": {
+            "$ref": "#/components/schemas/AdresseUtland"
+          },
+          "ukjentBosted": {
+            "$ref": "#/components/schemas/UkjentBosted"
+          }
+        }
+      },
+      "AdresseFrittFormat": {
+        "type": "object",
+        "description": "(<a href='https://data.skatteetaten.no/begreper/20b2e10d-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "properties": {
+          "adressetekst": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tekst"
+            }
+          },
+          "poststedsnavn": {
+            "description": "(<a href='https://data.skatteetaten.no/begreper/20b2e123-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
             "type": "string",
-            "format": "date"
+            "maxLength": 4000
+          },
+          "kommunenummer": {
+            "$ref": "#/components/schemas/Kommunenummer"
+          },
+          "postnummer": {
+            "$ref": "#/components/schemas/Postnummer"
+          }
+        }
+      },
+      "AdresseInnland": {
+        "type": "object",
+        "properties": {
+          "adresseFrittFormatInnland": {
+            "$ref": "#/components/schemas/AdresseFrittFormatInnland"
+          }
+        },
+        "required": [
+          "adresseFrittFormatInnland"
+        ]
+      },
+      "AdresseUtland": {
+        "type": "object",
+        "properties": {
+          "adresseFrittFormatUtland": {
+            "$ref": "#/components/schemas/AdresseFrittFormatUtland"
+          }
+        },
+        "required": [
+          "adresseFrittFormatUtland"
+        ]
+      },
+      "Aktoer": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "aktørType"
+        },
+        "properties": {
+          "virksomhet": {
+            "$ref": "#/components/schemas/Virksomhet"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "adresse": {
+            "$ref": "#/components/schemas/Adresse"
+          },
+          "sammenslutning": {
+            "$ref": "#/components/schemas/Sammenslutning"
+          },
+          "aktørType": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "aktørType",
+          "adresse"
+        ]
+      },
+      "AlminneligTvangsgrunnlag": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Tvangsgrunnlag"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "referanseDom": {
+                "$ref": "#/components/schemas/Tekst"
+              },
+              "type": {
+                "$ref": "#/components/schemas/AlminneligTvangsgrunnlagType"
+              },
+              "domsslutningInformasjon": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DomsslutningInformasjon"
+                }
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        ]
+      },
+      "AvtaltRente": {
+        "type": "object",
+        "properties": {
+          "rentesats": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "BegjaeringensTvangsgrunnlag": {
+        "type": "object",
+        "properties": {
+          "gjeldsbrev": {
+            "$ref": "#/components/schemas/Gjeldsbrev"
+          },
+          "skriftligMeddelelse": {
+            "$ref": "#/components/schemas/SkriftligMeddelelse"
+          },
+          "tvangsmulktEllerLovbestemmelse": {
+            "$ref": "#/components/schemas/TvangsmulktEllerLovbestemmelse"
+          },
+          "elektroniskGjeldserklaering": {
+            "$ref": "#/components/schemas/ElektroniskGjeldserklaering"
+          },
+          "alminneligTvangsgrunnlag": {
+            "$ref": "#/components/schemas/AlminneligTvangsgrunnlag"
+          },
+          "referertKrav": {
+            "$ref": "#/components/schemas/Krav"
+          }
+        },
+        "required": [
+          "referertKrav"
+        ]
+      },
+      "Betalingsoppfordring": {
+        "type": "object",
+        "properties": {
+          "dato": {
+            "$ref": "#/components/schemas/Dato"
           },
           "betalingsoppfordring": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
+            "$ref": "#/components/schemas/Vedlegg"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.DomsslutningInformasjon": {
+        },
         "required": [
-          "oppfyllelsesfrist"
-        ],
+          "dato"
+        ]
+      },
+      "Bevillingshaver": {
         "type": "object",
         "properties": {
-          "oppfyllelsesfrist": {
-            "type": "string",
-            "format": "date"
+          "navn": {
+            "$ref": "#/components/schemas/Tekst"
           },
+          "inkassobevillingshaverNummer": {
+            "$ref": "#/components/schemas/Tekst"
+          }
+        },
+        "required": [
+          "navn"
+        ]
+      },
+      "DomsslutningInformasjon": {
+        "type": "object",
+        "properties": {
           "forpliktet": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
+            "$ref": "#/components/schemas/Identifikator"
           },
           "berettiget": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
+            "$ref": "#/components/schemas/Identifikator"
           },
           "beloepSlutningGenrell": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
+            "$ref": "#/components/schemas/BeloepValuta"
           },
           "beloepSlutningSaksomkostninger": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
+            "$ref": "#/components/schemas/BeloepValuta"
           },
           "rentefot": {
-            "type": "number",
-            "format": "double"
+            "$ref": "#/components/schemas/Desimaltall"
           },
-          "rentestol": {
-            "type": "number",
-            "format": "double"
+          "oppfyllelsesfrist": {
+            "$ref": "#/components/schemas/Dato"
           },
           "forkynnelsesdato": {
-            "type": "string",
-            "format": "date"
+            "$ref": "#/components/schemas/Dato"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.ElektroniskGjeldserklaering": {
+        },
         "required": [
-          "betegnelseAvTvangsgrunnlag",
-          "inndrivelsesklausul",
-          "paalydendeBeloep",
-          "skyldererklaering",
-          "skyldner"
-        ],
-        "type": "object",
-        "properties": {
-          "betegnelseAvTvangsgrunnlag": {
-            "type": "string"
-          },
-          "paalydendeBeloep": {
-            "type": "number",
-            "format": "double"
-          },
-          "skyldner": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "skyldererklaering": {
-            "type": "boolean"
-          },
-          "inndrivelsesklausul": {
-            "type": "boolean"
-          },
-          "tvangsgrunnlagstype": {
-            "type": "string"
-          },
-          "eksterntSaksnummer": {
-            "type": "string"
-          },
-          "tvangsgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
-          },
-          "dato": {
-            "type": "string",
-            "format": "date"
-          },
-          "tvangskraftgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangskraftgrunnlag"
-          },
-          "saerligtvangsgrunnlagtype": {
-            "type": "string"
-          },
-          "referanseSak": {
-            "type": "string"
-          },
-          "rentestol": {
-            "type": "number",
-            "format": "double"
-          },
-          "rentefot": {
-            "type": "number",
-            "format": "double"
-          },
-          "kreditor": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          }
-        }
+          "oppfyllelsesfrist"
+        ]
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Forsinkelsesrente": {
+      "ElektroniskGjeldserklaering": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SaerligTvangsgrunnlag"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "skyldererklaering": {
+                "description": "Erklæring om å skylde en gitt sum penger",
+                "type": "boolean"
+              },
+              "inndrivelsesklausul": {
+                "description": "Vedtakelse av at gjelden kan drives inn uten søksmål.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "skyldererklaering",
+              "inndrivelsesklausul"
+            ]
+          }
+        ]
+      },
+      "Forsinkelsesrente": {
         "type": "object",
         "properties": {
           "forsinkelsesrente": {
-            "type": "boolean"
+            "$ref": "#/components/schemas/Boolsk"
           }
         }
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Fullmakt": {
-        "required": [
-          "fraDato",
-          "fullmakt"
-        ],
+      "Fullmakt": {
         "type": "object",
         "properties": {
           "fraDato": {
-            "type": "string",
-            "format": "date"
-          },
-          "fullmakt": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
+            "$ref": "#/components/schemas/Dato"
           },
           "tilDato": {
-            "type": "string",
-            "format": "date"
+            "$ref": "#/components/schemas/Dato"
+          },
+          "fullmakt": {
+            "$ref": "#/components/schemas/Vedlegg"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Gjeldsbrev": {
+        },
         "required": [
-          "betegnelseAvTvangsgrunnlag",
-          "inndrivelsesklausul",
-          "paalydendeBeloep",
-          "skylderklaering",
-          "skyldner"
-        ],
-        "type": "object",
-        "properties": {
-          "betegnelseAvTvangsgrunnlag": {
-            "type": "string"
+          "fraDato",
+          "fullmakt"
+        ]
+      },
+      "Gjeldsbrev": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SaerligTvangsgrunnlag"
           },
-          "paalydendeBeloep": {
-            "type": "number",
-            "format": "double"
+          {
+            "type": "object",
+            "properties": {
+              "skylderklaering": {
+                "description": "Erklæring om å skylde en gitt sum penger",
+                "type": "boolean"
+              },
+              "inndrivelsesklausul": {
+                "description": "Vedtakelse av at gjelden kan drives inn uten søksmål.",
+                "type": "boolean"
+              },
+              "vitne": {
+                "type": "array",
+                "description": "For en del gjeldsbrev er det krav om vitnepåtegninger for at de skal være gyldige. I så fall er kravet to myndige vitner.",
+                "items": {
+                  "$ref": "#/components/schemas/Identifikator"
+                }
+              }
+            },
+            "required": [
+              "skylderklaering",
+              "inndrivelsesklausul"
+            ]
+          }
+        ]
+      },
+      "Hovedkrav": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Krav"
           },
-          "skyldner": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "skylderklaering": {
-            "type": "boolean"
-          },
-          "inndrivelsesklausul": {
-            "type": "boolean"
-          },
-          "tvangsgrunnlagstype": {
-            "type": "string"
-          },
-          "eksterntSaksnummer": {
-            "type": "string"
-          },
-          "tvangsgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
-          },
-          "dato": {
-            "type": "string",
-            "format": "date"
-          },
-          "tvangskraftgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangskraftgrunnlag"
-          },
-          "saerligtvangsgrunnlagtype": {
-            "type": "string"
-          },
-          "referanseSak": {
-            "type": "string"
-          },
-          "rentestol": {
-            "type": "number",
-            "format": "double"
-          },
-          "rentefot": {
-            "type": "number",
-            "format": "double"
-          },
-          "kreditor": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "vitne": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
+          {
+            "type": "object",
+            "properties": {
+              "tilleggskrav": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Tilleggskrav"
+                }
+              },
+              "rentekrav": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Rentekrav"
+                }
+              }
             }
           }
-        }
+        ]
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Hovedkrav": {
-        "required": [
-          "gjenstaaendeBeloep",
-          "kravforfall",
-          "opprettelsesdatoForKrav",
-          "opprinneligBeloep"
-        ],
+      "Innbetaling": {
         "type": "object",
         "properties": {
-          "kravforfall": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Kravforfall"
+          "dato": {
+            "$ref": "#/components/schemas/Dato"
           },
-          "opprettelsesdatoForKrav": {
-            "type": "string",
-            "format": "date"
+          "beloep": {
+            "$ref": "#/components/schemas/BeloepValuta"
+          }
+        },
+        "required": [
+          "dato",
+          "beloep"
+        ]
+      },
+      "Innsender": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Aktoer"
           },
-          "opprinneligBeloep": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
-          },
-          "gjenstaaendeBeloep": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
-          },
-          "kravtype": {
-            "type": "string"
-          },
+          {
+            "type": "object",
+            "properties": {
+              "prosessfullmektig": {
+                "$ref": "#/components/schemas/Prosessfullmektig"
+              }
+            }
+          }
+        ]
+      },
+      "Krav": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kravType"
+        },
+        "properties": {
           "transporterklaering": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Transporterklaering"
+              "$ref": "#/components/schemas/Transporterklaering"
             }
+          },
+          "kravforfall": {
+            "$ref": "#/components/schemas/Kravforfall"
           },
           "innbetaling": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Innbetaling"
+              "$ref": "#/components/schemas/Innbetaling"
             }
           },
           "tvangsgrunnlag": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AlminneligTvangsgrunnlag"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.ElektroniskGjeldserklaering"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Gjeldsbrev"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.SaerligTvangsgrunnlag"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.SkriftligMeddelelse"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.TvangsmulktEllerLovbestemmelse"
-              }
-            ]
+            "$ref": "#/components/schemas/Tvangsgrunnlag"
           },
           "kravreferanse": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
           },
           "kravbeskrivelse": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
           },
           "tilleggsfristForeldelse": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.TilleggsfristForeldelse"
+              "$ref": "#/components/schemas/TilleggsfristForeldelse"
             }
+          },
+          "opprettelsesdatoForKrav": {
+            "$ref": "#/components/schemas/Dato"
+          },
+          "opprinneligBeloep": {
+            "$ref": "#/components/schemas/BeloepValuta"
+          },
+          "gjenstaaendeBeloep": {
+            "$ref": "#/components/schemas/BeloepValuta"
           },
           "betalingsoppforing": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Betalingsoppfordring"
+              "$ref": "#/components/schemas/Betalingsoppfordring"
             }
           },
           "mottakersKontonummer": {
-            "type": "string"
+            "$ref": "#/components/schemas/Kontonummer"
           },
           "sisteFristavbrytendeTiltak": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
           },
           "domsslutningInformasjon": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.DomsslutningInformasjon"
+            "$ref": "#/components/schemas/DomsslutningInformasjon"
           },
-          "forsinkelsesrente": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Forsinkelsesrente"
+          "prioritet": {
+            "type": "integer",
+            "format": "int64"
           },
-          "rentefot": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Rentefot"
+          "kravdetaljer": {
+            "$ref": "#/components/schemas/Kravdetaljer"
           },
-          "rettsgebyr": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Rettsgebyr"
-          },
-          "tilleggskrav": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tilleggskrav"
-            }
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator": {
-        "required": [
-          "identifikatortype",
-          "landkode",
-          "verdi"
-        ],
-        "type": "object",
-        "properties": {
-          "identifikatortype": {
-            "type": "string"
-          },
-          "verdi": {
-            "type": "string"
-          },
-          "landkode": {
+          "kravType": {
             "type": "string"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Innbetaling": {
+        },
         "required": [
-          "beloep",
-          "dato"
-        ],
-        "type": "object",
-        "properties": {
-          "dato": {
-            "type": "string",
-            "format": "date"
-          },
-          "beloep": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
-          }
-        }
+          "kravType",
+          "kravforfall",
+          "opprettelsesdatoForKrav",
+          "opprinneligBeloep",
+          "gjenstaaendeBeloep"
+        ]
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Kravforfall": {
-        "required": [
-          "betalingsfrist"
-        ],
+      "Kravforfall": {
         "type": "object",
         "properties": {
           "betalingsfrist": {
-            "type": "string",
-            "format": "date"
+            "$ref": "#/components/schemas/Dato"
           },
           "kidnummer": {
-            "type": "string"
+            "$ref": "#/components/schemas/Kundeidentifikator"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Namsmannsdistrikt": {
+        },
         "required": [
-          "begrunnelse",
-          "namsmannsDistrikt"
-        ],
+          "betalingsfrist"
+        ]
+      },
+      "Namsmannsdistrikt": {
         "type": "object",
         "properties": {
-          "namsmannsDistrikt": {
-            "type": "string"
+          "namsmannsdistrikt": {
+            "$ref": "#/components/schemas/Tekst"
           },
           "begrunnelse": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Person": {
+        },
         "required": [
-          "etternavn"
-        ],
+          "namsmannsdistrikt",
+          "begrunnelse"
+        ]
+      },
+      "Person": {
         "type": "object",
         "properties": {
-          "etternavn": {
-            "type": "string"
-          },
           "foedselsdato": {
-            "type": "string",
-            "format": "date"
+            "$ref": "#/components/schemas/Dato"
           },
           "fornavn": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
           },
           "mellomnavn": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "etternavn": {
+            "$ref": "#/components/schemas/Tekst"
           },
           "identifikator": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
+            "$ref": "#/components/schemas/Identifikator"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Prosessfullmektig": {
+        },
         "required": [
-          "adresse",
-          "adresseNorsk"
-        ],
-        "type": "object",
-        "properties": {
-          "adresseNorsk": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseFrittFormat"
-          },
-          "adresse": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Adresse"
-          },
-          "aktoertype": {
-            "type": "string"
-          },
-          "virksomhet": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Virksomhet"
-          },
-          "person": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Person"
-          },
-          "fullmakt": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Fullmakt"
-          }
-        }
+          "etternavn"
+        ]
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Rentefot": {
-        "type": "object",
-        "properties": {
-          "rentefot": {
-            "type": "number",
-            "format": "double"
+      "Prosessfullmektig": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Aktoer"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "fullmakt": {
+                "$ref": "#/components/schemas/Fullmakt"
+              },
+              "erBevillingshaver": {
+                "$ref": "#/components/schemas/Bevillingshaver"
+              }
+            }
           }
-        }
+        ]
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Rettsgebyr": {
-        "type": "object",
-        "properties": {
-          "rettsgebyr": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
+      "Rentekrav": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Krav"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "forsinkelsesrente": {
+                "$ref": "#/components/schemas/Forsinkelsesrente"
+              },
+              "rentefot": {
+                "$ref": "#/components/schemas/AvtaltRente"
+              }
+            },
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "required": [
+                      "forsinkelsesrente"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "rentefot"
+                    ]
+                  }
+                ]
+              }
+            ]
           }
-        }
+        ]
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.SaerligTvangsgrunnlag": {
-        "required": [
-          "betegnelseAvTvangsgrunnlag",
-          "paalydendeBeloep",
-          "skyldner"
-        ],
-        "type": "object",
+      "Rettsgebyr": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Krav"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "rettsgebyr": {
+                "$ref": "#/components/schemas/BeloepValuta"
+              }
+            }
+          }
+        ]
+      },
+      "SaerligTvangsgrunnlag": {
         "discriminator": {
           "propertyName": "saerligtvangsgrunnlagtype"
         },
         "allOf": [
           {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangsgrunnlag"
+            "$ref": "#/components/schemas/Tvangsgrunnlag"
           },
           {
             "type": "object",
@@ -760,541 +1154,609 @@
               "saerligtvangsgrunnlagtype": {
                 "type": "string"
               },
+              "referanseSak": {
+                "$ref": "#/components/schemas/Tekst"
+              },
               "paalydendeBeloep": {
+                "description": "Beløpet skyldner erkjenner å skylde",
                 "type": "number",
                 "format": "double"
-              },
-              "skyldner": {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-              },
-              "referanseSak": {
-                "type": "string"
               },
               "rentestol": {
-                "type": "number",
-                "format": "double"
+                "$ref": "#/components/schemas/Desimaltall"
               },
               "rentefot": {
-                "type": "number",
-                "format": "double"
+                "$ref": "#/components/schemas/Desimaltall"
               },
               "kreditor": {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
+                "$ref": "#/components/schemas/Identifikator"
+              },
+              "skyldner": {
+                "$ref": "#/components/schemas/Identifikator"
+              }
+            },
+            "required": [
+              "paalydendeBeloep",
+              "skyldner"
+            ]
+          }
+        ]
+      },
+      "Saksoeker": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Aktoer"
+          }
+        ]
+      },
+      "Saksoekt": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Aktoer"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "prosessfullmektig": {
+                "$ref": "#/components/schemas/Prosessfullmektig"
               }
             }
           }
         ]
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Saksoeker": {
-        "required": [
-          "adresse",
-          "adresseNorsk"
-        ],
+      "Sammenslutning": {
         "type": "object",
         "properties": {
-          "adresseNorsk": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseFrittFormat"
+          "navn": {
+            "$ref": "#/components/schemas/Tekst"
           },
-          "adresse": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Adresse"
-          },
-          "aktoertype": {
-            "type": "string"
-          },
-          "virksomhet": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Virksomhet"
-          },
-          "person": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Person"
-          },
-          "prosessfullmektig": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Prosessfullmektig"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Saksoekt": {
-        "required": [
-          "adresse",
-          "adresseNorsk"
-        ],
-        "type": "object",
-        "properties": {
-          "adresseNorsk": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseFrittFormat"
-          },
-          "adresse": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Adresse"
-          },
-          "aktoertype": {
-            "type": "string"
-          },
-          "virksomhet": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Virksomhet"
-          },
-          "person": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Person"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.SkriftligMeddelelse": {
-        "required": [
-          "betegnelseAvTvangsgrunnlag",
-          "krevesFravaersdom",
-          "paalydendeBeloep",
-          "skyldner"
-        ],
-        "type": "object",
-        "properties": {
-          "betegnelseAvTvangsgrunnlag": {
-            "type": "string"
-          },
-          "paalydendeBeloep": {
-            "type": "number",
-            "format": "double"
-          },
-          "skyldner": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "krevesFravaersdom": {
-            "type": "boolean"
-          },
-          "tvangsgrunnlagstype": {
-            "type": "string"
-          },
-          "eksterntSaksnummer": {
-            "type": "string"
-          },
-          "tvangsgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
-          },
-          "dato": {
-            "type": "string",
-            "format": "date"
-          },
-          "tvangskraftgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangskraftgrunnlag"
-          },
-          "saerligtvangsgrunnlagtype": {
-            "type": "string"
-          },
-          "referanseSak": {
-            "type": "string"
-          },
-          "rentestol": {
-            "type": "number",
-            "format": "double"
-          },
-          "rentefot": {
-            "type": "number",
-            "format": "double"
-          },
-          "kreditor": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "kravetsGrunnlag": {
-            "type": "string"
-          },
-          "forsendelsesmaate": {
-            "type": "string"
-          },
-          "avsender": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "mottakeradresse": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AdresseFrittFormat"
-          },
-          "paastand": {
-            "type": "string"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.TilleggsfristForeldelse": {
-        "type": "object",
-        "properties": {
-          "dato": {
-            "type": "string",
-            "format": "date"
-          },
-          "grunnlag": {
-            "type": "string",
-            "enum": [
-              "uvitenhet",
-              "lovmessigeHindringer",
-              "skyldnerIUtlandet",
-              "kravMotVerge",
-              "kravOmInnskuddISelskap",
-              "proklama"
-            ]
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tilleggskrav": {
-        "required": [
-          "gjenstaaendeBeloep",
-          "kravforfall",
-          "opprettelsesdatoForKrav",
-          "opprinneligBeloep"
-        ],
-        "type": "object",
-        "properties": {
-          "kravforfall": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Kravforfall"
-          },
-          "opprettelsesdatoForKrav": {
-            "type": "string",
-            "format": "date"
-          },
-          "opprinneligBeloep": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
-          },
-          "gjenstaaendeBeloep": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
-          },
-          "kravtype": {
-            "type": "string"
-          },
-          "transporterklaering": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Transporterklaering"
-            }
-          },
-          "innbetaling": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Innbetaling"
-            }
-          },
-          "tvangsgrunnlag": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AlminneligTvangsgrunnlag"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.ElektroniskGjeldserklaering"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Gjeldsbrev"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.SaerligTvangsgrunnlag"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.SkriftligMeddelelse"
-              },
-              {
-                "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.TvangsmulktEllerLovbestemmelse"
-              }
-            ]
-          },
-          "kravreferanse": {
-            "type": "string"
-          },
-          "kravbeskrivelse": {
-            "type": "string"
-          },
-          "tilleggsfristForeldelse": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.TilleggsfristForeldelse"
-            }
-          },
-          "betalingsoppforing": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Betalingsoppfordring"
-            }
-          },
-          "mottakersKontonummer": {
-            "type": "string"
-          },
-          "sisteFristavbrytendeTiltak": {
-            "type": "string"
-          },
-          "domsslutningInformasjon": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.DomsslutningInformasjon"
-          },
-          "forsinkelsesrente": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Forsinkelsesrente"
-          },
-          "rentefot": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Rentefot"
-          },
-          "rettsgebyr": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Rettsgebyr"
-          },
-          "begrunnelse": {
-            "type": "string"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Transporterklaering": {
-        "required": [
-          "dato"
-        ],
-        "type": "object",
-        "properties": {
-          "dato": {
-            "type": "string",
-            "format": "date"
-          },
-          "transportertFra": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "beloep": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.BeloepValuta"
-          },
-          "transporterklaering": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
-          },
-          "transportertTil": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangsgrunnlag": {
-        "required": [
-          "betegnelseAvTvangsgrunnlag"
-        ],
-        "type": "object",
-        "properties": {
-          "betegnelseAvTvangsgrunnlag": {
-            "type": "string"
-          },
-          "tvangsgrunnlagstype": {
-            "type": "string"
-          },
-          "eksterntSaksnummer": {
-            "type": "string"
-          },
-          "tvangsgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
-          },
-          "tvangskraftgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangskraftgrunnlag"
-          },
-          "dato": {
-            "type": "string",
-            "format": "date"
+          "identifikator": {
+            "$ref": "#/components/schemas/Identifikator"
           }
         },
-        "discriminator": {
-          "propertyName": "tvangsgrunnlagstype"
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangskraftgrunnlag": {
         "required": [
-          "type"
-        ],
+          "navn"
+        ]
+      },
+      "SkriftligMeddelelse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SaerligTvangsgrunnlag"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kravetsGrunnlag": {
+                "description": "En skriftlig meddelelse må redegjøre for kravets grunnlag for å være gyldig tvangsgrunnlag.",
+                "type": "string",
+                "maxLength": 4000
+              },
+              "forsendelsesmaate": {
+                "description": "En skriftlig meddelelse skal sendes fra kreditor til skyldner - forsendelsesmåten bør oppgis.",
+                "type": "string",
+                "maxLength": 4000
+              },
+              "avsender": {
+                "$ref": "#/components/schemas/Identifikator"
+              },
+              "mottakeradresse": {
+                "$ref": "#/components/schemas/AdresseFrittFormat"
+              },
+              "paastand": {
+                "$ref": "#/components/schemas/Tekst"
+              },
+              "krevesFravaersdom": {
+                "$ref": "#/components/schemas/Boolsk"
+              }
+            },
+            "required": [
+              "krevesFravaersdom"
+            ]
+          }
+        ]
+      },
+      "TilleggsfristForeldelse": {
         "type": "object",
         "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "varselTvfbl418",
-              "varselTvfbl419",
-              "oppfyllelsesfrist",
-              "erklærtTvangskraftig",
-              "vedtattForelegg"
-            ]
-          },
-          "tvangskraftgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
-          },
           "dato": {
-            "type": "string",
-            "format": "date"
+            "$ref": "#/components/schemas/Dato"
+          },
+          "grunnlag": {
+            "$ref": "#/components/schemas/TilleggsfristForeldelseGrunnlag"
           }
         }
       },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.TvangsmulktEllerLovbestemmelse": {
-        "required": [
-          "betegnelseAvTvangsgrunnlag",
-          "paalydendeBeloep",
-          "skyldner",
-          "type"
-        ],
+      "Tilleggskrav": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Krav"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "begrunnelse": {
+                "$ref": "#/components/schemas/Tekst"
+              }
+            }
+          }
+        ]
+      },
+      "Transporterklaering": {
         "type": "object",
         "properties": {
-          "betegnelseAvTvangsgrunnlag": {
-            "type": "string"
+          "dato": {
+            "$ref": "#/components/schemas/Dato"
           },
-          "paalydendeBeloep": {
-            "type": "number",
-            "format": "double"
+          "transportertFra": {
+            "$ref": "#/components/schemas/Identifikator"
           },
-          "skyldner": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
+          "beloep": {
+            "$ref": "#/components/schemas/BeloepValuta"
           },
-          "type": {
-            "type": "string",
-            "enum": [
-              "tvangsmulkt",
-              "lovbestemmelse"
-            ]
+          "transporterklaering": {
+            "$ref": "#/components/schemas/Vedlegg"
           },
-          "tvangsgrunnlagstype": {
-            "type": "string"
-          },
+          "transportertTil": {
+            "$ref": "#/components/schemas/Identifikator"
+          }
+        },
+        "required": [
+          "dato"
+        ]
+      },
+      "Tvangsgrunnlag": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "tvangsgrunnlagType"
+        },
+        "properties": {
           "eksterntSaksnummer": {
-            "type": "string"
+            "description": "Referanse til underlaget for tvangsgrunnlaget",
+            "type": "string",
+            "maxLength": 4000
           },
           "tvangsgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
+            "$ref": "#/components/schemas/Vedlegg"
           },
           "dato": {
-            "type": "string",
-            "format": "date"
+            "$ref": "#/components/schemas/Dato"
           },
-          "tvangskraftgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Tvangskraftgrunnlag"
+          "varsel": {
+            "$ref": "#/components/schemas/Tvangskraftgrunnlag"
           },
-          "saerligtvangsgrunnlagtype": {
+          "betegnelseAvTvangsgrunnlag": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "begjaeringOmFritakFraVarsling": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "begrunnelseUnnlatVarsel": {
+            "$ref": "#/components/schemas/BegrunnelseUnnlatVarselType"
+          },
+          "tvangsgrunnlagType": {
             "type": "string"
-          },
-          "referanseSak": {
-            "type": "string"
-          },
-          "rentestol": {
-            "type": "number",
-            "format": "double"
-          },
-          "rentefot": {
-            "type": "number",
-            "format": "double"
-          },
-          "kreditor": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
-          },
-          "juridiskGrunnlag": {
-            "type": "string"
-          },
-          "vedtakendeMyndighet": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Utleggsbegjaering": {
+        },
         "required": [
-          "hovedkrav",
-          "saksoeker",
-          "saksoekt",
-          "sakssoektErENK",
-          "tvangsfullbyrdelsestype",
-          "underskrift",
-          "utleggsbegjaeringIdentifikator"
-        ],
+          "tvangsgrunnlagType",
+          "dato",
+          "betegnelseAvTvangsgrunnlag"
+        ]
+      },
+      "Tvangskraftgrunnlag": {
+        "type": "object",
+        "properties": {
+          "tvangskraftgrunnlag": {
+            "$ref": "#/components/schemas/Vedlegg"
+          },
+          "dato": {
+            "$ref": "#/components/schemas/Dato"
+          },
+          "type": {
+            "$ref": "#/components/schemas/TvangskraftgrunnlagType"
+          }
+        },
+        "required": [
+          "dato",
+          "type"
+        ]
+      },
+      "TvangsmulktEllerLovbestemmelse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SaerligTvangsgrunnlag"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "juridiskGrunnlag": {
+                "description": "Tvangsmulkt må følge av lov eller forskrift, det bør være mulig å angi grunnlaget.Bestemmelsen gjør krav som etter særskilt lovbestemmelse er tvangsgrunnlag til tvangsgrunnlag, det bør være mulig å oppgi grunnlaget.",
+                "type": "string",
+                "maxLength": 4000
+              },
+              "vedtakendeMyndighet": {
+                "$ref": "#/components/schemas/Identifikator"
+              },
+              "type": {
+                "$ref": "#/components/schemas/TvangsmulktLovbestemmelseType"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        ]
+      },
+      "UkjentBosted": {
+        "type": "object",
+        "properties": {
+          "begrunnelse": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "kommunenummer": {
+            "$ref": "#/components/schemas/Kommunenummer"
+          }
+        },
+        "required": [
+          "begrunnelse"
+        ]
+      },
+      "Utleggsbegjaering": {
         "type": "object",
         "properties": {
           "saksoeker": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Saksoeker"
+              "$ref": "#/components/schemas/Saksoeker"
             }
           },
           "saksoekt": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Saksoekt"
+              "$ref": "#/components/schemas/Saksoekt"
             }
-          },
-          "utleggsbegjaeringIdentifikator": {
-            "type": "string"
-          },
-          "underskrift": {
-            "type": "string"
-          },
-          "hovedkrav": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Hovedkrav"
-            }
-          },
-          "tvangsfullbyrdelsestype": {
-            "type": "string",
-            "enum": [
-              "utlegg",
-              "utleggOgForlliksklageKombinert"
-            ]
-          },
-          "sakssoektErENK": {
-            "type": "boolean"
           },
           "vedlegg": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg"
+              "$ref": "#/components/schemas/Vedlegg"
+            }
+          },
+          "utleggsbegjaeringIdentifikator": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "underskrift": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "hovedkrav": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Hovedkrav"
             }
           },
           "innsenderReferanse": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
           },
           "saksreferanse": {
+            "description": "Referanse til utleggssak dersom man sender inn endring",
             "type": "string"
           },
-          "alminneligTvangsgrunnlag": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.AlminneligTvangsgrunnlag"
-          },
-          "gjeldsbrev": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Gjeldsbrev"
-          },
-          "tvangsmulktEllerLovbestemmelse": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.TvangsmulktEllerLovbestemmelse"
-          },
-          "skriftligMeddelelse": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.SkriftligMeddelelse"
-          },
-          "elektroniskGjeldserklaering": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.ElektroniskGjeldserklaering"
-          },
           "kanBehandlesIForliksraadet": {
-            "type": "boolean"
+            "$ref": "#/components/schemas/Boolsk"
+          },
+          "tvangsfullbyrdelsestype": {
+            "$ref": "#/components/schemas/TvangsfullbyrdelsesType"
+          },
+          "sakssoektErENK": {
+            "$ref": "#/components/schemas/Boolsk"
           },
           "valgtNamsmannsdistrikt": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Namsmannsdistrikt"
+            "$ref": "#/components/schemas/Namsmannsdistrikt"
           },
           "besluttetNamsmannsdistrikt": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Namsmannsdistrikt"
+            "$ref": "#/components/schemas/Namsmannsdistrikt"
+          },
+          "begjaeringsdato": {
+            "$ref": "#/components/schemas/Dato"
+          },
+          "mottaksdato": {
+            "$ref": "#/components/schemas/Dato"
+          },
+          "begjaeringensTvangsgrunnlag": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BegjaeringensTvangsgrunnlag"
+            }
+          },
+          "rettsgebyr": {
+            "$ref": "#/components/schemas/Rettsgebyr"
+          },
+          "innsender": {
+            "$ref": "#/components/schemas/Innsender"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Vedlegg": {
+        },
         "required": [
-          "filnavn",
-          "type"
-        ],
+          "saksoeker",
+          "saksoekt",
+          "utleggsbegjaeringIdentifikator",
+          "underskrift",
+          "hovedkrav",
+          "tvangsfullbyrdelsestype",
+          "sakssoektErENK",
+          "begjaeringsdato",
+          "mottaksdato",
+          "begjaeringensTvangsgrunnlag"
+        ]
+      },
+      "Vedlegg": {
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
-            "enum": [
-              "betalingsoppfordring",
-              "fullmakt",
-              "transporterklæring",
-              "tvangsgrunnlag",
-              "tvangskraftgrunnlag",
-              "annet"
-            ]
+            "$ref": "#/components/schemas/VedleggType"
           },
           "filnavn": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "uuid": {
+            "$ref": "#/components/schemas/UUID"
           }
-        }
-      },
-      "no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Virksomhet": {
+        },
         "required": [
-          "identifikator",
-          "navn"
-        ],
+          "type",
+          "filnavn",
+          "uuid"
+        ]
+      },
+      "Virksomhet": {
         "type": "object",
         "properties": {
           "navn": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tekst"
           },
           "identifikator": {
-            "$ref": "#/components/schemas/no.skatteetaten.innkreving.utlegg.utleggsbegjaering.v1.models.Identifikator"
+            "$ref": "#/components/schemas/Identifikator"
+          },
+          "virksomhetstype": {
+            "$ref": "#/components/schemas/VirksomhetsType"
+          },
+          "bevillingshaver": {
+            "$ref": "#/components/schemas/Bevillingshaver"
+          }
+        },
+        "required": [
+          "navn",
+          "identifikator",
+          "virksomhetstype"
+        ]
+      },
+      "AdresseFrittFormatInnland": {
+        "type": "object",
+        "properties": {
+          "adressetekst": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "poststedsnavn": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "kommunenummer": {
+            "$ref": "#/components/schemas/Kommunenummer"
+          },
+          "postnummer": {
+            "$ref": "#/components/schemas/Postnummer"
+          }
+        },
+        "required": [
+          "kommunenummer",
+          "postnummer"
+        ]
+      },
+      "AdresseFrittFormatUtland": {
+        "type": "object",
+        "properties": {
+          "adressetekst": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "poststedUtland": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "landkode": {
+            "$ref": "#/components/schemas/LandkodeIsoAlfa2"
+          }
+        },
+        "required": [
+          "poststedUtland",
+          "landkode"
+        ]
+      },
+      "AlminneligTvangsgrunnlagType": {
+        "type": "string",
+        "enum": [
+          "domEllerKjennelse",
+          "avgjørelseSomHarVirkningSomDom",
+          "forelegg",
+          "voldgiftsdom",
+          "avgjørelseAvUtenlandskDomstolKonvensjon",
+          "avgjørelseAvUtenlandskDomstol",
+          "avgjørelseAvInternasjonalDomstol",
+          "rettsforlik"
+        ]
+      },
+      "BegrunnelseUnnlatVarselType": {
+        "type": "string",
+        "enum": [
+          "ukjentOppholdsstedSakssøkt",
+          "ukjentFullmektigMedKjentOppholdsstedEllerUkjentElektroniskKontaktinformasjon"
+        ]
+      },
+      "Kravdetaljer": {
+        "type": "string",
+        "enum": [
+          "ANN",
+          "BET",
+          "KRV",
+          "OMK",
+          "PGN",
+          "PGR",
+          "REK",
+          "REN",
+          "RES",
+          "TRS",
+          "RET",
+          "SAL",
+          "UIK",
+          "UIR",
+          "UIT",
+          "KOK"
+        ]
+      },
+      "TilleggsfristForeldelseGrunnlag": {
+        "type": "string",
+        "enum": [
+          "uvitenhet",
+          "lovmessigeHindringer",
+          "skyldnerIUtlandet",
+          "kravMotVerge",
+          "kravOmInnskuddISelskap",
+          "proklama"
+        ]
+      },
+      "TvangsfullbyrdelsesType": {
+        "type": "string",
+        "enum": [
+          "utlegg",
+          "utleggOgForlliksklageKombinert"
+        ]
+      },
+      "TvangskraftgrunnlagType": {
+        "type": "string",
+        "enum": [
+          "varselTvfbl418",
+          "varselTvfbl419",
+          "oppfyllelsesfrist",
+          "erklærtTvangskraftig",
+          "vedtattForelegg"
+        ]
+      },
+      "TvangsmulktLovbestemmelseType": {
+        "type": "string",
+        "enum": [
+          "tvangsmulkt",
+          "lovbestemmelse"
+        ]
+      },
+      "VedleggType": {
+        "type": "string",
+        "enum": [
+          "betalingsoppfordring",
+          "fullmakt",
+          "transporterklæring",
+          "tvangsgrunnlag",
+          "tvangskraftgrunnlag",
+          "annet"
+        ]
+      },
+      "VirksomhetsType": {
+        "type": "string",
+        "enum": [
+          "inkassovirksomhet",
+          "advokatfirma",
+          "rettshjelper",
+          "annet"
+        ]
+      },
+      "Tekst": {
+        "type": "string",
+        "description": "vilkårlig lang sekvens av tegn inkludert aksenter og spesielle tegn fra standardiserte tegnsett (<a href='https://data.skatteetaten.no/begrep/20b52af3-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "maxLength": 4000
+      },
+      "Boolsk": {
+        "type": "boolean",
+        "description": "angir verdien sann eller usann (<a href='https://data.skatteetaten.no/begrep/20b52aec-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)"
+      },
+      "Dato": {
+        "type": "string",
+        "description": "gir verdier for år, måned og dag. Kodes som en tekststreng etter datoformatering spesifisert i  ISO 8601 (ISO 8601:2004 Data elements and interchange formats -- Information interchange -- Representation of dates and times). Eksempel : 1998-12-21 eller 19981221. (<a href='https://data.skatteetaten.no/begrep/20b52aed-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "format": "date"
+      },
+      "Identifikator": {
+        "type": "object",
+        "properties": {
+          "identifikatortype": {
+            "$ref": "#/components/schemas/Identifikatortype"
+          },
+          "verdi": {
+            "$ref": "#/components/schemas/Tekst"
+          },
+          "landkode": {
+            "$ref": "#/components/schemas/LandkodeIsoAlfa2"
+          }
+        },
+        "required": [
+          "identifikatortype",
+          "verdi",
+          "landkode"
+        ]
+      },
+      "BeloepValuta": {
+        "type": "object",
+        "properties": {
+          "beloep": {
+            "description": "(<a href='https://data.skatteetaten.no/begrep/20b2e146-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+            "type": "number",
+            "format": "double"
+          },
+          "valuta": {
+            "$ref": "#/components/schemas/Valutakode"
           }
         }
+      },
+      "Desimaltall": {
+        "type": "number",
+        "description": "tall som er satt sammen av en heltallsdel og en fraksjondel [wikipedia] (<a href='https://data.skatteetaten.no/begrep/20b52aef-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "format": "double"
+      },
+      "Kontonummer": {
+        "type": "string",
+        "description": "(<a href='https://data.skatteetaten.no/begrep/20b2e328-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)"
+      },
+      "Kundeidentifikator": {
+        "type": "string",
+        "minLength": 2,
+        "pattern": "[0-9]+",
+        "maxLength": 25
+      },
+      "Kommunenummer": {
+        "type": "string",
+        "description": "nummer for kommune (<a href='https://data.skatteetaten.no/begrep/20b2e0f3-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "minLength": 4,
+        "pattern": "([0-9]){4}",
+        "maxLength": 4
+      },
+      "UUID": {
+        "type": "string",
+        "description": "universell unik identifikator - 128-bit tegnstreng til bruk for å identifisere noe unikt uavhengig av scope. Sannsynligheten for at samme UUID genereres to ganger uavhengig av hverandre er ikke lik 0, men er nære nok til å regnes som ubetydelig. Formatet er 32 hexadesimale tall (0-9 + a-f) separert med 4 bindestreker på formen 8-4-4-4-12 for totalt 36 tegn."
+      },
+      "Postnummer": {
+        "type": "string",
+        "description": "nummer på et poststed (<a href='https://data.skatteetaten.no/begrep/20b2e121-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "minLength": 4,
+        "pattern": "([0-9]){4}",
+        "maxLength": 4
+      },
+      "LandkodeIsoAlfa2": {
+        "type": "string",
+        "description": "(<a href='https://data.skatteetaten.no/begrep/20b2e112-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "minLength": 2,
+        "pattern": "([A-Z]){2}",
+        "maxLength": 2
+      },
+      "Identifikatortype": {
+        "type": "string",
+        "description": "Type eksterne identifikator. Gyldige koder i henhold til ekstern kodeliste. (<a href='http://kodelistekatalog/kodeliste/partsregister/identifikatortype'>Kodelistereferanse</a>) (<a href='https://data.skatteetaten.no/begreper/20b52ad7-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)"
+      },
+      "Valutakode": {
+        "type": "string",
+        "description": "koder for offisielle valutaer etter ISO 4217 (<a href='https://data.skatteetaten.no/begrep/20b2e1a2-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)"
       }
     },
     "parameters": {
@@ -1307,7 +1769,7 @@
           "type": "string",
           "format": "uuid"
         },
-        "example": "2b068af9-f898-423a-b8f7-cc555987f6bf"
+        "example": "26789811-3b95-4cdf-896f-211d2e38f341"
       },
       "Klientid": {
         "name": "KlientId",
@@ -1328,20 +1790,7 @@
           "type": "string",
           "format": "uuid"
         },
-        "example": "85eda87d-3037-4a7e-b155-7716debe78bb"
-      }
-    },
-    "securitySchemes": {
-      "STS_SECURITY_SCHEME": {
-        "type": "http",
-        "description": "Token for autorisering med STS.",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      },
-      "STS2": {
-        "type": "http",
-        "in": "header",
-        "scheme": "Bearer"
+        "example": "1118c013-fd9c-446a-a041-cc19fed85b24"
       }
     }
   }

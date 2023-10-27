@@ -9,8 +9,9 @@
 | forelegg                                | String |             |         |
 | voldgiftsdom                            | String |             |         |
 | avgjørelseAvUtenlandskDomstolKonvensjon | String |             |         |
-| avgjøresleAvUtenlandskDomstol           | String |             |         |
+| avgjørelseAvUtenlandskDomstol           | String |             |         |
 | avgjørelseAvInternasjonalDomstol        | String |             |         |
+| rettsforlik                             | String |             |         |
 
 [[Tilbake til modell liste]](../index.md)
 
