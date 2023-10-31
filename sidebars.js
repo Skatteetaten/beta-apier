@@ -23,7 +23,7 @@ const sidebars = {
       items: [{
         type: 'link',
         label: 'API-dokumentasjon',
-        href: 'https://app.swaggerhub.com/apis-docs/Skatteetaten_Deling/Innkreving_av_krav_for_offentlige_oppdragsgivere/'
+        href: 'https://app.swaggerhub.com/apis-docs/skatteetaten/oppdragsinnkreving-api/'
       },
         'innkrevingsoppdrag/teknisk-dokumentasjon',
         'innkrevingsoppdrag/beskrivelse-av-tjenester',
