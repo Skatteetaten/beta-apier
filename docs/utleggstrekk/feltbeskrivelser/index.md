@@ -8,3 +8,4 @@
  - [Trekkmelding](./Models/Trekkmelding.md)
  - [TrekkProsent](./Models/TrekkProsent.md)
  - [UtleggstrekkFeedElement](./Models/UtleggstrekkFeedElement.md)
+ - [PatchRequest](./Models/PatchRequest.md)

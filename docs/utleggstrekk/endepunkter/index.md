@@ -46,7 +46,7 @@ Se [Tilgang](../tilgang.md)
 ### HTTP request headere
 
 - **Content-Type**: Ikke definert
-- **Accept**: application/json,  \*/\*
+- **Accept**: application/json, \*/\*
 
 <a name="hentfeed"></a>
 
@@ -78,7 +78,7 @@ Se [Tilgang](../tilgang.md)
 ### HTTP request headere
 
 - **Content-Type**: Ikke definert
-- **Accept**: application/json,  \*/\*
+- **Accept**: application/json, \*/\*
 
 <a name="kvitterUtTrekkmeldinger"></a>
 
@@ -92,12 +92,12 @@ Kvittér ut trekkmeldinger
 
 ### Parametre
 
-| Navn               | Type               | Beskrivelse                              | Notater            |
-|--------------------|--------------------|------------------------------------------|--------------------|
-| **KlientId**       | **String**         | Klientens unike id                       | [default til null] |
-| **Korrelasjonsid** | **String**         | Id for å spore kall på tvers av systemer | [default til null] |
-| **Meldingsid**     | **String**         | Meldingsid mellom systemer               | [default til null] |
-| **request\_body**  | **List\<String\>** |                                          |                    |
+| Navn               | Type                                                           | Beskrivelse                              | Notater            |
+|--------------------|----------------------------------------------------------------|------------------------------------------|--------------------|
+| **KlientId**       | **String**                                                     | Klientens unike id                       | [default til null] |
+| **Korrelasjonsid** | **String**                                                     | Id for å spore kall på tvers av systemer | [default til null] |
+| **Meldingsid**     | **String**                                                     | Meldingsid mellom systemer               | [default til null] |
+| **PatchRequest**   | [**PatchRequest**](../feltbeskrivelser/Models/PatchRequest.md) |                                          |                    |
 
 ### Retur type
 
