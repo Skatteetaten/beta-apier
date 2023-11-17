@@ -315,7 +315,7 @@
           },
           "meldingsId": {
             "type": "string",
-            "example": "21889981-4b95-4ccc-996f-217d2e68f342"
+            "example": "null"
           }
         }
       },

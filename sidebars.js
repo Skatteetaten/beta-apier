@@ -52,6 +52,29 @@ const sidebars = {
         'utleggsbegjaering/informasjonsmodeller',
         'utleggsbegjaering/skisser'
       ]
+    },
+
+    {
+      type: 'category',
+      label: 'Utleggstrekk',
+      link: { type: 'doc', id: 'utleggstrekk/index' },
+      items: [
+        {
+          type: 'category',
+          label: 'Endepunkter',
+          link: { type: 'doc', id: 'utleggstrekk/endepunkter/index' },
+          items: []
+        },
+        {
+          type: 'category',
+          label: 'Feltbeskrivelser',
+          link: { type: 'doc', id: 'utleggstrekk/feltbeskrivelser/index' },
+          items: []
+        },
+        'utleggstrekk/tilgang',
+        'utleggstrekk/informasjonsmodeller',
+        'utleggstrekk/skisser'
+      ]
     }
   ]
 };
