@@ -1,0 +1,548 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Utleggstrekk app",
+    "description": "Utleggstrekk app",
+    "version": "0.0.1"
+  },
+  "externalDocs": {
+    "description": "Wiki dokumentasjon",
+    "url": "https://wiki.sits.no/display/FIUT"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Utleggstrekk",
+      "description": "Utleggstrekk API"
+    }
+  ],
+  "paths": {
+    "/external/v0/utleggstrekk/": {
+      "patch": {
+        "tags": [
+          "Utleggstrekk"
+        ],
+        "summary": "Kvittér ut trekkmeldinger",
+        "description": "Oppgi en liste med meldingsIder som det skal kvitteres ut for.",
+        "operationId": "kvitterUtTrekkmeldinger",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Klientid"
+          },
+          {
+            "$ref": "#/components/parameters/Korrelasjonsid"
+          },
+          {
+            "$ref": "#/components/parameters/Meldingsid"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/external/v0/utleggstrekk/{trekkMeldingId}": {
+      "get": {
+        "tags": [
+          "Utleggstrekk"
+        ],
+        "summary": "Hent trekkmelding",
+        "description": "Henter en trekkmelding",
+        "operationId": "hent",
+        "parameters": [
+          {
+            "name": "trekkMeldingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/Klientid"
+          },
+          {
+            "$ref": "#/components/parameters/Korrelasjonsid"
+          },
+          {
+            "$ref": "#/components/parameters/Meldingsid"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trekkmelding"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/external/v0/utleggstrekk/feed": {
+      "get": {
+        "tags": [
+          "Utleggstrekk"
+        ],
+        "summary": "Hent feed med trekkmeldinger",
+        "description": "Returnerer en feed med løpende sekvensnummer og trekkmeldingId fra oppgitt sekvensnummer",
+        "operationId": "hentfeed",
+        "parameters": [
+          {
+            "name": "sekvensnummer",
+            "in": "query",
+            "description": "Sekvensnummer for start på feeden",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/Klientid"
+          },
+          {
+            "$ref": "#/components/parameters/Korrelasjonsid"
+          },
+          {
+            "$ref": "#/components/parameters/Meldingsid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UtleggstrekkFeedElement"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UtleggstrekkFeedElement": {
+        "required": [
+          "meldingsId",
+          "sekvensnummer"
+        ],
+        "type": "object",
+        "properties": {
+          "sekvensnummer": {
+            "type": "integer",
+            "description": "Sekvensnummer i endringsfeeden",
+            "format": "int32"
+          },
+          "meldingsId": {
+            "type": "string",
+            "example": "null"
+          }
+        }
+      },
+      "ExtendedProblemDetail": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "feilid": {
+            "type": "string"
+          }
+        }
+      },
+      "Trekkmelding": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "meldingsid": {
+            "$ref": "#/components/schemas/UUID"
+          },
+          "meldingstidspunkt": {
+            "$ref": "#/components/schemas/DatoKlokkeslett"
+          },
+          "meldingstype": {
+            "$ref": "#/components/schemas/Meldingstype"
+          },
+          "trekkidentifikator": {
+            "$ref": "#/components/schemas/UUID"
+          },
+          "skyldner": {
+            "$ref": "#/components/schemas/FoedselsEllerDnummer"
+          },
+          "kidnummer": {
+            "$ref": "#/components/schemas/Kundeidentifikator"
+          },
+          "kontonummer": {
+            "$ref": "#/components/schemas/Kontonummer"
+          },
+          "startDato": {
+            "$ref": "#/components/schemas/Dato"
+          },
+          "sluttDato": {
+            "$ref": "#/components/schemas/Dato"
+          },
+          "midlertidigStans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MidlertidigStans"
+            }
+          },
+          "trekkBeløp": {
+            "$ref": "#/components/schemas/TrekkBeloep"
+          },
+          "trekkProsent": {
+            "$ref": "#/components/schemas/TrekkProsent"
+          },
+          "trekkpliktigOrganisasjonsnummer": {
+            "$ref": "#/components/schemas/Organisasjonsnummer"
+          }
+        },
+        "required": [
+          "meldingsid",
+          "meldingstidspunkt",
+          "meldingstype",
+          "trekkidentifikator",
+          "skyldner",
+          "trekkpliktigOrganisasjonsnummer"
+        ],
+        "anyOf": [
+          {
+            "oneOf": [
+              {
+                "required": [
+                  "trekkBeloep"
+                ]
+              },
+              {
+                "required": [
+                  "trekkProsent"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "MidlertidigStans": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "startDato": {
+            "$ref": "#/components/schemas/Dato"
+          },
+          "sluttDato": {
+            "$ref": "#/components/schemas/Dato"
+          }
+        },
+        "required": [
+          "startDato"
+        ]
+      },
+      "TrekkBeloep": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "trekkBeløp": {
+            "$ref": "#/components/schemas/Desimaltall"
+          }
+        },
+        "required": [
+          "trekkBeløp"
+        ]
+      },
+      "TrekkProsent": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "trekkProsent": {
+            "$ref": "#/components/schemas/Desimaltall"
+          }
+        },
+        "required": [
+          "trekkProsent"
+        ]
+      },
+      "FoedselsEllerDnummer": {
+        "type": "string",
+        "description": "",
+        "minLength": 11,
+        "pattern": "[0-9]+",
+        "maxLength": 11
+      },
+      "Meldingstype": {
+        "type": "string",
+        "description": "",
+        "enum": [
+          "start",
+          "endre",
+          "stans"
+        ]
+      },
+      "UUID": {
+        "type": "string",
+        "description": "",
+        "minLength": 36,
+        "maxLength": 36
+      },
+      "DatoKlokkeslett": {
+        "type": "string",
+        "description": "en kombinasjon av typene Dato og Klokkeslett. Kodes som en tekststreng etter datoformatering spesifisert i ISO 8601 (ISO 8601:2004 Data elements and interchange formats -- Information interchange -- Representation of dates and times). (<a href='https://data.skatteetaten.no/begrep/20b52aee-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "format": "date-time"
+      },
+      "Kundeidentifikator": {
+        "type": "string",
+        "description": "",
+        "minLength": 2,
+        "pattern": "[0-9]+",
+        "maxLength": 25
+      },
+      "Kontonummer": {
+        "type": "string",
+        "description": "(<a href='https://data.skatteetaten.no/begrep/20b2e328-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)"
+      },
+      "Dato": {
+        "type": "string",
+        "description": "gir verdier for år, måned og dag. Kodes som en tekststreng etter datoformatering spesifisert i  ISO 8601 (ISO 8601:2004 Data elements and interchange formats -- Information interchange -- Representation of dates and times). Eksempel : 1998-12-21 eller 19981221. (<a href='https://data.skatteetaten.no/begrep/20b52aed-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "format": "date"
+      },
+      "Organisasjonsnummer": {
+        "type": "string",
+        "description": "9 sifret nummer gitt de som er registrert i Enhetsregisteret. (<a href='https://data.skatteetaten.no/begrep/20b2e1a8-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "minLength": 9,
+        "pattern": "[0-9]+",
+        "maxLength": 9
+      },
+      "Desimaltall": {
+        "type": "number",
+        "description": "tall som er satt sammen av en heltallsdel og en fraksjondel [wikipedia] (<a href='https://data.skatteetaten.no/begrep/20b52aef-9fe1-11e5-a9f8-e4115b280940'>Begrepsreferanse</a>)",
+        "format": "double"
+      }
+    },
+    "parameters": {
+      "Korrelasjonsid": {
+        "name": "Korrelasjonsid",
+        "in": "header",
+        "description": "Id for å spore kall på tvers av systemer",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "26789811-3b95-4cdf-896f-211d2e38f341"
+      },
+      "Klientid": {
+        "name": "KlientId",
+        "in": "header",
+        "description": "Klientens unike id",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "example": "OpenAPI"
+      },
+      "Meldingsid": {
+        "name": "Meldingsid",
+        "in": "header",
+        "description": "Meldingsid mellom systemer",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "example": "1118c013-fd9c-446a-a041-cc19fed85b24"
+      }
+    }
+  }
+}
