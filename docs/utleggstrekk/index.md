@@ -1,4 +1,4 @@
-# Utleggsbegjæring og prøving
+# Utleggstrekk
 
 ## Om tjenesten
 

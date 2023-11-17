@@ -1,4 +1,4 @@
-# Dokumentasjon for Utleggsbegjæring
+# Dokumentasjon for Utleggstrekk
 
 # Felter
  - [ExtendedProblemDetail](./Models/ExtendedProblemDetail.md)
