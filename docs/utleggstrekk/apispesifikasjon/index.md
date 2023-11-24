@@ -1,10 +1,10 @@
-# Endepunkter
+# API Spesifikasjon
 
 Skatteetaten tilbyr API for å hente utleggstrekkmeldinger.
 
 Open API spesifikasjonen er tilgjengelig her :
 
-* [JSON-schema](utleggstrekk-openapi-v1.json)
+* [swaggerhub](https://app.swaggerhub.com/apis/skatteetaten/utleggstrekk-app)
 
 # UtleggstrekkApi
 

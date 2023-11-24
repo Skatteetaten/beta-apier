@@ -38,8 +38,8 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Endepunkter',
-          link: { type: 'doc', id: 'utleggsbegjaering/endepunkter/index' },
+          label: 'API Spesifikasjon',
+          link: { type: 'doc', id: 'utleggsbegjaering/apispesifikasjon/index' },
           items: []
         },
         {
@@ -61,8 +61,8 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Endepunkter',
-          link: { type: 'doc', id: 'utleggstrekk/endepunkter/index' },
+          label: 'API Spesifikasjon',
+          link: { type: 'doc', id: 'utleggstrekk/apispesifikasjon/index' },
           items: []
         },
         {

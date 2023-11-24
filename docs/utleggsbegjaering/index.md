@@ -2,7 +2,7 @@
 
 ## Om tjenesten
 
-Utleggsbegjæring er en tjeneste vi tilbyr for å sende begjæringer om utleggsforretning til Skatteetaten
+Utleggsbegjæring er en tjeneste for å sende utleggsbegjæringer til namsmannen gjennom Skatteetatens systemløsninger.
 
 Målgruppen er dagens inkassosystemer, kommunene og andre systemleverandører.
 

@@ -1,4 +1,4 @@
-# Endepunkter
+# API Spesifikasjon
 
 Skatteetaten tilbyr muligheten for å sende inn en utleggsbegjæring ved bruk av JSON.
 
