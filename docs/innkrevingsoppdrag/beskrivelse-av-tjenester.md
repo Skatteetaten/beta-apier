@@ -3,6 +3,20 @@
 Lenke til API-dokumentasjonen finnes i menyen til venstre.
 Under følger en beskrivelse av hvordan de ulike tjenestene brukes, og eventuelle hensyn som må tas.
 
+## Innholdsfortegnelse
+
+- [Opprett et innkrevingsoppdrag](#opprett-et-innkrevingsoppdrag)
+    - [Validering](#validering)
+    - [Feilhåndtering](#feilhåndtering)
+- [Endre et innkrevingsoppdrag](#endre-et-innkrevingsoppdrag)
+    - [Validering](#validering-1)
+    - [Feilhåndtering](#feilhåndtering-1)
+- [Avskriv et innkrevingsoppdrag](#avskriv-et-innkrevingsoppdrag)
+    - [Validering](#validering-2)
+    - [Feilhåndtering](#feilhåndtering-2)
+- [Hent valideringsfeil for et innkrevingsoppdrag](#hent-valideringsfeil-for-et-innkrevingsoppdrag)
+- [Avstemming av et innkrevingsoppdrag](#avstemming-av-innkrevingsoppdrag)
+
 ## Opprett et innkrevingsoppdrag
 
 Et innkrevingsoppdrag opprettes i Skatteetatens innkrevingssystemer ved et POST-kall
@@ -84,10 +98,26 @@ er usikker på om kravet faktisk ble avskrevet hos Skatteetaten, anbefales det �
 Et innkrevingsoppdrag som allerede er avskrevet, kan ikke avskrives på nytt. I slike tilfeller returneres en HTTP
 409-statuskode med en feilmelding.
 
-# Hent valideringsfeil for et innkrevingsoppdrag
+## Hent valideringsfeil for et innkrevingsoppdrag
 
 Eventuelle valideringsfeil fra [den asynkrone valideringen ved opprettelse av et innkrevingsoppdrag](#validering) kan
 hentes ut ved et GET-kall til endepunktet
 `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}/valideringsfeil`.
 
 Dersom den asynkrone valideringen ikke resulterte i noen valideringsfeil, returneres en tom liste.
+
+## Avstemming av et innkrevingsoppdrag
+
+Tjenesten gjør det mulig for oppdragsgiver å avstemme at krav, endringer på krav og avskrivinger er registrert korrekt i
+Skatteetatens kravmottak. Et innkrevingsoppdrag kan avstemmes ved et GET-kall til endepunktet
+`/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}/avstemming`.
+
+Tjenesten returnerer for en gitt kravidentifikator:
+
+- Skatteetatens kravidentifikator for oppdraget
+- Oppdragsgivers kravidentifikator (dersom den ble oversendt i det opprinnelige innkrevingsoppdraget)
+- De forespørslene som oppdragsgiver har sendt, i samme format som de ble sendt, med tidspunkt for mottak:
+    - Det opprinnelige kravet
+    - Eventuelle endringer på kravet
+    - Eventuell avskriving av kravet
+ 
