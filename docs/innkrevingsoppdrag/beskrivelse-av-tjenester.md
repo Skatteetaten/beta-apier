@@ -15,7 +15,7 @@ Under følger en beskrivelse av hvordan de ulike tjenestene brukes, og eventuell
     - [Validering](#validering-2)
     - [Feilhåndtering](#feilhåndtering-2)
 - [Hent valideringsfeil for et innkrevingsoppdrag](#hent-valideringsfeil-for-et-innkrevingsoppdrag)
-- [Avstemming av et innkrevingsoppdrag](#avstemming-av-innkrevingsoppdrag)
+- [Avstemming av et innkrevingsoppdrag](#avstemming-av-et-innkrevingsoppdrag)
 
 ## Opprett et innkrevingsoppdrag
 
