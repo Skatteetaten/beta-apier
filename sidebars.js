@@ -26,6 +26,7 @@ const sidebars = {
         href: 'https://app.swaggerhub.com/apis-docs/skatteetaten/oppdragsinnkreving-api/'
       },
         'innkrevingsoppdrag/teknisk-dokumentasjon',
+        'innkrevingsoppdrag/anbefalinger-for-bruk',
         'innkrevingsoppdrag/beskrivelse-av-tjenester',
         'innkrevingsoppdrag/mottaksbekreftelse'
       ]
