@@ -19,4 +19,4 @@ Tjenestene ligger i Skatteetatens testmiljø for ekstern testing: https://api-te
 Helt konkret under denne baseurlen: https://api-test.sits.no/api/innkreving/innkrevingsoppdrag/v1/
 
 Dvs. at en POST mot https://api-test.sits.no/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag med tilhørende
-token fra maskinporten vil opprette et nytt innkrevingsoppdrag.
+token fra Maskinporten vil opprette et nytt innkrevingsoppdrag.
