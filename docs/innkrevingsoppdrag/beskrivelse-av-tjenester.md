@@ -132,7 +132,7 @@ Et vellykket kall returnerer kvittering med en 200-statuskode sammen med en _tra
 referanse til endringen. Denne _transaksjonsiden_ bør oppdragsgiver ta vare på for sporbarhet, og for senere å kunne
 referere til endringen.
 
-**HTTP 200-statuskode bekrefter at Skatteetaten har _mottatt og tatt ansvaret for_ endringen.**
+**HTTP 200-statuskode bekrefter at Skatteetaten har mottatt og tatt ansvaret for at endringen blir utført.**
 
 Ved valideringsfeil vil endepunktet returnere en HTTP 422-statuskode med en beskrivende feilmelding.
 
@@ -155,7 +155,7 @@ sendes inn på nytt, vil det fremdeles returneres en HTTP 200-statuskode.
 
 Innkrevingsoppdrag kan avskrives ved et POST-kall til
 endepunktet `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/avskriving`. Endepunktet benyttes når
-oppdragsgiver mener at kravet ikke lenger skal innkreves, eller det ikke er noe mer å kreve inn.
+oppdragsgiver mener at kravet ikke lenger skal kreves inn, eksempelvis fordi oppdragsgiver har frafalt kravet.
 
 Merk at et innkrevingsoppdrag ikke kan avskrives umiddelbart etter opprettelse; det kan først avskrives etter at
 Skatteetaten har reskontroført det. Ved normal drift vil dette skje tilnærmet øyeblikkelig.
@@ -169,7 +169,7 @@ Et vellykket kall returnerer kvittering med en 200-statuskode sammen med en _tra
 referanse til avskrivingen. Denne _transaksjonsiden_ bør oppdragsgiver ta vare på for sporbarhet, og for senere å kunne
 referere til avskrivingen.
 
-**HTTP 200-statuskode bekrefter at Skatteetaten har mottatt og tatt ansvaret for avskrivingen.**
+**HTTP 200-statuskode bekrefter at Skatteetaten har mottatt og tatt ansvaret for at avskrivingen blir utført.**
 
 Ved valideringsfeil vil endepunktet returnere en HTTP 422-statuskode med en beskrivende feilmelding.
 
