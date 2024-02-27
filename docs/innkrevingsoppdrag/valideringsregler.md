@@ -1,5 +1,4 @@
 # Valideringsregler
-        'innkrevingsoppdrag/valideringsregler',
 
 ## Synkrone valideringsregler for NAV
 
@@ -20,7 +19,7 @@
 | Ugyldig tilleggsfrist etter foreldelsesloven                    | ugyldig-tilleggsfrist-etter-foreldelsesloven                    | 422         | Alle                                                                                            | Kan ikke være angitt når foreldelsesfristensUtgangspunkt er angitt                                                         | 
 | Tilleggsfrist etter foreldelsesloven eldre enn 10 maaneder      | tilleggsfrist-etter-foreldelsesloven-eldre-enn-10-maaneder      | 422         | Alle                                                                                            | tilleggsfristEtterForeldelsesloven kan ikke være mer enn 10 måneder tilbake i tid                                          | 
 | Ugyldig skyldners identifikator                                 | ugyldig-skyldners-identifikator                                 | 422         | Alle                                                                                            | Må være et gyldig fødsels- eller personnummer                                                                              | 
-| Ugyldig tilleggsinformasjon                                     | ugyldig-tilleggsinformasjon                                     | 400         | Alle                                                                                            | Må være oppgitt om påkrevd og være på rett format                                                                          | 
+| Ugyldig tilleggsinformasjon                                     | ugyldig-tilleggsinformasjon                                     | 400         | Alle                                                                                            | Må være oppgitt om påkrevd for oppdragsgiver og være på rett format                                                        | 
 | Ugyldig kravtype                                                | ugyldig-kravtype                                                | 422         | Alle                                                                                            | Kravtypen må tilhøre oppdragsgiveren                                                                                       | 
 | Rentebeloep er ikke over null                                   | rentebeloep-er-ikke-over-null                                   | 422         | Alle                                                                                            |                                                                                                                            | 
 | Ugyldig renterilagtdato                                         | ugyldig-renterilagtdato                                         | 422         | Alle                                                                                            | Kan ikke være i fremtiden                                                                                                  | 
@@ -34,37 +33,37 @@
 
 ### Endring av hovedstol
 
-| Feilmeldingstittel                        | Siste del av typefelt                                                                            | Http-status | Merknad                                          |
-|-------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|--------------------------------------------------|
-| Hovedstol er ikke over null               | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:hovedstol-er-ikke-over-null               | 422         |                                                  |
-| Innkrevingsoppdrag har ugyldig tilstand   | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |
-| Innkrevingsoppdrag er ikke reskontrofoert | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-ikke-reskontrofoert | 409         | Må være reskontroført for å kunne endres         |
-| Innkrevingsoppdrag er avskrevet           | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-avskrevet           | 409         |                                                  |
+| Feilmeldingstittel                        | Siste del av typefelt                     | Http-status | Merknad                                          |
+|-------------------------------------------|-------------------------------------------|-------------|--------------------------------------------------|
+| Hovedstol er ikke over null               | hovedstol-er-ikke-over-null               | 422         |                                                  |
+| Innkrevingsoppdrag har ugyldig tilstand   | innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |
+| Innkrevingsoppdrag er ikke reskontrofoert | innkrevingsoppdrag-er-ikke-reskontrofoert | 409         | Må være reskontroført for å kunne endres         |
+| Innkrevingsoppdrag er avskrevet           | innkrevingsoppdrag-er-avskrevet           | 409         |                                                  |
 
 ### Endring av renter
 
-| Feilmeldingstittel                        | Siste del av typefelt                                                                            | Http-status | Merknad                                          |
-|-------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|--------------------------------------------------|
-| Rentebeloep er under 0                    | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:rentebeloep-er-under-0                    | 422         |                                                  |
-| Innkrevingsoppdrag har ugyldig tilstand   | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |                                       |
-| Innkrevingsoppdrag er ikke reskontrofoert | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-ikke-reskontrofoert | 409         | Må være reskontroført for å kunne endres         |
-| Innkrevingsoppdrag er avskrevet           | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-avskrevet           | 409         |                                                  |
+| Feilmeldingstittel                        | Siste del av typefelt                     | Http-status | Merknad                                          |
+|-------------------------------------------|-------------------------------------------|-------------|--------------------------------------------------|
+| Rentebeloep er under 0                    | rentebeloep-er-under-0                    | 422         |                                                  |
+| Innkrevingsoppdrag har ugyldig tilstand   | innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |                                       
+| Innkrevingsoppdrag er ikke reskontrofoert | innkrevingsoppdrag-er-ikke-reskontrofoert | 409         | Må være reskontroført for å kunne endres         |
+| Innkrevingsoppdrag er avskrevet           | innkrevingsoppdrag-er-avskrevet           | 409         |                                                  |
 
 ### Endring av oppdragsgivers referanse
 
-| Feilmeldingstittel                        | Siste del av typefelt                                                                            | Http-status | Merknad                                          |
-|-------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|--------------------------------------------------|
-| Innkrevingsoppdrag har ugyldig tilstand   | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |                                   |
-| Innkrevingsoppdrag er ikke reskontrofoert | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-ikke-reskontrofoert | 409         | Må være reskontroført for å kunne endres         |
-| Innkrevingsoppdrag er avskrevet           | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-avskrevet           | 409         |                                                  |
+| Feilmeldingstittel                        | Siste del av typefelt                     | Http-status | Merknad                                          |
+|-------------------------------------------|-------------------------------------------|-------------|--------------------------------------------------|
+| Innkrevingsoppdrag har ugyldig tilstand   | innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |                                   
+| Innkrevingsoppdrag er ikke reskontrofoert | innkrevingsoppdrag-er-ikke-reskontrofoert | 409         | Må være reskontroført for å kunne endres         |
+| Innkrevingsoppdrag er avskrevet           | innkrevingsoppdrag-er-avskrevet           | 409         |                                                  |
 
 ### Avskriving
 
-| Feilmeldingstittel                        | Siste del av typefelt                                                                            | Http-status | Merknad                                          |
-|-------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|--------------------------------------------------|
-| Innkrevingsoppdrag har ugyldig tilstand   | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |
-| Innkrevingsoppdrag er ikke reskontrofoert | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-ikke-reskontrofoert | 409         |                                                  |
-| Innkrevingsoppdrag er allerede avskrevet  | tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:innkrevingsoppdrag-er-allerede-avskrevet  | 409         |                                                  |
+| Feilmeldingstittel                        | Siste del av typefelt                     | Http-status | Merknad                                          |
+|-------------------------------------------|-------------------------------------------|-------------|--------------------------------------------------|
+| Innkrevingsoppdrag har ugyldig tilstand   | innkrevingsoppdrag-har-ugyldig-tilstand   | 403         | Innkrevingsoppdraget tilhører ikke oppdragsgiver |
+| Innkrevingsoppdrag er ikke reskontrofoert | innkrevingsoppdrag-er-ikke-reskontrofoert | 409         |                                                  |
+| Innkrevingsoppdrag er allerede avskrevet  | innkrevingsoppdrag-er-allerede-avskrevet  | 409         | Må være reskontroført for å kunne avskrives      |
 
 ## Asynkrone valideringsregler for NAV
 
