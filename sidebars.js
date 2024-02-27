@@ -37,10 +37,9 @@ const sidebars = {
       link: { type: 'doc', id: 'utleggsbegjaering/index' },
       items: [
         {
-          type: 'category',
-          label: 'API Spesifikasjon',
-          link: { type: 'doc', id: 'utleggsbegjaering/apispesifikasjon/index' },
-          items: []
+          type: 'link',
+          label: 'API-dokumentasjon',
+          href: 'https://app.swaggerhub.com/apis/skatteetaten/utleggsbegjaering-app/0.0.1'
         },
         {
           type: 'category',
