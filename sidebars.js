@@ -28,6 +28,7 @@ const sidebars = {
         'innkrevingsoppdrag/teknisk-dokumentasjon',
         'innkrevingsoppdrag/anbefalinger-for-bruk',
         'innkrevingsoppdrag/beskrivelse-av-tjenester',
+        'innkrevingsoppdrag/valideringsregler',
       ]
     },
 

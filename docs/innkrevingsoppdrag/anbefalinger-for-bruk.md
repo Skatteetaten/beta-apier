@@ -12,6 +12,7 @@ som overføres til Skatteetaten. Dette datalageret bør inkludere:
   ved [opprettelse av et innkrevingsoppdrag](beskrivelse-av-tjenester.md#opprett-et-innkrevingsoppdrag) hos SKE.
 - Mottaksstatus, i henhold til [flyt for mottaksbekreftelse](beskrivelse-av-tjenester.md#hent-mottaksbekreftelse).
 - Kravgrunnlaget, eller en referanse til dette.
+- Transaksjonsid, som mottas i retur ved [endringer](beskrivelse-av-tjenester.md#endre-et-innkrevingsoppdrag).
 - [Avstemmingsinformasjon](beskrivelse-av-tjenester.md#avstemming-av-et-innkrevingsoppdrag).
 
 I henhold til Reglement for økonomistyring i staten, er det viktig at oppdragsgivere som sender innkrevingsoppdrag til
