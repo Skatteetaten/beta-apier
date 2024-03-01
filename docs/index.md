@@ -1,6 +1,6 @@
 # Kom i gang
 
-Generell informasjon om Skatteetatens delingstjenester for eksempel tilkobling via Maskinporten og informasjon om testing finner du på [Skatteetatens delingstjenester](https://skatteetaten.github.io/api-dokumentasjon).
+Generell informasjon om Skatteetatens API-er for eksempel tilkobling via Maskinporten og informasjon om testing finner du på [Skatteetatens API-er](https://skatteetaten.github.io/api-dokumentasjon).
 
 På disse sidene vil vi publisere spesifikk dokumentasjon og informasjon om ulike tjenester og løsninger som er under utvikling i Skatteetaten, og for tiden er det programmet Fremtidens innkreving som benytter dette området.
 
