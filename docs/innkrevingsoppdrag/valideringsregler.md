@@ -73,9 +73,9 @@ Dette inkluderer endepunktene hent valideringsfeil og hent mottaksstatus.
 
 ### Valideringsregler for hent avstemming
 
-| Feilmeldingstittel                     | Siste del av typefelt                  | Http-status | Merknad |
-|----------------------------------------|----------------------------------------|-------------|---------|
-| Innkrevingsoppdrag ikke reskontrofoert | innkrevingsoppdrag-ikke-reskontrofoert | 404         |         |
+| Feilmeldingstittel                        | Siste del av typefelt                     | Http-status | 
+|-------------------------------------------|-------------------------------------------|-------------|
+| Innkrevingsoppdrag er ikke reskontrofoert | innkrevingsoppdrag-er-ikke-reskontrofoert | 404         | 
 
 ## Asynkrone valideringsregler for NAV
 
@@ -90,7 +90,4 @@ mottaksstatus er `VALIDERINGSFEIL`.
 | Person er død                   | <pre><code>{<br/>  "error": "PERSON_ER_DOED",<br/>  "message": "Person med fødselsnummer=xxxxxx er død"<br/>}</code></pre>                                        | TILBAKEKREVING\_<br/>FORSKUTTERTE\_<br/>DAGPENGER | Det kan ikke rettes krav mot døde personer for kravtyper som er listet opp i kolonnen til venstre.                                                                   |
 | Organisasjonsnummer finnes ikke | <pre><code>{<br/>  "error": "ORGANISASJONSNUMMER_FINNES_IKKE",<br/>  "message": "Organisasjon med organisasjonsnummer=xxxxxxxxx finnes ikke. "<br/>}</code></pre> | Alle                                              | Kan komme tilleggsinformasjon om at virksomheten er slettet, eller slettet som følge av dublett med nytt organisasjonsnummer om denne informasjonen er tilgjengelig. |
 | Organisasjon er opphørt         | <pre><code>{<br/>  "error": "ORGANISASJON_ER_OPPHOERT",<br/>  "message": "Organisasjon med organisasjonsnummer=xxxxxxxxx er opphørt. "<br/>}</code></pre>         | Alle                                              |                                                                                                                                                                      |
-
-~~~~
-
 
