@@ -4,7 +4,7 @@
 
 ### Valideringsregler for opprett innkrevingsoppdrag
 
-| Feilmeldingstittel                                              | Siste del av typefelt                                           | Http-status | Kravtyper regelen gjelder for                                                                   | Merknad                                                                                                                                   |
+| Title i feilobjekt                                              | Siste del av type-felt i feilobjekt                             | Http-status | Kravtyper regelen gjelder for                                                                   | Merknad                                                                                                                                   |
 |-----------------------------------------------------------------|-----------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | Kravtype eksisterer ikke                                        | kravtype-eksisterer-ikke                                        | 422         | Alle                                                                                            | Verifiserer at kravtypen ligger i Kodelistekatalogen (intern Skatteetaten-modul)                                                          |
 | Kravtype er inaktiv                                             | kravtype-er-inaktiv                                             | 422         | Alle                                                                                            | Verifiserer at kravtypen er aktiv i Kodelistekatalogen                                                                                    | 
@@ -18,14 +18,13 @@
 | Foreldelsesfristens utgangspunkt eldre enn 2 aar og 10 maaneder | foreldelsesfristens-utgangspunkt-eldre-enn-2-aar-og-10-maaneder | 422         | Alle                                                                                            |                                                                                                                                           | 
 | Ugyldig tilleggsfrist etter foreldelsesloven                    | ugyldig-tilleggsfrist-etter-foreldelsesloven                    | 422         | Alle                                                                                            | Kan ikke være angitt når foreldelsesfristensUtgangspunkt er angitt                                                                        | 
 | Tilleggsfrist etter foreldelsesloven eldre enn 10 maaneder      | tilleggsfrist-etter-foreldelsesloven-eldre-enn-10-maaneder      | 422         | Alle                                                                                            | tilleggsfristEtterForeldelsesloven kan ikke være mer enn 10 måneder tilbake i tid                                                         | 
-| Ugyldig skyldners identifikator                                 | ugyldig-skyldners-identifikator                                 | 422         | Alle                                                                                            | Må være et gyldig personnummer dersom skyldneren er en peson, og et gyldig organisasjonsnummer dersom skyldneren er en organisasjon.      | 
+| Ugyldig skyldners identifikator                                 | ugyldig-skyldners-identifikator                                 | 422         | Alle                                                                                            | Må være et gyldig personnummer dersom skyldneren er en person, og et gyldig organisasjonsnummer dersom skyldneren er en organisasjon.     | 
 | Ugyldig kravtype                                                | ugyldig-kravtype                                                | 422         | Alle                                                                                            | Kravtypen må tilhøre oppdragsgiveren                                                                                                      | 
 | Rentebeloep er ikke over 0                                      | rentebeloep-er-ikke-over-0                                      | 422         | Alle                                                                                            |                                                                                                                                           | 
 | Ugyldig renterilagtdato                                         | ugyldig-renterilagtdato                                         | 422         | Alle                                                                                            | Kan ikke være i fremtiden                                                                                                                 | 
 | Ytelser for avregning er ikke over 0                            | ytelser-for-avregning-er-ikke-over-0                            | 422         | Alle                                                                                            |                                                                                                                                           | 
-| Ugyldig tilbakekrevingsperiode                                  | ugyldig-tilbakekrevingsperiode                                  | 422         | Alle                                                                                            | Fom  må være i fortiden. Tom kan ikke være i fremtiden. Tom må være etter fom.                                                            | 
+| Ugyldig tilbakekrevingsperiode                                  | ugyldig-tilbakekrevingsperiode                                  | 422         | Alle                                                                                            | `fom` må være i fortiden. `tom` kan ikke være i fremtiden. `tom` må være etter `fom`.                                                     | 
 | Ugyldig tilleggsinformasjon                                     | ugyldig-tilleggsinformasjon                                     | 400         | Alle                                                                                            | Må være oppgitt om påkrevd for oppdragsgiver og være på rett format                                                                       | 
-|                                                                 |                                                                 |             |                                                                                                 |                                                                                                                                           | 
 | Kravtype gjelder kun for person                                 | kravtype-gjelder-kun-for-person                                 | 422         | Alle bortsett fra TILBAKEKREVING\_<br/>OMSORGSPENGER og TILBAKEKREVING\_<br/>LOENNSKOMPENSASJON | Alle kravtyper kan *kun* rettes mot personer, med unntak av TILBAKEKREVING\_<br/>OMSORGSPENGER og TILBAKEKREVING\_<br/>LOENNSKOMPENSASJON |  
 | Kravtype gjelder kun for organisasjon                           | kravtype-gjelder-kun-for-organisasjon                           | 422         | TILBAKEKREVING\_<br/>LOENNSKOMPENSASJON                                                         | Det er kun kravtypen TILBAKEKREVING\_<br/>LOENNSKOMPENSASJON som *kun* kan rettes mot organisasjoner.                                     | 
 | Foreldelsesfristens utgangspunkt eldre enn 2 aar og 11 maaneder | foreldelsesfristens-utgangspunkt-eldre-enn-2-aar-og-11-maaneder | 422         | TILBAKEKREVING\_<br/>FORSKUTTERTE\_<br/>DAGPENGER                                               |                                                                                                                                           | 
@@ -35,7 +34,7 @@
 
 Dette inkluderer endepunktene hent valideringsfeil og hent mottaksstatus.
 
-| Feilmeldingstittel                       | Siste del av typefelt                    | Http-status | Merknad                                                                                                                                                                                                         |
+| Title i feilobjekt                       | Siste del av type-felt i feilobjekt      | Http-status | Merknad                                                                                                                                                                                                         |
 |------------------------------------------|------------------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ugyldig kravidentifikator                | ugyldig-kravidentifikator                | 422         | Dersom kravidentifikatortype settes til `SKATTEETATENS_KRAVIDENTIFIKATOR`, valideres det at kravidentifikatoren er en gyldig UUID.                                                                              |
 | Ugyldig oppdragsgivers kravidentifikator | ugyldig-oppdragsgivers-kravidentifikator | 422         | Dersom kravidentifikatortype settes til `OPPDRAGSGIVERS_KRAVIDENTIFIKATOR`, valideres det at kravidentifikatoren er mellom 1 og 40 tegn, og kun inneholder bokstaver (a-å, A-Å), tall og spesialtegnene - og /. |
@@ -43,7 +42,7 @@ Dette inkluderer endepunktene hent valideringsfeil og hent mottaksstatus.
 
 ### Valideringsregler for endring av hovedstol
 
-| Feilmeldingstittel                           | Siste del av typefelt                        | Http-status | Merknad                                         |
+| Title i feilobjekt                           | Siste del av type-felt i feilobjekt          | Http-status | Merknad                                         |
 |----------------------------------------------|----------------------------------------------|-------------|-------------------------------------------------|
 | Hovedstol er ikke over 0                     | hovedstol-er-ikke-over-0                     | 422         |                                                 |
 | Innkrevingsoppdrag er ikke reskontrofoert    | innkrevingsoppdrag-er-ikke-reskontrofoert    | 409         | Må være reskontroført for å kunne endres        |
@@ -51,7 +50,7 @@ Dette inkluderer endepunktene hent valideringsfeil og hent mottaksstatus.
 
 ### Valideringsregler for endring av renter
 
-| Feilmeldingstittel                           | Siste del av typefelt                        | Http-status | Merknad                                         |
+| Title i feilobjekt                           | Siste del av type-felt i feilobjekt          | Http-status | Merknad                                         |
 |----------------------------------------------|----------------------------------------------|-------------|-------------------------------------------------|
 | Rentebeloep er under 0                       | rentebeloep-er-under-0                       | 422         |                                                 |
 | Innkrevingsoppdrag er ikke reskontrofoert    | innkrevingsoppdrag-er-ikke-reskontrofoert    | 409         | Må være reskontroført for å kunne endres        |
@@ -59,21 +58,21 @@ Dette inkluderer endepunktene hent valideringsfeil og hent mottaksstatus.
 
 ### Valideringsregler for ny oppdragsgivers referanse
 
-| Feilmeldingstittel                           | Siste del av typefelt                        | Http-status | Merknad                                         |
+| Title i feilobjekt                           | Siste del av type-felt i feilobjekt          | Http-status | Merknad                                         |
 |----------------------------------------------|----------------------------------------------|-------------|-------------------------------------------------|
 | Innkrevingsoppdrag er ikke reskontrofoert    | innkrevingsoppdrag-er-ikke-reskontrofoert    | 409         | Må være reskontroført for å kunne endres        |
 | Avskrevet innkrevingsoppdrag kan ikke endres | avskrevet-innkrevingsoppdrag-kan-ikke-endres | 409         | Et avskrevet innkrevingsoppdrag kan ikke endres |
 
 ### Valideringsregler for avskriving
 
-| Feilmeldingstittel                              | Siste del av typefelt                           | Http-status | Merknad                                                    |
+| Title i feilobjekt                              | Siste del av type-felt i feilobjekt             | Http-status | Merknad                                                    |
 |-------------------------------------------------|-------------------------------------------------|-------------|------------------------------------------------------------|
 | Innkrevingsoppdrag er ikke reskontrofoert       | innkrevingsoppdrag-er-ikke-reskontrofoert       | 409         | Må være reskontroført for å kunne avskrives                |
 | Avskrevet innkrevingsoppdrag kan ikke avskrives | avskrevet-innkrevingsoppdrag-kan-ikke-avskrives | 409         | Et avskrevet innkrevingsoppdrag kan ikke avskrives på nytt |
 
 ### Valideringsregler for hent avstemming
 
-| Feilmeldingstittel                        | Siste del av typefelt                     | Http-status | 
+| Title i feilobjekt                        | Siste del av type-felt i feilobjekt       | Http-status | 
 |-------------------------------------------|-------------------------------------------|-------------|
 | Innkrevingsoppdrag er ikke reskontrofoert | innkrevingsoppdrag-er-ikke-reskontrofoert | 404         | 
 
