@@ -2,7 +2,13 @@
 
 Denne siden gir anbefalinger for bruk av Skatteetatens (SKE) tjenester for oppdragsinnkreving.
 
-## Etablere datalager for data som overføres til Skatteetaten
+### Varsling av skyldner før innkreving
+
+Før kravet overføres til innkreving må oppdragsgiver sørge for at informasjon om kravet er sendt ut til skyldner.
+Oppdragsgiver må sørge for dette slik at vi unngår situasjoner hvor vi kan risikere at skylder får faktura på betaling
+av kravet før vedkommende har fått informasjon om kravet.
+
+### Etablering av datalager for dataoverførsel til Skatteetaten
 
 For å sikre effektiv
 håndtering og etterlevelse av Reglement for økonomistyring i staten, anbefales det å etablere et datalager for alle data
@@ -20,7 +26,7 @@ Skatteetaten tar vare på kravidentifikatoren de mottar i retur. Denne identifik
 transaksjonskontrollen, bidrar til å sikre sporbarheten til kravet. Ved å ta vare på kravidentifikatoren, kan
 oppdragsgiveren effektivt følge opp og verifisere statusen på det aktuelle kravet.
 
-## Fyll ut feltet `oppdragsgiversKravidentifikator` i `OpprettInnkrevingsoppdragRequest`
+### Utfylling av feltet `oppdragsgiversKravidentifikator` i `OpprettInnkrevingsoppdragRequest`
 
 I tillegg vil vi anbefale å fylle ut feltet `oppdragsgiversKravidentifikator` i `OpprettInnkrevingsoppdragRequest`
 -objektet ved [opprettelse av innkrevingsoppdrag](beskrivelse-av-tjenester.md#opprett-et-innkrevingsoppdrag) med en unik
