@@ -1,5 +1,8 @@
 ### Project specific ###
 
+# Prone to accidental and breaking updates; change only deliberately
+yarn.lock
+
 # Dependencies
 /node_modules
 

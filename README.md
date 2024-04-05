@@ -5,11 +5,10 @@ Nettsiden lages basert på strukturen under `docs/` mappen. For å legge inn inf
 1. Lag en ny mappe med et hensiktsmessig navn under `/docs` for den nye tjenesten.
 2. Lag en `index.md` fil under den nye mappen. Dette blir landingssiden for det nye området.
 3. Legg til flere markdown filer for hver separat side dere ønsker å vise.
-4. Oppdater GitHub siden med filendringene.
+4. Oppdater `sidebars.js` hvis det er lagt til nye sider, slettet gamle sider, eller de har endret navn.
+5. Oppdater GitHub siden med filendringene.
 
-Automatisk oppdatering av github-siden er ikke implementert ennå; kontakt Martin Jonassen for at endringene skal kunne vises i nettsiden.
-
-Titlene i navigasjonsmenyen er basert på overskriften til de respektive markdown filene. Det er mulighet for å bruke metadata for å overstyre denne om dere ønsker at de skal være forskjellige; se `kravogbetalinger/index.md` for et eksempel.
+GitHub Actions sørger for at endringer i master blir deployet til `gh-pages` branchen og da til GitHub Pages. Den bruker `yarn.lock` for å hente pakker, som er lagt til i `.gitignore`. Hvis man skal oppdatere versjoner må man lage en `package-lock.json` fil med internt pakkeregister og `yarn.lock` med eksternt.
 
 # Development
 
@@ -37,7 +36,7 @@ $ npm run build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
+### Manual Deployment
 
 Not using SSH:
 
