@@ -85,7 +85,7 @@ Se [hent valideringsfeil](#hent-valideringsfeil).
       til `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}/valideringsfeil` (se
       "Hent valideringsfeil for et innkrevingsoppdrag"
       i [SwaggerHub](https://app.swaggerhub.com/apis-docs/skatteetaten/oppdragsinnkreving-api/)). Deretter må
-      feilene rettes, og oppdatert innkrevingsoppdrag må sendes inn på nytt.
+      feilene rettes, og oppdatert innkrevingsoppdrag må sendes inn på nytt med en ny `oppdragsgiversKravidentifikator`.
         * NB! Ansvaret for oppfølging ligger hos oppdragsgiver.
 
     * Hvis mottaksstatus er `RESKONTROFOERT` er mottaket vellykket.
@@ -102,7 +102,7 @@ Dersom den asynkrone valideringen ikke har resultert i noen valideringsfeil, ret
 ### Feilhåndtering
 
 Tjenesten for opprettelse av nye krav sikrer unikhet på `oppdragsgiversKravidentifikator`. Dersom man følger
-[anbefalinger for bruk av tjenestene våre](anbefalinger-for-bruk.md#fyll-ut-feltet-oppdragsgiverskravidentifikator-i-opprettinnkrevingsoppdragrequest)
+[anbefalinger for bruk av tjenestene våre](anbefalinger-for-bruk.md#utfylling-av-feltet-oppdragsgiverskravidentifikator-i-opprettinnkrevingsoppdragrequest)
 og fyller ut dette feltet, kan man sende oppdraget på nytt hvis man av ulike grunner er usikker på om kravet faktisk har
 blitt opprettet hos Skatteetaten. Dersom kravet allerede finnes i vårt system, vil det returneres
 en HTTP 422-statuskode med en beskrivende feilmelding. Hvis det ikke finnes, vil innkrevingsoppdraget bli opprettet og
