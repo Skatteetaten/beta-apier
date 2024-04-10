@@ -38,9 +38,8 @@ asynkront, beskrevet under.
 
 ### Synkron validering ved mottak
 
-Tjenesten gjør validering av `OpprettInnkrevingsoppdragRequest`-objektet som er meldingskroppen i POST-kallet. Denne
-valideringen sikrer at alle nødvendige felter er korrekt utfylt og at dataene stemmer overens med tjenestens
-API-spesifikasjon.
+Tjenesten validerer `OpprettInnkrevingsoppdragRequest`-objektet som er meldingskroppen i POST-kallet. Denne valideringen
+sikrer at alle nødvendige felter er korrekt utfylt og at dataene stemmer overens med tjenestens API-spesifikasjon.
 
 Et vellykket kall returnerer kvittering med en 201-statuskode sammen med en _kravidentifikator_, som er Skatteetatens
 referanse til innkrevingsoppdraget. Denne _kravidentifikatoren_ bør oppdragsgiver ta vare på for sporbarhet, og for
