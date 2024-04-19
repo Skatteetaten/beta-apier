@@ -12,6 +12,8 @@
 | Kravtype gjelder kun for organisasjon                           | kravtype-gjelder-kun-for-organisasjon                           | 422         | TILBAKEKREVING\_<br/>LOENNSKOMPENSASJON                                                         | Det er kun kravtypen TILBAKEKREVING\_<br/>LOENNSKOMPENSASJON som *kun* kan rettes mot organisasjoner.                                     | 
 | Foreldelsesfristens utgangspunkt eldre enn 2 aar og 11 maaneder | foreldelsesfristens-utgangspunkt-eldre-enn-2-aar-og-11-maaneder | 422         | TILBAKEKREVING\_<br/>FORSKUTTERTE\_<br/>DAGPENGER                                               |                                                                                                                                           | 
 | Tilleggsfrist etter foreldelsesloven eldre enn 11 maaneder      | tilleggsfrist-etter-foreldelsesloven-eldre-enn-11-maaneder      | 422         | TILBAKEKREVING\_<br/>FORSKUTTERTE\_<br/>DAGPENGER                                               |                                                                                                                                           | 
+| Ytelser for avregning er ikke over 0                            | ytelser-for-avregning-er-ikke-over-0                            | 422         | Alle kravtyper                                                                                  |                                                                                                                                           |
+| Ugyldig tilbakekrevingsperiode                                  | ugyldig-tilbakekrevingsperiode                                  | 422         | Alle kravtyper                                                                                  | `tom` kan ikke være i fremtiden. `fom` kan ikke være etter `tom`.                                                                         |
 
 ### Asynkrone valideringsregler
 
@@ -24,18 +26,17 @@
 | Organisasjonsnummer finnes ikke | <pre><code>{<br/>  "error": "ORGANISASJONSNUMMER_FINNES_IKKE",<br/>  "message": "Organisasjon med organisasjonsnummer=xxxxxxxxx finnes ikke. "<br/>}</code></pre> | Alle                                              | Kan komme tilleggsinformasjon om at virksomheten er slettet, eller slettet som følge av dublett med nytt organisasjonsnummer om denne informasjonen er tilgjengelig. |
 | Organisasjon er opphørt         | <pre><code>{<br/>  "error": "ORGANISASJON_ER_OPPHOERT",<br/>  "message": "Organisasjon med organisasjonsnummer=xxxxxxxxx er opphørt. "<br/>}</code></pre>         | Alle                                              |                                                                                                                                                                      |
 
-
-
 ## Brønnøysundregistrene
 
 ### Synkrone valideringsregler
 
 #### Opprett innkrevingsoppdrag
 
-| Title i feilobjekt                                              | Siste del av type-felt i feilobjekt                             | Http-status |
-|-----------------------------------------------------------------|-----------------------------------------------------------------|-------------|
-| Kravtype gjelder kun for organisasjon                           | kravtype-gjelder-kun-for-organisasjon                           | 422         |
-
+| Title i feilobjekt                    | Siste del av type-felt i feilobjekt   | Http-status | Merknad                                                           |
+|---------------------------------------|---------------------------------------|-------------|-------------------------------------------------------------------|
+| Kravtype gjelder kun for organisasjon | kravtype-gjelder-kun-for-organisasjon | 422         |                                                                   | 
+| Ugyldig tilbakekrevingsperiode        | ugyldig-tilbakekrevingsperiode        | 422         | `tom` kan ikke være i fremtiden. `fom` kan ikke være etter `tom`. |
+| Ugyldig stoppdato for løpende mulkt   | ugyldig-stoppdato-for-løpende-mulkt   | 422         | `stoppdatoForLøpendeMulkt` kan ikke være i fremtiden.             |
 
 #### Endring av hovedstol
 

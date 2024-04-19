@@ -4,6 +4,27 @@ Valideringsreglene på denne siden er felles for alle oppdragsgivere.
 
 ## Synkrone valideringsregler
 
+Ved feil i synkrone valideringer returneres et responsobjekt som
+følger [RFC 7807-formatet](https://datatracker.ietf.org/doc/html/rfc7807). Et eksempel på en valideringsfeil for
+"Ugyldig fastsettelsesdato" vises nedenfor:
+
+```json
+{
+  "type": "tag:skatteetaten.no,2024:innkreving:innkrevingsoppdrag:ugyldig-fastsettelsesdato",
+  "title": "Ugyldig fastsettelsesdato",
+  "status": 422,
+  "detail": "Ugyldig fastsettelsesdato=2024-04-20. Fastsettelsesdatoen kan ikke være i fremtiden",
+  "instance": "/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag"
+}
+```
+
+Tabellene nedenfor beskriver verdiene til de ulike delene av responsobjektet. Kolonnen **"Title i feilobjekt"** viser
+verdien satt i `title`-feltet; i dette tilfellet `Ugyldig fastsettelsesdato`. **"Siste del av type-felt i feilobjekt"**
+viser hva som settes etter det siste kolonet i `type`-feltet; i dette tilfellet `ugyldig-fastsettelsesdato`.
+HTTP-statuskoden i `status`-feltet er oppført i kolonnen **"Http-status"**. Disse tre verdiene er konstante og kan
+benyttes til å utvikle feilhåndteringslogikk. Feltet `detail` gir ytterligere detaljer om feilen og vil variere avhengig
+av feilens årsak. Feltet `instance` viser hvilket endepunkt som er kalt.
+
 ### Valideringsregler for opprett innkrevingsoppdrag
 
 | Title i feilobjekt                                              | Siste del av type-felt i feilobjekt                             | Http-status | Merknad                                                                                                                               |
@@ -24,8 +45,6 @@ Valideringsreglene på denne siden er felles for alle oppdragsgivere.
 | Ugyldig kravtype                                                | ugyldig-kravtype                                                | 422         | Kravtypen må tilhøre oppdragsgiveren                                                                                                  | 
 | Rentebeloep er ikke over 0                                      | rentebeloep-er-ikke-over-0                                      | 422         |                                                                                                                                       | 
 | Ugyldig renterilagtdato                                         | ugyldig-renterilagtdato                                         | 422         | Kan ikke være i fremtiden                                                                                                             | 
-| Ytelser for avregning er ikke over 0                            | ytelser-for-avregning-er-ikke-over-0                            | 422         |                                                                                                                                       | 
-| Ugyldig tilbakekrevingsperiode                                  | ugyldig-tilbakekrevingsperiode                                  | 422         | `fom` må være i fortiden. `tom` kan ikke være i fremtiden. `tom` må være etter `fom`.                                                 | 
 | Ugyldig tilleggsinformasjon                                     | ugyldig-tilleggsinformasjon                                     | 400         | Må være oppgitt om påkrevd for oppdragsgiver og være på rett format                                                                   |  
 
 ### Felles valideringsregler for alle de øvrige endepunktene
