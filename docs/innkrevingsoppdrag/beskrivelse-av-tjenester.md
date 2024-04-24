@@ -25,7 +25,7 @@ brukes, og eventuelle hensyn som må tas.
         * [Synkron validering ved mottak](#synkron-validering-ved-mottak-2)
         * [Asynkron validering](#asynkron-validering-2)
         * [Feilhåndtering](#feilhåndtering-2)
-    * [Avstemming av et innkrevingsoppdrag](#avstemming-av-et-innkrevingsoppdrag)
+    * [Grensesnittavstemming av et innkrevingsoppdrag](#grensesnittavstemming-av-et-innkrevingsoppdrag)
 
 <!-- TOC -->
 
@@ -187,11 +187,11 @@ usikker på om kravet faktisk ble avskrevet hos Skatteetaten, anbefales det å s
 Et innkrevingsoppdrag som allerede er avskrevet, kan ikke avskrives på nytt. I slike tilfeller returneres en HTTP
 409-statuskode med en feilmelding.
 
-## Avstemming av et innkrevingsoppdrag
+## Grensesnittavstemming av et innkrevingsoppdrag
 
 Tjenesten gjør det mulig for oppdragsgiver å avstemme at krav, endringer på krav og avskrivinger er registrert korrekt i
-Skatteetatens kravmottak. Et innkrevingsoppdrag kan avstemmes ved et GET-kall til endepunktet
-`/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}/avstemming`.
+Skatteetatens kravmottak. Alle registrerte opplysninger om et krav som er sendt inn gjennom grensesnittet kan hentes ved
+et GET-kall til endepunktet `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}/avstemming`.
 
 Tjenesten returnerer for en gitt kravidentifikator:
 
