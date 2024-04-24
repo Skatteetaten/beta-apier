@@ -19,7 +19,7 @@ som overføres til Skatteetaten. Dette datalageret bør inkludere:
 - Mottaksstatus, i henhold til [flyt for mottaksbekreftelse](beskrivelse-av-tjenester.md#hent-mottaksbekreftelse).
 - Kravgrunnlaget, eller en referanse til dette.
 - Transaksjonsid, som mottas i retur ved [endringer](beskrivelse-av-tjenester.md#endre-et-innkrevingsoppdrag).
-- [Avstemmingsinformasjon](beskrivelse-av-tjenester.md#avstemming-av-et-innkrevingsoppdrag).
+- [Grensesnittavstemming](beskrivelse-av-tjenester.md#grensesnittavstemming-av-et-innkrevingsoppdrag).
 
 I henhold til Reglement for økonomistyring i staten, er det viktig at oppdragsgivere som sender innkrevingsoppdrag til
 Skatteetaten tar vare på kravidentifikatoren de mottar i retur. Denne identifikatoren, som er en del av

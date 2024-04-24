@@ -68,7 +68,7 @@ Dette inkluderer endepunktene hent valideringsfeil og hent mottaksstatus.
 | Innkrevingsoppdrag er ikke reskontrofoert       | innkrevingsoppdrag-er-ikke-reskontrofoert       | 409         | Må være reskontroført for å kunne avskrives                |
 | Avskrevet innkrevingsoppdrag kan ikke avskrives | avskrevet-innkrevingsoppdrag-kan-ikke-avskrives | 409         | Et avskrevet innkrevingsoppdrag kan ikke avskrives på nytt |
 
-### Valideringsregler for hent avstemming
+### Valideringsregler for henting av grensesnittavstemming
 
 | Title i feilobjekt                        | Siste del av type-felt i feilobjekt       | Http-status | 
 |-------------------------------------------|-------------------------------------------|-------------|
