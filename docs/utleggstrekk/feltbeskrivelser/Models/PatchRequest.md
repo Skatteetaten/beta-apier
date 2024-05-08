@@ -1,11 +1,11 @@
 # PatchRequest
 
-## Egenskaper
+## Felter
 
-| Navn                        | Type        | Beskrivelse | Notater            |
-|-----------------------------|-------------|-------------|--------------------|
-| **kvitterUtTrekkmeldinger** | **Boolean** |             | [default til null] |
-| **meldingsIder**            | **List**    |             | [default til null] |
+| Navn                      | Type        | Beskrivelse | Notater |
+|---------------------------|-------------|-------------|---------|
+| **kvitterUtUtleggstrekk** | **Boolean** |             |         |
+| **trekkider**             | **List**    |             |         |
 
 [[Tilbake til modell liste]](../index.md)
 

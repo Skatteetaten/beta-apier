@@ -1,6 +1,6 @@
 # API Spesifikasjon
 
-Skatteetaten tilbyr API for å hente utleggstrekkmeldinger.
+Skatteetaten tilbyr API for å hente utleggstrekk.
 
 Open API spesifikasjonen er tilgjengelig her :
 
@@ -10,34 +10,33 @@ Open API spesifikasjonen er tilgjengelig her :
 
 Alle URIer er relative til *http://localhost:8080*
 
-| Metode                                                  | HTTP request                                       | Beskrivelse                  |
-|---------------------------------------------------------|----------------------------------------------------|------------------------------|
-| [**hent**](#hent)                                       | **GET** /external/v0/utleggstrekk/{trekkMeldingId} | Hent trekkmelding            |
-| [**hentfeed**](#hentfeed)                               | **GET** /external/v0/utleggstrekk/feed             | Hent feed med trekkmeldinger |
-| [**kvitterUtTrekkmeldinger**](#kvitterUtTrekkmeldinger) | **PATCH** /external/v0/utleggstrekk                | Kvittér ut trekkmeldinger    |
+| Metode                                                      | HTTP request                                                     | Beskrivelse                                                         |
+|-------------------------------------------------------------|------------------------------------------------------------------|---------------------------------------------------------------------|
+| [**hentUtleggstrekk**](#hentUtleggstrekk)                   | **GET** /utleggstrekk/v0/{trekkpliktig}/{trekkid}/{trekkversjon} | Hent versjon av utleggstrekk                                        |
+| [**hentListeOverUtleggstrekk**](#hentListeOverUtleggstrekk) | **GET** /utleggstrekk/v0/{trekkpliktig}                          | Hent liste over utleggstrekk som tilhører trekkpliktig organisasjon |
+| [**kvitterUtUtleggstrekk**](#kvitterUtUtleggstrekk)         | **PATCH** /utleggstrekk/v0                                       | Kvittér ut at ett eller flere utleggstrekk er lest                  |
 
-<a name="hent"></a>
+<a name="hentUtleggstrekk"></a>
 
-# **hent**
+# **hentUtleggstrekk**
 
-> Trekkmelding hent(trekkMeldingId, KlientId, Korrelasjonsid, Meldingsid)
+> Utleggstrekk hent(trekkpliktig, trekkid, trekkversjon)
 
-Hent trekkmelding
+Hent utleggstrekk
 
-    Henter en trekkmelding
+    Henter et utleggstrekk
 
 ### Parametre
 
-| Navn               | Type       | Beskrivelse                              | Notater            |
-|--------------------|------------|------------------------------------------|--------------------|
-| **trekkMeldingId** | **String** |                                          | [default til null] |
-| **KlientId**       | **String** | Klientens unike id                       | [default til null] |
-| **Korrelasjonsid** | **String** | Id for å spore kall på tvers av systemer | [default til null] |
-| **Meldingsid**     | **String** | Meldingsid mellom systemer               | [default til null] |
+| Navn             | Type        | Beskrivelse         | Notater |
+|------------------|-------------|---------------------|---------|
+| **trekkpliktig** | **String**  | Organisasjonsnummer |         |
+| **trekkid**      | **String**  |                     |         |
+| **trekkversjon** | **Integer** |                     |         |
 
 ### Retur type
 
-[**Trekkmelding**](../feltbeskrivelser/Models/Trekkmelding.md)
+[**Utleggstrekk**](../feltbeskrivelser/Models/Utleggstrekk.md)
 
 ### Autorisasjon
 
@@ -45,31 +44,29 @@ Se [Tilgang](../tilgang.md)
 
 ### HTTP request headere
 
+- **Korrelasjonsid**: Id for å spore kall på tvers av systemer
 - **Content-Type**: Ikke definert
 - **Accept**: application/json, \*/\*
 
-<a name="hentfeed"></a>
+<a name="hentListeOverUtleggstrekk"></a>
 
-# **hentfeed**
+# **hentListeOverUtleggstrekk**
 
-> List hentfeed(sekvensnummer, KlientId, Korrelasjonsid, Meldingsid)
+> List hent(trekkpliktig)
 
-Hent feed med trekkmeldinger
+Hent liste med over utleggstrekk som tilhører trekkpliktig organisasjon
 
-    Returnerer en feed med løpende sekvensnummer og trekkmeldingId fra oppgitt sekvensnummer
+    Henter utleggstrekk
 
 ### Parametre
 
-| Navn               | Type       | Beskrivelse                              | Notater            |
-|--------------------|------------|------------------------------------------|--------------------|
-| **sekvensnummer**  | **Long**   | Sekvensnummer for start på feeden        | [default til null] |
-| **KlientId**       | **String** | Klientens unike id                       | [default til null] |
-| **Korrelasjonsid** | **String** | Id for å spore kall på tvers av systemer | [default til null] |
-| **Meldingsid**     | **String** | Meldingsid mellom systemer               | [default til null] |
+| Navn             | Type       | Beskrivelse         | Notater |
+|------------------|------------|---------------------|---------|
+| **trekkpliktig** | **String** | Organisasjonsnummer |         |
 
 ### Retur type
 
-[**List**](../feltbeskrivelser/Models/UtleggstrekkFeedElement.md)
+[**List**](../feltbeskrivelser/Models/Utleggstrekk.md)
 
 ### Autorisasjon
 
@@ -77,27 +74,25 @@ Se [Tilgang](../tilgang.md)
 
 ### HTTP request headere
 
+- **Korrelasjonsid**: Id for å spore kall på tvers av systemer
 - **Content-Type**: Ikke definert
 - **Accept**: application/json, \*/\*
 
-<a name="kvitterUtTrekkmeldinger"></a>
+<a name="kvitterUtUtleggstrekk"></a>
 
-# **kvitterUtTrekkmeldinger**
+# **kvitterUtUtleggstrekk**
 
-> kvitterUtTrekkmeldinger(KlientId, Korrelasjonsid, Meldingsid, request\_body)
+> kvitterUtUtleggstrekk(trekkpliktig, Korrelasjonsid, request\_body)
 
-Kvittér ut trekkmeldinger
+Kvittér ut at ett eller flere utleggstrekk er lest
 
-    Oppgi en liste med meldingsIder som det skal kvitteres ut for.
+    Oppgi en liste med trekkIder som det skal kvitteres ut for.
 
 ### Parametre
 
-| Navn               | Type                                                           | Beskrivelse                              | Notater            |
-|--------------------|----------------------------------------------------------------|------------------------------------------|--------------------|
-| **KlientId**       | **String**                                                     | Klientens unike id                       | [default til null] |
-| **Korrelasjonsid** | **String**                                                     | Id for å spore kall på tvers av systemer | [default til null] |
-| **Meldingsid**     | **String**                                                     | Meldingsid mellom systemer               | [default til null] |
-| **PatchRequest**   | [**PatchRequest**](../feltbeskrivelser/Models/PatchRequest.md) |                                          |                    |
+| Navn             | Type                                                           | Beskrivelse | Notater |
+|------------------|----------------------------------------------------------------|-------------|---------|
+| **PatchRequest** | [**PatchRequest**](../feltbeskrivelser/Models/PatchRequest.md) |             |         |
 
 ### Retur type
 
@@ -109,6 +104,7 @@ Se [Tilgang](../tilgang.md)
 
 ### HTTP request headere
 
+- **Korrelasjonsid**: Id for å spore kall på tvers av systemer
 - **Content-Type**: application/json
 - **Accept**:  \*/\*
 

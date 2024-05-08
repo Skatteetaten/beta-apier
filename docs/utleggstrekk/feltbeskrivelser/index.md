@@ -1,14 +1,13 @@
 # Dokumentasjon for Utleggstrekk
 
 # Felter
- - [ExtendedProblemDetail](./Models/ExtendedProblemDetail.md)
- - [Meldingstype](./Models/Meldingstype.md)
+ - [Utleggstrekk](./Models/Utleggstrekk.md)
+ - [Trekkstatus](./Models/Trekkstatus.md)
  - [MidlertidigStans](./Models/MidlertidigStans.md)
- - [Trekkbeloep](./Models/TrekkBeloep.md)
- - [Trekkmelding](./Models/Trekkmelding.md)
- - [TrekkProsent](./Models/TrekkProsent.md)
- - [UtleggstrekkFeedElement](./Models/UtleggstrekkFeedElement.md)
+ - [Trekkbeloep](./Models/Trekkbeloep.md)
+ - [Trekkprosent](./Models/Trekkprosent.md)
  - [PatchRequest](./Models/PatchRequest.md)
+ - [Feil](./Models/Feil.md)
 
 # Oppfølging og støtte
 I testfasen vil vi tilby støtte til de eksterne leverandørene gjennom utvikling og test. Mer informasjon kommer her etterhvert.
