@@ -35,7 +35,7 @@
 | Title i feilobjekt                    | Siste del av type-felt i feilobjekt   | Http-status | Merknad                                                           |
 |---------------------------------------|---------------------------------------|-------------|-------------------------------------------------------------------|
 | Kravtype gjelder kun for organisasjon | kravtype-gjelder-kun-for-organisasjon | 422         |                                                                   | 
-| Ugyldig tilbakekrevingsperiode        | ugyldig-tilbakekrevingsperiode        | 422         | `tom` kan ikke være i fremtiden. `fom` kan ikke være etter `tom`. |
+| Ugyldig periode                       | ugyldig-periode                       | 422         | `tom` kan ikke være i fremtiden. `fom` kan ikke være etter `tom`. |
 | Ugyldig stoppdato for løpende mulkt   | ugyldig-stoppdato-for-løpende-mulkt   | 422         | `stoppdatoForLøpendeMulkt` kan ikke være i fremtiden.             |
 
 #### Endring av hovedstol
