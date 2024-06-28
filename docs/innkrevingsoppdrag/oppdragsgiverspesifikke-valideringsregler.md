@@ -38,11 +38,17 @@
 | Ugyldig periode                       | ugyldig-periode                       | 422         | `tom` kan ikke være i fremtiden. `fom` kan ikke være etter `tom`. |
 | Ugyldig stoppdato for løpende mulkt   | ugyldig-stoppdato-for-løpende-mulkt   | 422         | `stoppdatoForLøpendeMulkt` kan ikke være i fremtiden.             |
 
-#### Endring av hovedstol
+#### Endring av hovedstol, endring av renter og ny oppdragsgivers referanse
 
-| Title i feilobjekt                                  | Siste del av type-felt i feilobjekt                 | Http-status | Merknad                                                                    |
-|-----------------------------------------------------|-----------------------------------------------------|-------------|----------------------------------------------------------------------------|
-| Ny hovedstol er ikke lavere enn gjeldende hovedstol | ny-hovedstol-er-ikke-lavere-enn-gjeldende-hovedstol | 422         | Beløpet for ny hovedstol må være lavere enn eller likt gjeldende hovedstol |
+| Title i feilobjekt        | Siste del av type-felt i feilobjekt | Http-status |
+|---------------------------|-------------------------------------|-------------|
+| Kravtypen kan ikke endres | kravtypen-kan-ikke-endres           | 405         |
+
+#### Avskriving
+
+| Title i feilobjekt           | Siste del av type-felt i feilobjekt | Http-status |
+|------------------------------|-------------------------------------|-------------|
+| Kravtypen kan ikke avskrives | kravtypen-kan-ikke-avskrives        | 405         |
 
 ### Asynkrone valideringsregler
 
