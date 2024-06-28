@@ -14,7 +14,14 @@ const sidebars = {
         'innkrevingsoppdrag/anbefalinger-for-bruk',
         'innkrevingsoppdrag/beskrivelse-av-tjenester',
         'innkrevingsoppdrag/felles-valideringsregler',
-        'innkrevingsoppdrag/oppdragsgiverspesifikke-valideringsregler',
+        {
+          type: 'category',
+          label: 'Oppdragsgiverspesifikke valideringsregler',
+          items: [
+            'innkrevingsoppdrag/oppdragsgiverspesifikke-valideringsregler/bronnoysundregistrene',
+            'innkrevingsoppdrag/oppdragsgiverspesifikke-valideringsregler/nav',
+          ],
+        },
       ]
     },
 
