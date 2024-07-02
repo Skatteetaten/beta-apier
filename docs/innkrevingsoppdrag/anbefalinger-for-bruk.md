@@ -35,4 +35,15 @@ for [feilhåndtering ved opprettelse av krav](beskrivelse-av-tjenester.md#feilh�
 unikhet på feltet `oppdragsgiversKravidentifikator`. Dersom man ikke har en unik identifikator her, kan man for eksempel
 bruke en identifikator fra overføringstabellen sin.
 
+### Feilhåndtering og resending av krav
+
+Ved oversending av nye krav, endringer og avskrivinger, kan det oppstå feil. Anbefalingen for håndtering av disse
+feilene varierer avhengig av feilkoden som mottas:
+
+- **5xx-feil (Serverfeil):** Disse feilene indikerer at det har oppstått et problem på serverens side. Det anbefales å
+  forsøke å sende kravet på nytt, gjerne med en eksponentiell backoff-strategi.
+
+- **4xx-feil (Klientfeil):** Disse feilene indikerer at det er et problem med forespørselen, for eksempel ugyldig data
+  eller manglende autentisering. Det anbefales ikke å forsøke å sende kravet på nytt uten videre undersøkelser. Studer
+  feilmeldingen for å forstå årsaken til feilen, og gjør nødvendige korrigeringer før et nytt forsøk.
 
