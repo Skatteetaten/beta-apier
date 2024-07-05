@@ -14,13 +14,13 @@
 
 | Title i feilobjekt        | Siste del av type-felt i feilobjekt | Http-status |
 |---------------------------|-------------------------------------|-------------|
-| Kravtypen kan ikke endres | kravtypen-kan-ikke-endres           | 405         |
+| Kravtypen kan ikke endres | kravtypen-kan-ikke-endres           | 403         |
 
 #### Avskriving
 
 | Title i feilobjekt           | Siste del av type-felt i feilobjekt | Http-status |
 |------------------------------|-------------------------------------|-------------|
-| Kravtypen kan ikke avskrives | kravtypen-kan-ikke-avskrives        | 405         |
+| Kravtypen kan ikke avskrives | kravtypen-kan-ikke-avskrives        | 403         |
 
 ### Asynkrone valideringsregler
 
