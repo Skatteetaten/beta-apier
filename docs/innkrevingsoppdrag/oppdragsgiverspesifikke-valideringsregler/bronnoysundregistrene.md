@@ -4,11 +4,12 @@
 
 #### Opprett innkrevingsoppdrag
 
-| Title i feilobjekt                    | Siste del av type-felt i feilobjekt   | Http-status | Merknad                                                           |
-|---------------------------------------|---------------------------------------|-------------|-------------------------------------------------------------------|
-| Kravtype gjelder kun for organisasjon | kravtype-gjelder-kun-for-organisasjon | 422         |                                                                   | 
-| Ugyldig periode                       | ugyldig-periode                       | 422         | `tom` kan ikke være i fremtiden. `fom` kan ikke være etter `tom`. |
-| Ugyldig stoppdato for løpende mulkt   | ugyldig-stoppdato-for-løpende-mulkt   | 422         | `stoppdatoForLøpendeMulkt` kan ikke være i fremtiden.             |
+| Title i feilobjekt                                              | Siste del av type-felt i feilobjekt                             | Http-status | Merknad                                                           |
+|-----------------------------------------------------------------|-----------------------------------------------------------------|-------------|-------------------------------------------------------------------|
+| Kravtype gjelder kun for organisasjon                           | kravtype-gjelder-kun-for-organisasjon                           | 422         |                                                                   | 
+| Ugyldig periode                                                 | ugyldig-periode                                                 | 422         | `tom` kan ikke være i fremtiden. `fom` kan ikke være etter `tom`. |
+| Ugyldig stoppdato for løpende mulkt                             | ugyldig-stoppdato-for-løpende-mulkt                             | 422         | `stoppdatoForLøpendeMulkt` kan ikke være i fremtiden.             |
+| Foreldelsesfristens utgangspunkt eldre enn 2 aar og 10 maaneder | foreldelsesfristens-utgangspunkt-eldre-enn-2-aar-og-10-maaneder | 422         |                                                                   |
 
 #### Endring av hovedstol, endring av renter og ny oppdragsgivers referanse
 
