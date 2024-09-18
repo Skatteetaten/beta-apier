@@ -5,14 +5,10 @@ Figuren under viser arkitekturen:
 ![Oversikt](bilder/oversikt.png)
 
 ## Beskrivelse:
+Skatteetaten etablerer en ny utleggstrekksak og oppretter en JSON-melding om dette i utleggstrekk-API
+1. Send informasjon om nytt trekkpålegg til arbeidsgiver via Dialogporten
+2. Arbeidsgiver henter trekkpålegg fra Skatteetaten. 
+   1. SBS henter et systembrukertoken fra Maskinporten 
+   2. SBS utfører kall (get) mot utleggstrekk-API for å hente trekkpålegg
 
-1. Skatteetaten etablerer en ny utleggstrekksak og publiserer en JSON-melding om dette i utleggstrekk-API
-2. En melding om utleggstrekk (PDF) sendes også til arbeidsgivers innboks i Altinn slik at arbeidsgivere uten SBS kan
-   motta meldingen.
-3. SBS poller mot nye trekkmeldinger fra Skatteetaten en gang per dag.
-    - a. SBS henter et token fra Maskinporten
-    - b. SBS utfører kall (get) mot utleggstrekk-API for å hente nye meldings-id´er
-    - c. SBS utfører kall (get) mot utleggstrekk-API for å hente trekkmelding
-    - d. SBS oppretter en trekksak i SBS og kvitterer dette ut med et kall (post) til utleggstrekk-API
-3. SBS kan også hente den samme trekkmeldingen fra Altinn-innboksen. Det anbefales å gjøre dette i tillegg til
-   API-grensesnittet i starten for å oppnå robusthet mot feil.
+Trekkpliktig arbeidsgiver kan også hente de samme trekkpåleggene fra Altinn-innboksen i Digdirs Felles arbeidsflate. En slik løsning vil videreføres også i fremtiden.

@@ -1,43 +1,42 @@
 # API Spesifikasjon
 
-Skatteetaten tilbyr API for å hente utleggstrekkmeldinger.
+Skatteetaten tilbyr API for å hente trekkpålegg.
 
 Open API spesifikasjonen er tilgjengelig her :
 
-* [swaggerhub](https://app.swaggerhub.com/apis/skatteetaten/utleggstrekk-app)
+* [swaggerhub](https://app.swaggerhub.com/apis/skatteetaten/trekkpaalegg-app)
 
-# UtleggstrekkApi
+# Trekkpålegg API
 
 Alle URIer er relative til *http://localhost:8080*
 
-| Metode                                                  | HTTP request                                       | Beskrivelse                  |
-|---------------------------------------------------------|----------------------------------------------------|------------------------------|
-| [**hent**](#hent)                                       | **GET** /external/v0/utleggstrekk/{trekkMeldingId} | Hent trekkmelding            |
-| [**hentfeed**](#hentfeed)                               | **GET** /external/v0/utleggstrekk/feed             | Hent feed med trekkmeldinger |
-| [**kvitterUtTrekkmeldinger**](#kvitterUtTrekkmeldinger) | **PATCH** /external/v0/utleggstrekk                | Kvittér ut trekkmeldinger    |
+| Metode                                             | HTTP request                                                                | Beskrivelse                                              |
+|----------------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------|
+| [**hent alle gjeldende**](#hentAlleGjeldende)      | **GET** /external/v0/trekkpaalegg/{trekkpliktig}                            | Hent alle gjeldende trekkmeldinger for den trekkpliktige |
+| [**hent versjon**](#hentVersjon)                   | **GET** /external/v0/trekkpaalegg/{trekkpliktig}/{trekkid}/{trekkversjon}   | Hent en spesifikk versjon av en trekkmeldingen.          |
+<a name="hentAlleGjeldende"></a>
 
-<a name="hent"></a>
+# **Hent alle gjeldende**
 
-# **hent**
+>  **GET** /external/v0/trekkpaalegg/{trekkpliktig}
 
-> Trekkmelding hent(trekkMeldingId, KlientId, Korrelasjonsid, Meldingsid)
-
-Hent trekkmelding
-
-    Henter en trekkmelding
+Henter alle gjeldende trekkpålegg for angitt trekkpliktig. 
+Benytt queryParam 'fraSekvensnummer' for å unngå trekkpålegg som er hentet fra før (relevant for arbeidsgivere med svært mange utleggstrekk)
 
 ### Parametre
 
-| Navn               | Type       | Beskrivelse                              | Notater            |
-|--------------------|------------|------------------------------------------|--------------------|
-| **trekkMeldingId** | **String** |                                          | [default til null] |
-| **KlientId**       | **String** | Klientens unike id                       | [default til null] |
-| **Korrelasjonsid** | **String** | Id for å spore kall på tvers av systemer | [default til null] |
-| **Meldingsid**     | **String** | Meldingsid mellom systemer               | [default til null] |
+| Navn                 | Type       | Beskrivelse                                                                   | Notater            |
+|----------------------|------------|-------------------------------------------------------------------------------|--------------------|
+| **trekkpliktig**     | **String** | Orgnummeret til den trekkpliktige arbeidsgiver/ytelsesutbetaler               | [default til null] |
+| **fraSekvensnummer** | **String** | Angir at man kun ønsker trekkpålegg som er oppdateret siden forrige uthenting | [default til null] |
+| **KlientId**         | **String** | Klientens unike id                                                            | [default til null] |
+| **Korrelasjonsid**   | **String** | Id for å spore kall på tvers av systemer                                      | [default til null] |
+| **Meldingsid**       | **String** | Meldingsid mellom systemer                                                    | [default til null] |
+
 
 ### Retur type
 
-[**Trekkmelding**](../feltbeskrivelser/Models/Trekkmelding.md)
+Liste av [**Trekkpaalegg**](../feltbeskrivelser/Models/Trekkpaalegg.md)
 
 ### Autorisasjon
 
@@ -48,28 +47,29 @@ Se [Tilgang](../tilgang.md)
 - **Content-Type**: Ikke definert
 - **Accept**: application/json, \*/\*
 
-<a name="hentfeed"></a>
+<a name="hentVersjon"></a>
 
-# **hentfeed**
+# **Hent versjon**
 
-> List hentfeed(sekvensnummer, KlientId, Korrelasjonsid, Meldingsid)
+> **GET** /external/v0/trekkpaalegg/{trekkpliktig}/{trekkid}/{trekkversjon}
 
-Hent feed med trekkmeldinger
-
-    Returnerer en feed med løpende sekvensnummer og trekkmeldingId fra oppgitt sekvensnummer
+Henter angitt versjon av et trekkpålegg.
 
 ### Parametre
 
-| Navn               | Type       | Beskrivelse                              | Notater            |
-|--------------------|------------|------------------------------------------|--------------------|
-| **sekvensnummer**  | **Long**   | Sekvensnummer for start på feeden        | [default til null] |
-| **KlientId**       | **String** | Klientens unike id                       | [default til null] |
-| **Korrelasjonsid** | **String** | Id for å spore kall på tvers av systemer | [default til null] |
-| **Meldingsid**     | **String** | Meldingsid mellom systemer               | [default til null] |
+| Navn               | Type       | Beskrivelse                                                  | Notater            |
+|--------------------|------------|--------------------------------------------------------------|--------------------|
+| **trekkpliktig**   | **String** | Org-/fnr til den trekkpliktige arbeidsgiver/ytelsesutbetaler | [default til null] |
+| **trekkid**        | **String** | Id til trekkpålegget                                         | [default til null] |
+| **trekkversjon**   | **String** | Versjonen til det angitte utleggstrekket                     | [default til null] |
+| **KlientId**       | **String** | Klientens unike id                                           | [default til null] |
+| **Korrelasjonsid** | **String** | Id for å spore kall på tvers av systemer                     | [default til null] |
+| **Meldingsid**     | **String** | Meldingsid mellom systemer                                   | [default til null] |
+
 
 ### Retur type
 
-[**List**](../feltbeskrivelser/Models/UtleggstrekkFeedElement.md)
+[**Trekkpaalegg**](../feltbeskrivelser/Models/Trekkpaalegg.md)
 
 ### Autorisasjon
 
@@ -79,36 +79,3 @@ Se [Tilgang](../tilgang.md)
 
 - **Content-Type**: Ikke definert
 - **Accept**: application/json, \*/\*
-
-<a name="kvitterUtTrekkmeldinger"></a>
-
-# **kvitterUtTrekkmeldinger**
-
-> kvitterUtTrekkmeldinger(KlientId, Korrelasjonsid, Meldingsid, request\_body)
-
-Kvittér ut trekkmeldinger
-
-    Oppgi en liste med meldingsIder som det skal kvitteres ut for.
-
-### Parametre
-
-| Navn               | Type                                                           | Beskrivelse                              | Notater            |
-|--------------------|----------------------------------------------------------------|------------------------------------------|--------------------|
-| **KlientId**       | **String**                                                     | Klientens unike id                       | [default til null] |
-| **Korrelasjonsid** | **String**                                                     | Id for å spore kall på tvers av systemer | [default til null] |
-| **Meldingsid**     | **String**                                                     | Meldingsid mellom systemer               | [default til null] |
-| **PatchRequest**   | [**PatchRequest**](../feltbeskrivelser/Models/PatchRequest.md) |                                          |                    |
-
-### Retur type
-
-null (tom response body)
-
-### Autorisasjon
-
-Se [Tilgang](../tilgang.md)
-
-### HTTP request headere
-
-- **Content-Type**: application/json
-- **Accept**:  \*/\*
-
