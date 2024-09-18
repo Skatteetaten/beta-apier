@@ -49,24 +49,24 @@ const sidebars = {
 
     {
       type: 'category',
-      label: 'Utleggstrekk',
-      link: { type: 'doc', id: 'utleggstrekk/index' },
+      label: 'Trekkpålegg',
+      link: { type: 'doc', id: 'trekkpaalegg/index' },
       items: [
         {
           type: 'category',
           label: 'API Spesifikasjon',
-          link: { type: 'doc', id: 'utleggstrekk/apispesifikasjon/index' },
+          link: { type: 'doc', id: 'trekkpaalegg/apispesifikasjon/index' },
           items: []
         },
         {
           type: 'category',
           label: 'Feltbeskrivelser',
-          link: { type: 'doc', id: 'utleggstrekk/feltbeskrivelser/index' },
+          link: { type: 'doc', id: 'trekkpaalegg/feltbeskrivelser/index' },
           items: []
         },
-        'utleggstrekk/tilgang',
-        'utleggstrekk/informasjonsmodeller',
-        'utleggstrekk/skisser'
+        'trekkpaalegg/tilgang',
+        'trekkpaalegg/informasjonsmodeller',
+        'trekkpaalegg/skisser'
       ]
     }
   ]

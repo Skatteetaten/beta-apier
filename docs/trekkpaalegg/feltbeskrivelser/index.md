@@ -1,4 +1,4 @@
-# Dokumentasjon for Utleggstrekk
+# Dokumentasjon for trekkpålegg
 
 # Felter
 - [Trekkpaalegg](./Models/Trekkpaalegg.md)
@@ -16,7 +16,7 @@
 I testfasen vil vi tilby støtte til de eksterne leverandørene gjennom utvikling og test. Mer informasjon kommer her etterhvert.
 I mellomtiden – ta kontakt med fremtidensinnkreving@skatteetaten.no.
 
-# Grensesnitt for å innbetale og rapportere utleggstrekk
+# Grensesnitt for å innbetale og rapportere trekkpålegg
 I tillegg til å trekke arbeidstakere i lønn skal også arbeidsgivere innbetale det som er trukket i lønn til skatteetaten, samt rapportere dette i A-meldingen.
 Skatteetaten på sin side vil kontrollere at alle dataene er korrekte.
 
