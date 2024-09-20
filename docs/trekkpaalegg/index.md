@@ -18,7 +18,7 @@ Hovedtrekkene i det nye grensesnittet er:
 * Grensesnittet er et maskin-maskin-grensesnitt som overfører trekkpålegg fra Skatteetaten til arbeidsgivere med SBS-systemer.
 * Grensesnittet er basert på en RESTful-stil som tilbyr et API.
 * SBS må spørre (poll) mot grensesnittet for å sjekke om det er nye trekkpålegg.
-* Det vil etterhvert komme et grensesnitt der SBS kan motta notifikasjon (event) om at Skatteetaten har et nytt trekkpålegg til arbeidsgiver.
+* Det vil etter hvert komme et grensesnitt der SBS kan motta notifikasjon (event) om at Skatteetaten har et nytt trekkpålegg til arbeidsgiver.
 * I grensesnittet må SBS presentere et token som inneholder organisasjonsnummeret til trekkpliktig arbeidsgiver.
 * Tokenet får SBS ved å koble seg opp mot Maskinporten med et gitt "scope".
 * Trekkpålegget leveres i formatet JSON.
