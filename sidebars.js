@@ -19,9 +19,9 @@ const sidebars = {
           label: 'Oppdragsgiverspesifikke valideringsregler',
           items: [
             'innkrevingsoppdrag/oppdragsgiverspesifikke-valideringsregler/bronnoysundregistrene',
-            'innkrevingsoppdrag/oppdragsgiverspesifikke-valideringsregler/nav',
-          ],
-        },
+            'innkrevingsoppdrag/oppdragsgiverspesifikke-valideringsregler/nav'
+          ]
+        }
       ]
     },
 
