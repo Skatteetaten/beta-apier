@@ -36,6 +36,10 @@ til  `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag`. Før innkreving
 Skatteetaten overtar ansvaret for innkrevingen gjøres det en validering. Valideringen skjer i to omganger; synkront og
 asynkront, beskrevet under.
 
+### Sekvensdiagram
+
+![](../../static/download/innkrevingsoppdrag/sekvensdiagram_nytt_krav.png)
+
 ### Synkron validering ved mottak
 
 Tjenesten validerer `OpprettInnkrevingsoppdragRequest`-objektet som er meldingskroppen i POST-kallet. Denne valideringen
@@ -122,6 +126,10 @@ beløpet til oppdragsgiver og det er behov for å nedjustere hovedstolen.
 Merk at et innkrevingsoppdrag ikke kan endres umiddelbart etter opprettelse; det kan først endres etter at
 Skatteetaten har reskontroført det. Ved normal drift vil dette skje tilnærmet øyeblikkelig.
 
+### Sekvensdiagram
+
+![](../../static/download/innkrevingsoppdrag/sekvensdiagram_endre_krav.png)
+
 ### Synkron validering ved mottak
 
 Tjenesten foretar en synkron validering av at det innkommende forespørsels-objektet for endring er iht.
@@ -158,6 +166,10 @@ oppdragsgiver mener at kravet ikke lenger skal kreves inn, eksempelvis fordi opp
 
 Merk at et innkrevingsoppdrag ikke kan avskrives umiddelbart etter opprettelse; det kan først avskrives etter at
 Skatteetaten har reskontroført det. Ved normal drift vil dette skje tilnærmet øyeblikkelig.
+
+### Sekvensdiagram
+
+![](../../static/download/innkrevingsoppdrag/sekvensdiagram_avskriv_krav.png)
 
 ### Synkron validering ved mottak
 
