@@ -8,25 +8,26 @@ brukes, og eventuelle hensyn som må tas.
 ## Innholdsfortegnelse
 
 <!-- TOC -->
-
 * [Beskrivelse av tjenester](#beskrivelse-av-tjenester)
-    * [Innholdsfortegnelse](#innholdsfortegnelse)
-    * [Opprett et innkrevingsoppdrag](#opprett-et-innkrevingsoppdrag)
-        * [Synkron validering ved mottak](#synkron-validering-ved-mottak)
-        * [Asynkron validering](#asynkron-validering)
-        * [Hent mottaksbekreftelse](#hent-mottaksbekreftelse)
-        * [Hent valideringsfeil](#hent-valideringsfeil)
-        * [Feilhåndtering](#feilhåndtering)
-    * [Endre et innkrevingsoppdrag](#endre-et-innkrevingsoppdrag)
-        * [Synkron validering ved mottak](#synkron-validering-ved-mottak-1)
-        * [Asynkron validering](#asynkron-validering-1)
-        * [Feilhåndtering](#feilhåndtering-1)
-    * [Avskriv et innkrevingsoppdrag](#avskriv-et-innkrevingsoppdrag)
-        * [Synkron validering ved mottak](#synkron-validering-ved-mottak-2)
-        * [Asynkron validering](#asynkron-validering-2)
-        * [Feilhåndtering](#feilhåndtering-2)
-    * [Grensesnittavstemming av et innkrevingsoppdrag](#grensesnittavstemming-av-et-innkrevingsoppdrag)
-
+  * [Innholdsfortegnelse](#innholdsfortegnelse)
+  * [Opprett et innkrevingsoppdrag](#opprett-et-innkrevingsoppdrag)
+    * [Synkron validering ved mottak](#synkron-validering-ved-mottak)
+    * [Asynkron validering](#asynkron-validering)
+    * [Hent mottaksbekreftelse](#hent-mottaksbekreftelse)
+    * [Hent valideringsfeil](#hent-valideringsfeil)
+    * [Feilhåndtering](#feilhåndtering)
+    * [Sekvensdiagram](#sekvensdiagram)
+  * [Endre et innkrevingsoppdrag](#endre-et-innkrevingsoppdrag)
+    * [Synkron validering ved mottak](#synkron-validering-ved-mottak-1)
+    * [Asynkron validering](#asynkron-validering-1)
+    * [Feilhåndtering](#feilhåndtering-1)
+    * [Sekvensdiagram](#sekvensdiagram-1)
+  * [Avskriv et innkrevingsoppdrag](#avskriv-et-innkrevingsoppdrag)
+    * [Synkron validering ved mottak](#synkron-validering-ved-mottak-2)
+    * [Asynkron validering](#asynkron-validering-2)
+    * [Feilhåndtering](#feilhåndtering-2)
+    * [Sekvensdiagram](#sekvensdiagram-2)
+  * [Grensesnittavstemming av et innkrevingsoppdrag](#grensesnittavstemming-av-et-innkrevingsoppdrag)
 <!-- TOC -->
 
 ## Opprett et innkrevingsoppdrag
@@ -35,10 +36,6 @@ Et innkrevingsoppdrag opprettes i Skatteetatens innkrevingssystemer ved et POST-
 til  `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag`. Før innkrevingsoppdraget blir reskontroført og
 Skatteetaten overtar ansvaret for innkrevingen gjøres det en validering. Valideringen skjer i to omganger; synkront og
 asynkront, beskrevet under.
-
-### Sekvensdiagram
-
-![](../../static/download/innkrevingsoppdrag/sekvensdiagram_nytt_krav.png)
 
 ### Synkron validering ved mottak
 
@@ -68,8 +65,6 @@ Skatteetaten.**
 Ved valideringsfeil vil mottaksstatus settes til `VALIDERINGSFEIL`. Da må feilene rettes av oppdragsgiver, og oppdatert
 innkrevingsoppdrag må sendes inn på nytt. Ansvaret for oppfølging ligger da hos oppdragsgiver.
 Se [hent valideringsfeil](#hent-valideringsfeil).
-
-*Seksjonen vil utvides med dokumentasjon som beskriver valideringsreglene pr kravtype.*
 
 ### Hent mottaksbekreftelse
 
@@ -112,6 +107,10 @@ blitt opprettet hos Skatteetaten. Dersom kravet allerede finnes i vårt system, 
 en HTTP 422-statuskode med en beskrivende feilmelding. Hvis det ikke finnes, vil innkrevingsoppdraget bli opprettet og
 prosessert. *Dette mønsteret for feilhåndtering kan kun benyttes om `oppdragsgiversKravidentifikator` er utfylt.*
 
+### Sekvensdiagram
+
+![](../../static/download/innkrevingsoppdrag/sekvensdiagram_nytt_krav.png)
+
 ## Endre et innkrevingsoppdrag
 
 Innkrevingsoppdrag kan endres ved et PUT-kall til følgende endepunkter:
@@ -125,10 +124,6 @@ beløpet til oppdragsgiver og det er behov for å nedjustere hovedstolen.
 
 Merk at et innkrevingsoppdrag ikke kan endres umiddelbart etter opprettelse; det kan først endres etter at
 Skatteetaten har reskontroført det. Ved normal drift vil dette skje tilnærmet øyeblikkelig.
-
-### Sekvensdiagram
-
-![](../../static/download/innkrevingsoppdrag/sekvensdiagram_endre_krav.png)
 
 ### Synkron validering ved mottak
 
@@ -158,6 +153,10 @@ usikker på om kravet faktisk ble endret hos Skatteetaten, anbefales det å send
 endringen kan sendes inn et vilkårlig antall ganger med samme resultat. Dersom en allerede eksisterende gyldig endring
 sendes inn på nytt, vil det fremdeles returneres en HTTP 200-statuskode.
 
+### Sekvensdiagram
+
+![](../../static/download/innkrevingsoppdrag/sekvensdiagram_endre_krav.png)
+
 ## Avskriv et innkrevingsoppdrag
 
 Innkrevingsoppdrag kan avskrives ved et POST-kall til
@@ -166,10 +165,6 @@ oppdragsgiver mener at kravet ikke lenger skal kreves inn, eksempelvis fordi opp
 
 Merk at et innkrevingsoppdrag ikke kan avskrives umiddelbart etter opprettelse; det kan først avskrives etter at
 Skatteetaten har reskontroført det. Ved normal drift vil dette skje tilnærmet øyeblikkelig.
-
-### Sekvensdiagram
-
-![](../../static/download/innkrevingsoppdrag/sekvensdiagram_avskriv_krav.png)
 
 ### Synkron validering ved mottak
 
@@ -198,6 +193,10 @@ I tilfeller hvor klienten opplever nettverksfeil eller andre usikkerheter ved av
 usikker på om kravet faktisk ble avskrevet hos Skatteetaten, anbefales det å sende forespørselen på nytt.
 Et innkrevingsoppdrag som allerede er avskrevet, kan ikke avskrives på nytt. I slike tilfeller returneres en HTTP
 409-statuskode med en feilmelding.
+
+### Sekvensdiagram
+
+![](../../static/download/innkrevingsoppdrag/sekvensdiagram_avskriv_krav.png)
 
 ## Grensesnittavstemming av et innkrevingsoppdrag
 
