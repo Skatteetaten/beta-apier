@@ -10,9 +10,10 @@ const sidebars = {
         label: 'API-dokumentasjon',
         href: 'https://app.swaggerhub.com/apis-docs/skatteetaten/oppdragsinnkreving-api/'
       },
-        'innkrevingsoppdrag/teknisk-dokumentasjon',
+        'innkrevingsoppdrag/kom-i-gang',
         'innkrevingsoppdrag/anbefalinger-for-bruk',
         'innkrevingsoppdrag/beskrivelse-av-tjenester',
+        'innkrevingsoppdrag/funksjonell-beskrivelse',
         'innkrevingsoppdrag/felles-valideringsregler',
         {
           type: 'category',

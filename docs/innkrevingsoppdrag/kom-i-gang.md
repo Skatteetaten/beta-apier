@@ -1,4 +1,4 @@
-# Teknisk dokumentasjon
+# Kom i gang
 
 ## Tilgang til tjenestene
 
@@ -20,3 +20,8 @@ Helt konkret under denne baseurlen: https://api-test.sits.no/api/innkreving/innk
 
 Dvs. at en POST mot https://api-test.sits.no/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag med tilhørende
 token fra Maskinporten vil opprette et nytt innkrevingsoppdrag.
+
+## Tjenester
+
+![](../../static/download/innkrevingsoppdrag/tjenester_oppdragsinnkreving.png)
+
