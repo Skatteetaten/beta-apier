@@ -44,7 +44,8 @@ const sidebars = {
         },
         'utleggsbegjaering/tilgang',
         'utleggsbegjaering/informasjonsmodeller',
-        'utleggsbegjaering/skisser'
+        'utleggsbegjaering/skisser',
+        'utleggsbegjaering/testing'
       ]
     },
 
