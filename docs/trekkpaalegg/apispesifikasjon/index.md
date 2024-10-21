@@ -19,7 +19,8 @@ Alle URIer er relative til
 | [**hent versjon**](#hentVersjon)              | **GET** /api/trekkpaalegg/v1/{trekkpliktig}/{trekkid}/{trekkversjon} | Hent en spesifikk versjon av et trekkpålegg.          |
 
 <a name="hentAlleGjeldende"></a>
-## Hent alle gjeldende
+
+### Hent alle gjeldende
 
 >  **GET** /api/trekkpaalegg/v1/{trekkpliktig}
 
@@ -51,7 +52,8 @@ Se [Tilgang](../tilgang.md)
 - **Accept**: application/json, \*/\*
 
 <a name="hentVersjon"></a>
-## Hent versjon
+
+### Hent versjon
 
 > **GET** /api/trekkpaalegg/v1/{trekkpliktig}/{trekkid}/{trekkversjon}
 
