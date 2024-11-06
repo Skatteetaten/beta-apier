@@ -2,8 +2,7 @@
 
 For å få tilgang til tjenesten må leverandøren ha underskrevet en pilotavtale med Skatteetaten.
 
-Oppkobling mot testmiljøet i Skatteetaten skjer via Maskinporten og ny funksjonalitet for ‘systembruker’. Beskrivelse av
-systembruker finnes hos DigDir. Mer informasjon om dette finnes i [Altinn Systembruker for SBS](https://docs.altinn.studio/authentication/guides/systemauthentication-for-systemproviders/) og
+Oppkobling mot testmiljøet i Skatteetaten skjer via Maskinporten og ny funksjonalitet i Altinn for ‘systembruker’. Mer informasjon om dette finnes i [Altinn Systembruker for SBS](https://docs.altinn.studio/authentication/guides/systemauthentication-for-systemproviders/) og
 [Systembruker roadmap](https://github.com/orgs/digdir/projects/8/views/5?pane=issue&itemId=41197982).
 
 # Tilgang via maskinporten
