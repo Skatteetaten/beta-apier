@@ -2,15 +2,15 @@
 
 For å få tilgang til tjenesten må leverandøren ha underskrevet en pilotavtale med Skatteetaten.
 
-Oppkobling mot testmiljøet i Skatteetaten skjer via Maskinporten. For å få utstedt token av Maskinporten, må inkasso-systemet gjennom sitt virksomhetssertifikat angi hvilket organisasjonsnummer de representerer. Dette organisasjonsnummeret må være godkjent av Skatteetaten.
+Oppkobling mot testmiljøet i Skatteetaten skjer via Maskinporten. For å få utstedt token av Maskinporten må inkasso-systemet gjennom sitt virksomhetssertifikat angi hvilket organisasjonsnummer de representerer. Dette organisasjonsnummeret må være godkjent av Skatteetaten.
 
-For å benytte tjenestene for innsending av begjæring skal følgende scope angis ved autentisering i maskinporten:
+For å benytte tjenestene for innsending av begjæring skal følgende scope angis ved autentisering i Maskinporten:
 ```    skatteetaten:utleggsbegjaering ```
 
-APIet støtter to varianter av autentisering via maskinporten. Disse er beskrevet i det følgende
+API-et støtter to varianter av autentisering via Maskinporten. Disse er beskrevet under
 
 ## Alternativ 1 - Systemleverandør er innsender
-Dersom systemleverandør kun skal sende inn utleggsbegjæringer på vegne av sin egen organisasjon, kan man benytte klassisk autentisering via maskinporten. Mer informasjon om dette finnes [her](https://skatteetaten.github.io/api-dokumentasjon/om/sikkerhet).
+Dersom systemleverandør kun skal sende inn utleggsbegjæringer på vegne av sin egen organisasjon, kan man benytte klassisk autentisering via Maskinporten. Mer informasjon om dette finnes [her](https://skatteetaten.github.io/api-dokumentasjon/om/sikkerhet).
 
 ## Alternativ 2 - Systembruker
 Dersom systemleverandør ønsker å tilby funksjonalitet der en annen organisasjon (kunde av systemleverandøren) skal benytte systemet til å sende inn utleggsbegjæringer, skal Altinn sin nye funksjonalitet for ‘systembruker’ benyttes. Mer informasjon om dette finnes i [Altinn Systembruker for SBS](https://docs.altinn.studio/authentication/guides/systemauthentication-for-systemproviders/) og
