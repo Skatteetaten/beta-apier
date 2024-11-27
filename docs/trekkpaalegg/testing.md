@@ -2,7 +2,7 @@
 
 ## Krav til testgjennomføring
 
-Systemleverandørene har ansvar for egen testgjennomføring. Det må fokuseres på at det kan hentes meldinger via gitt endepunkt beskrevet av skatteetaten. Se https://skatteetaten.github.io/beta-apier/trekkpaalegg/apispesifikasjon
+Systemleverandørene har ansvar for egen testgjennomføring. Det må fokuseres på at det kan hentes meldinger via gitt endepunkt beskrevet av skatteetaten. Se [API spesifikasjon](./apispesifikasjon/index.md).
 
 Prosjektet bistår med feilsøk og evt. feilretting av vår løsning.
 
@@ -12,8 +12,7 @@ Systemleverandørene skal etter avsluttet testperiode og i forkant av produksjon
 
 ## Testmiljø
 
-Systemleverandørene må ha testmiljøer som kun består av syntetiske data. Lenke til Skatt sitt testmiljø er 
-http://trekkformidling-ikutlegg-ekstern-deling.apps.utv10.paas.skead.no/swagger-ui/index.html
+Systemleverandørene må ha testmiljøer som kun består av syntetiske data. Lenke til Skatt sitt testmiljø angitt under [API spesifikasjon](./apispesifikasjon/index.md).
 
 Testmiljøet til Skatteetaten vil i utgangspunktet være tilgjengelig 24/7, men det kan ikke forventes teknisk support eller restart av miljøet hvis det går ned utenfor ordinær arbeidstid (kl. 8 – 15 alle ukedager). Miljøet kan være nede på kveldstid og i helger på grunn av vedlikehold. Testmiljøet til Altinn er [TT02](http://tt02.altinn.no).
 
@@ -36,7 +35,7 @@ Tilgang til scope i test bestilles ved å sende en mail med ditt organisasjonsnu
 
 |   | Steg             | Beskrivelse                                                                                                                                                                                                                  | Kommentar |
 |---|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
-| 1 | Gjør et kall mot tjenesten for trekkpålegg for å verifisere at du når tjenesten i test | Se lenke under seksjon Testmiljø over. Før det er tilgjengeliggjort data for dere, så vil du få en respons 200.                                                                                                              |       |
+| 1 | Gjør et kall mot tjenesten for trekkpålegg for å verifisere at du når tjenesten i test | Før det er tilgjengeliggjort data for dere, så vil du få en respons 200.                                                                                                              |       |
 | 2 | Få tilgang på testdata | Når integrasjonen er testet tar du kontakt med oss via mail fremtidensinnkreving@skatteetaten.no og oppgir det org.nummeret dere har klargjort. Vi vil legge tilgjengelig testdata til dere for dette organisasjonsnummeret. | Dere vil kunne få testdata på flere parter på samme org.nummer eller dere oppretter flere org.nummer som dere ønsker å hente fra.      |
 
 
