@@ -69,7 +69,8 @@ const sidebars = {
         },
         'trekkpaalegg/tilgang',
         'trekkpaalegg/informasjonsmodeller',
-        'trekkpaalegg/skisser'
+        'trekkpaalegg/skisser',
+        'trekkpaalegg/testing',
       ]
     }
   ]
