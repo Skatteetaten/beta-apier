@@ -12,7 +12,7 @@ Systemleverandørene skal etter avsluttet testperiode og i forkant av produksjon
 
 ## Testmiljø
 
-Systemleverandørene må ha testmiljøer som kun består av syntetiske data Lenke til Skatt sitt testmiljø er 
+Systemleverandørene må ha testmiljøer som kun består av syntetiske data. Lenke til Skatt sitt testmiljø er 
 http://trekkformidling-ikutlegg-ekstern-deling.apps.utv10.paas.skead.no/swagger-ui/index.html
 
 Testmiljøet til Skatteetaten vil i utgangspunktet være tilgjengelig 24/7, men det kan ikke forventes teknisk support eller restart av miljøet hvis det går ned utenfor ordinær arbeidstid (kl. 8 – 15 alle ukedager). Miljøet kan være nede på kveldstid og i helger på grunn av vedlikehold. Testmiljøet til Altinn er [TT02](http://tt02.altinn.no).
