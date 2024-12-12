@@ -225,7 +225,7 @@ mock-endepunkt i test tilgjengelig på
 Ved et vellykket kall for en gitt kravidentifikator vil tjenesten returnere:
 - Kravgrunnlag med dato for når kravet var besluttet hos oppdragsgiver
 - Informasjon om kravlinjene tilknyttet kravet:
-  - Kravlinjens type
+  - Kravlinjens type (hovedstol eller renter)
   - Det opprinnelige beløpet for kravet
   - Det gjenstående beløpet for kravet
 
