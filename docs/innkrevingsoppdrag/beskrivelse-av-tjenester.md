@@ -28,6 +28,7 @@ brukes, og eventuelle hensyn som må tas.
     * [Feilhåndtering](#feilhåndtering-2)
     * [Sekvensdiagram](#sekvensdiagram-2)
   * [Grensesnittavstemming av et innkrevingsoppdrag](#grensesnittavstemming-av-et-innkrevingsoppdrag)
+  * [Se kravdetaljer](#se-kravdetaljer)
 <!-- TOC -->
 
 ## Opprett et innkrevingsoppdrag
@@ -212,4 +213,22 @@ Tjenesten returnerer for en gitt kravidentifikator:
     - Det opprinnelige kravet
     - Eventuelle endringer på kravet, med transaksjonsid
     - Eventuell avskriving av kravet, med transaksjonsid
- 
+
+## Se kravdetaljer
+
+Tjenesten gir oppdragsgiver mulighet til å hente ut detaljer om et eksisterende krav ved å gjøre et GET-kall til 
+endepunktet `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}`. Det finnes også et 
+mock-endepunkt i test tilgjengelig på 
+`/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}/mock` (Se "Kravdetaljer" i
+[SwaggerHub](https://app.swaggerhub.com/apis-docs/skatteetaten/oppdragsinnkreving-api/1.15.115#/Kravdetaljer)).
+
+Oppdragsgiver må angi hvilken type kravidentifikator som skal brukes. For krav mottatt gjennom det nye kravmottaket, kan
+Skatteetatens kravidentifikator benyttes. For alle andre krav kan oppdragsgivers egen kravidentifikator brukes.
+
+Ved et vellykket kall for en gitt kravidentifikator vil tjenesten returnere:
+- Kravgrunnlag med dato for når kravet var besluttet hos oppdragsgiver
+- Informasjon om kravlinjene tilknyttet kravet:
+  - Kravlinjens type (hovedstol eller renter)
+  - Det opprinnelige beløpet for kravet
+  - Det gjenstående beløpet for kravet
+
