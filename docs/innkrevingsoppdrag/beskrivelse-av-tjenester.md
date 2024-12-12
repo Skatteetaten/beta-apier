@@ -222,6 +222,12 @@ mock-endepunkt i test tilgjengelig på
 `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}/mock` (Se "Kravdetaljer" i
 [SwaggerHub](https://app.swaggerhub.com/apis-docs/skatteetaten/oppdragsinnkreving-api/1.15.115#/Kravdetaljer)).
 
+I kallet til endepunktet må oppdragsgiver angi parameter "Kravidentifikatortype" som må være ett av alternativene:
+- SKATTEETATENS_KRAVIDENTIFIKATOR (mottatt av oppdragsgiver fra Skatteetaten hvis kravet er sendt inn gjennom det nye 
+mottaket i samme komponent)
+- OPPDRAGSGIVERS_KRAVIDENTIFIKATOR (brukes hvis oppdragsgiver ønsker informasjon om krav som ikke har kommet inn
+gjennom det nye mottaket)
+
 Ved et vellykket kall for en gitt kravidentifikator vil tjenesten returnere:
 - Kravgrunnlag med dato for når kravet var besluttet hos oppdragsgiver
 - Informasjon om kravlinjene tilknyttet kravet:
