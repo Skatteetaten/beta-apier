@@ -5,7 +5,7 @@
 - [TrekkstoerrelseForPeriode](./Models/TrekkstoerrelseForPeriode.md)
 - [Trekkbeloep](./Models/Trekkbeloep.md)
 - [Trekkprosent](./Models/Trekkprosent.md)
-- [KidnummerForPeriode](./Models/KidnummerForPeriode.md)
+- [Betalingsinformasjon](./Models/Betalingsinformasjon.md)
 - [Trekkstatus](./Models/Trekkstatus.md)
 - [Feil](./Models/Feil.md)
 
