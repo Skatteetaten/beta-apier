@@ -14,7 +14,6 @@
 | **trekkstatus**               | [**Trekkstatus**](Trekkstatus.md)                   | Status på utleggstrekket. Når et trekkpålegg er avsluttet skal det ikke lenger trekkes i lønn/ytelse.                                                                                                                                      | [default til null] |
 | **trekkstoerrelseForPeriode** | [**List**](TrekkstoerrelseForPeriode.md)            | Liste over beløp eller prosent som skal trekkes. Den trekkpliktige må velge korrekt beløp eller prosent avhengig av utbetalingsdatoen for lønnen/ytelsen.                                                                                  | [default til null] |
 | **betalingsinformasjon**      | [**Betalingsinformasjon**](Betalingsinformasjon.md) | Informasjons som skal benyttes ved innbetaling. Inneholder KID-nummer, kontonummer og mottakers organisasjonsnummer                                                                                                                        | [default til null] |
-| **kontonummer**               | **String**                                          | Kontonummer som trekket skal betales til.                                                                                                                                                                                                  | [default til null] |
 
 [[Tilbake til modell liste]](../index.md)
 
