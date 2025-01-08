@@ -232,3 +232,13 @@ Ved et vellykket kall for en gitt kravidentifikator vil tjenesten returnere:
   - Det opprinnelige beløpet for kravet
   - Det gjenstående beløpet for kravet
 
+## Se kravoversikt
+
+Tjenesten gir oppdragsgiver mulighet til å hente ut en liste med krav knyttet til en person eller en virksomhet ved å 
+gjøre et POST-kall til endepunktet /api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/kravoversikt. For øyeblikket
+er det kun FOEDSELSNUMMER og ORGANISASJONSNUMMER som støttes som gyldige partstyper som oppdragsgiver kan benytte for å 
+slå opp kravoversikt. ` (Se "Kravoversikt" i [SwaggerHub](https://app.swaggerhub.com/apis-docs/skatteetaten/oppdragsinnkreving-api/)).
+
+Ved et vellykket kall for et gitt fødselsnummer/organisasjonsnummer vil tjenesten returnere alle krav tilknyttet denne
+personen eller virksomheten. 
+
