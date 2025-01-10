@@ -4,7 +4,7 @@ Tilgang styres via [Maskinporten](https://skatteetaten.github.io/api-dokumentasj
 For å få utstedt token av Maskinporten må lønnssystemet gjennom sitt virksomhetssertifikat angi hvilket organisasjonsnummer de representerer. Dette organisasjonsnummeret må være godkjent av Skatteetaten.
 
 For å benytte tjenestene for trekkpålegg skal følgende scope angis ved autentisering i Maskinporten:
-```    skatteetaten:trekkpaalegg ```
+```skatteetaten:trekkpaalegg```
 
 API-et støtter to varianter av autentisering via Maskinporten. Disse er beskrevet under
 
