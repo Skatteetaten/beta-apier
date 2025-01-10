@@ -91,3 +91,10 @@ Dette inkluderer endepunktene hent valideringsfeil og hent mottaksstatus.
 | Title i feilobjekt                        | Siste del av type-felt i feilobjekt       | Http-status | 
 |-------------------------------------------|-------------------------------------------|-------------|
 | Innkrevingsoppdrag er ikke reskontrofoert | innkrevingsoppdrag-er-ikke-reskontrofoert | 404         |
+
+### Valideringsregler for henting av kravoversikt
+
+| Title i feilobjekt          | Siste del av type-felt i feilobjekt | Http-status | 
+|-----------------------------|-------------------------------------|-------------|
+| Ugyldig foedselsnummer      | ugyldig-foedselsnummer              | 422         |
+| Ugyldig organisasjonsnummer | ugyldig-organisasjonsnummer         | 422         |
