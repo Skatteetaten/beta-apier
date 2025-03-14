@@ -21,11 +21,4 @@ eller restart av miljøet hvis det går ned utenfor ordinær arbeidstid (kl. 8 �
 nede på kveldstid og i helger på grunn av vedlikehold.
 
 URL til testmiljøet er
-```    https://api-test.sits.no/api/utleggsbegjaering/v0 ```
-
-## Testplan
-
-|        | Forventet oppstart      | Innhold                                                                                                                                                             |
-|--------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Test 1 | I løpet av oktober 2024 | Innsending med tilbakemelding om at melding er mottatt (201 med saksref eller 4xx) <br/>Tilgang til valideringstjenesten før innsending (logisk kontroll og format) |
-| Test 2 | Desember 2024           | Hent status på sak                                                                                                                                                  | 
+```    https://api-test.sits.no/api/utleggsbegjaering/v1 ```
