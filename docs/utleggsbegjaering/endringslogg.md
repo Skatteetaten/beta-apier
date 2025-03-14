@@ -18,6 +18,7 @@ Skatteetaten vil etterstrebe å gjøre alle endringer bakoverkompatible. Vi skil
 
 ## Logg
 
-| Dato       | Type endring  | Beskrivelse                               |
-|------------|---------------|-------------------------------------------|
-| 2024.11.06 | Ny tjeneste   | Initiell versjon av tjenesten lansert: v0 |
+| Dato         | Type endring  | Beskrivelse                                   |
+|--------------|---------------|-----------------------------------------------|
+| 2025.03.14   | Større endring| Større revidering av informasjonsmodellen: v1 |
+| 2024.11.06   | Ny tjeneste   | Initiell versjon av tjenesten lansert: v0     |

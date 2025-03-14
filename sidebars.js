@@ -36,12 +36,6 @@ const sidebars = {
           label: 'API-dokumentasjon',
           href: 'https://app.swaggerhub.com/apis/skatteetaten/utleggsbegjaering-app'
         },
-        {
-          type: 'category',
-          label: 'Feltbeskrivelser',
-          link: { type: 'doc', id: 'utleggsbegjaering/feltbeskrivelser/index' },
-          items: []
-        },
         'utleggsbegjaering/tilgang',
         'utleggsbegjaering/informasjonsmodeller',
         'utleggsbegjaering/testing',
