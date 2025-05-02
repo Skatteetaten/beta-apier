@@ -3,7 +3,7 @@
 ## Tilgang til tjenestene
 
 All bruk av tjenestene krever at oppdragsgiver er autentisert via Maskinporten, og har scope:
-_skatteetaten:innkrevingsopdrag_
+_skatteetaten:innkrevingsoppdrag_
 
 Konsumenter som skal ha tilgang dette scopet blir tilordnet dette av Skatteetaten.
 
