@@ -30,41 +30,14 @@ const sidebars = {
       type: 'category',
       label: 'Utleggsbegjæring og prøving',
       link: { type: 'doc', id: 'utleggsbegjaering/index' },
-      items: [
-        {
-          type: 'link',
-          label: 'API-dokumentasjon',
-          href: 'https://app.swaggerhub.com/apis/skatteetaten/utleggsbegjaering-app'
-        },
-        'utleggsbegjaering/tilgang',
-        'utleggsbegjaering/informasjonsmodeller',
-        'utleggsbegjaering/testing',
-        'utleggsbegjaering/endringslogg'
-      ]
+      items: []
     },
 
     {
       type: 'category',
       label: 'Trekkpålegg',
       link: { type: 'doc', id: 'trekkpaalegg/index' },
-      items: [
-        {
-          type: 'category',
-          label: 'API Spesifikasjon',
-          link: { type: 'doc', id: 'trekkpaalegg/apispesifikasjon/index' },
-          items: []
-        },
-        {
-          type: 'category',
-          label: 'Feltbeskrivelser',
-          link: { type: 'doc', id: 'trekkpaalegg/feltbeskrivelser/index' },
-          items: []
-        },
-        'trekkpaalegg/tilgang',
-        'trekkpaalegg/informasjonsmodeller',
-        'trekkpaalegg/skisser',
-        'trekkpaalegg/testing',
-      ]
+      items: []
     }
   ]
 };
