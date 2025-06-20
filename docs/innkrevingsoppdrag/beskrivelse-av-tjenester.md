@@ -229,7 +229,7 @@ Ved et vellykket kall for en gitt skyldner og oppdragsgiver, vil tjenesten retur
 - Sum gjenstående beløp per krav
 - Sum gjenstående beløp totalt
 
-## Se kravdetaljer (Under arbeid)
+## Se kravdetaljer
 
 Tjenesten gir oppdragsgiver mulighet til å hente ut detaljer om et eksisterende krav ved å gjøre et GET-kall til 
 endepunktet `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}`. Det finnes også et 
