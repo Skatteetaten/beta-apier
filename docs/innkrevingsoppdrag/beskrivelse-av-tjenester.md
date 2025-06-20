@@ -214,7 +214,22 @@ Tjenesten returnerer for en gitt kravidentifikator:
     - Eventuelle endringer på kravet, med transaksjonsid
     - Eventuell avskriving av kravet, med transaksjonsid
 
-## Se kravdetaljer
+## Se kravoversikt (Ikke i produksjon. Ikke klar til test )
+Tjenesten gir oppdragsgiver mulighet til å hente ut oversikt over alle krav for en gitt part ved å gjøre et POST-kall til endepunktet
+`/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/kravoversikt`.
+
+Oppdragsgiver må angi hvilken part som tjenesten skal gjøre oppslag på. Da må sendes med en kravoversiktRequest som inneholder Identifikatortype, Verdi, og Landkode.
+
+Ved et vellykket kall for en gitt skyldner og oppdragsgiver, vil tjenesten returnere:
+
+- Informasjon om kravtype
+- OppdragsgiversKravidentifikator
+- OppdragsgiversReferanse
+- SkatteetatensKravidentifikator
+- Sum gjenstående beløp per krav
+- Sum gjenstående beløp totalt
+
+## Se kravdetaljer (Under arbeid)
 
 Tjenesten gir oppdragsgiver mulighet til å hente ut detaljer om et eksisterende krav ved å gjøre et GET-kall til 
 endepunktet `/api/innkreving/innkrevingsoppdrag/v1/innkrevingsoppdrag/{kravidentifikator}`. Det finnes også et 
